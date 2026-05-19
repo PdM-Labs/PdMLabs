@@ -1,0 +1,1015 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>pdmlabs &#8212; PdMLabs Documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles.css?v=2b15ee4a" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=e645c8fa"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'api/modules';</script>
+    <link rel="icon" href="../_static/PdMLabs_logo.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+    <meta name="docbuild:last-update" content="May 01, 2026"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/PdMLabs_logo.png" class="logo__image only-light" alt="PdMLabs Documentation - Home"/>
+    <script>document.write(`<img src="../_static/PdMLabs_logo.png" class="logo__image only-dark" alt="PdMLabs Documentation - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../index.html">🏠 Home</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">📜 Our Manifesto</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../concepts/index.html">📚 Concepts</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/experiment_flavors_analysis.html">Analysis of PdMLabs Experiment Flavors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/evaluation.html">Evaluation &amp; Metrics</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/index.html">🚀 Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/index.html">💡 Examples</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../user-guide/index.html">📖 User Guide</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../user-guide/implementing-methods/index.html">🛠️ Implementing Custom Methods</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../user-guide/implementing-methods/01_unsupervised_method.html">🔍 Implementing Unsupervised Methods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user-guide/implementing-methods/02_semi_supervised_method.html">📊 Implementing Semi-Supervised Methods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user-guide/implementing-methods/03_classification_method.html">🎯 Implementing Classification Methods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user-guide/implementing-methods/04_rul_regression_method.html">⏱️ Implementing RUL Regression Methods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user-guide/implementing-methods/05_survival_analysis_method.html">🧬 Implementing Survival Analysis Methods</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../user-guide/implementing-methods/01_unsupervised_method.html">🔍 Implementing Unsupervised Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user-guide/implementing-methods/02_semi_supervised_method.html">📊 Implementing Semi-Supervised Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user-guide/implementing-methods/03_classification_method.html">🎯 Implementing Classification Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user-guide/implementing-methods/04_rul_regression_method.html">⏱️ Implementing RUL Regression Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user-guide/implementing-methods/05_survival_analysis_method.html">🧬 Implementing Survival Analysis Methods</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../api-reference.html">📖 API Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="pdmlabs.html">pdmlabs</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="pdmlabs.RunExperiment.html">pdmlabs.RunExperiment</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="pdmlabs.constraint_functions.html">pdmlabs.constraint_functions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.constraint_functions.constraint.html">pdmlabs.constraint_functions.constraint</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="pdmlabs.evaluation.html">pdmlabs.evaluation</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.evaluation.anomaly_evaluator.html">pdmlabs.evaluation.anomaly_evaluator</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.evaluation.default_evaluators.html">pdmlabs.evaluation.default_evaluators</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.evaluation.evaluation.html">pdmlabs.evaluation.evaluation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.evaluation.evaluator.html">pdmlabs.evaluation.evaluator</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.evaluation.metrics_utils.html">pdmlabs.evaluation.metrics_utils</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.evaluation.vus.html">pdmlabs.evaluation.vus</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="pdmlabs.exceptions.html">pdmlabs.exceptions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.exceptions.exception.html">pdmlabs.exceptions.exception</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="pdmlabs.experiment.html">pdmlabs.experiment</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.experiment.batch.html">pdmlabs.experiment.batch</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.experiment.experiment.html">pdmlabs.experiment.experiment</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.experiment.streaming.html">pdmlabs.experiment.streaming</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="pdmlabs.loadAnomalyDetectionDataset.html">pdmlabs.loadAnomalyDetectionDataset</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="pdmlabs.mango.html">pdmlabs.mango</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.mango.domain.html">pdmlabs.mango.domain</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.mango.metatuner.html">pdmlabs.mango.metatuner</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.mango.optimizer.html">pdmlabs.mango.optimizer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.mango.scheduler.html">pdmlabs.mango.scheduler</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.mango.tuner.html">pdmlabs.mango.tuner</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="pdmlabs.method.html">pdmlabs.method</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.CoxModel.html">pdmlabs.method.CoxModel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.DAMP.html">pdmlabs.method.DAMP</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.PCA.html">pdmlabs.method.PCA</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.PCA_uns.html">pdmlabs.method.PCA_uns</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.TranAD.html">pdmlabs.method.TranAD</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.USAD.html">pdmlabs.method.USAD</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.dist_k_Semi.html">pdmlabs.method.dist_k_Semi</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.distance_based_k_r_Core.html">pdmlabs.method.distance_based_k_r_Core</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.dummy_all.html">pdmlabs.method.dummy_all</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.dummy_increase.html">pdmlabs.method.dummy_increase</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.isolation_forest.html">pdmlabs.method.isolation_forest</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.isolation_forest_uns.html">pdmlabs.method.isolation_forest_uns</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.lof_semi.html">pdmlabs.method.lof_semi</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.lof_uns.html">pdmlabs.method.lof_uns</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.method.html">pdmlabs.method.method</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.ocsvm.html">pdmlabs.method.ocsvm</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.pca_tsb.html">pdmlabs.method.pca_tsb</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.profile_based.html">pdmlabs.method.profile_based</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.semi_supervised_method.html">pdmlabs.method.semi_supervised_method</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.sklearn_regression_wraper.html">pdmlabs.method.sklearn_regression_wraper</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.supervised_method.html">pdmlabs.method.supervised_method</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.unsupervised_method.html">pdmlabs.method.unsupervised_method</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.xgboost.html">pdmlabs.method.xgboost</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.xgboostRUL.html">pdmlabs.method.xgboostRUL</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="pdmlabs.pdm_evaluation_types.html">pdmlabs.pdm_evaluation_types</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.pdm_evaluation_types.types.html">pdmlabs.pdm_evaluation_types.types</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="pdmlabs.pipeline.html">pdmlabs.pipeline</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.pipeline.mlflow_pipeline.html">pdmlabs.pipeline.mlflow_pipeline</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.pipeline.pipeline.html">pdmlabs.pipeline.pipeline</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="pdmlabs.postprocessing.html">pdmlabs.postprocessing</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.postprocessing.Moving2T.html">pdmlabs.postprocessing.Moving2T</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.postprocessing.causeFeatureSelection.html">pdmlabs.postprocessing.causeFeatureSelection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.postprocessing.default.html">pdmlabs.postprocessing.default</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.postprocessing.dynamicth.html">pdmlabs.postprocessing.dynamicth</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.postprocessing.min_max_scaler.html">pdmlabs.postprocessing.min_max_scaler</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.postprocessing.moving_average.html">pdmlabs.postprocessing.moving_average</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.postprocessing.post_processor.html">pdmlabs.postprocessing.post_processor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.postprocessing.self_tuning.html">pdmlabs.postprocessing.self_tuning</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="pdmlabs.preprocessing.html">pdmlabs.preprocessing</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.preprocessing.record_level.html">pdmlabs.preprocessing.record_level</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="pdmlabs.thresholding.html">pdmlabs.thresholding</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.thresholding.SurvSuperVisedTH.html">pdmlabs.thresholding.SurvSuperVisedTH</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.thresholding.constant.html">pdmlabs.thresholding.constant</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.thresholding.thresholder.html">pdmlabs.thresholding.thresholder</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="pdmlabs.utils.html">pdmlabs.utils</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.utils.automatic_parameter_generation.html">pdmlabs.utils.automatic_parameter_generation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.utils.dataset.html">pdmlabs.utils.dataset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.utils.distance.html">pdmlabs.utils.distance</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.utils.distances.html">pdmlabs.utils.distances</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.utils.rul_transformations.html">pdmlabs.utils.rul_transformations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.utils.utils.html">pdmlabs.utils.utils</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/PdMLabs/PdMLabs" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/api/modules.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>pdmlabs</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="pdmlabs">
+<h1>pdmlabs<a class="headerlink" href="#pdmlabs" title="Link to this heading">#</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="pdmlabs.html">pdmlabs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pdmlabs.RunExperiment.html">pdmlabs.RunExperiment</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pdmlabs.RunExperiment.html#pdmlabs.RunExperiment.get_method_type"><code class="docutils literal notranslate"><span class="pre">get_method_type()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pdmlabs.RunExperiment.html#pdmlabs.RunExperiment.is_port_in_use"><code class="docutils literal notranslate"><span class="pre">is_port_in_use()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pdmlabs.RunExperiment.html#pdmlabs.RunExperiment.run_experiment"><code class="docutils literal notranslate"><span class="pre">run_experiment()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pdmlabs.RunExperiment.html#pdmlabs.RunExperiment.run_mlflow_server"><code class="docutils literal notranslate"><span class="pre">run_mlflow_server()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pdmlabs.constraint_functions.html">pdmlabs.constraint_functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pdmlabs.constraint_functions.constraint.html">pdmlabs.constraint_functions.constraint</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.constraint_functions.constraint.html#pdmlabs.constraint_functions.constraint.NP_semi_supervised"><code class="docutils literal notranslate"><span class="pre">NP_semi_supervised()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.constraint_functions.constraint.html#pdmlabs.constraint_functions.constraint.auto_profile_max_wait_time_constraint"><code class="docutils literal notranslate"><span class="pre">auto_profile_max_wait_time_constraint()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.constraint_functions.constraint.html#pdmlabs.constraint_functions.constraint.combine_constraint_functions"><code class="docutils literal notranslate"><span class="pre">combine_constraint_functions()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.constraint_functions.constraint.html#pdmlabs.constraint_functions.constraint.incremental_constraint_function"><code class="docutils literal notranslate"><span class="pre">incremental_constraint_function()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.constraint_functions.constraint.html#pdmlabs.constraint_functions.constraint.incremental_max_wait_time_constraint"><code class="docutils literal notranslate"><span class="pre">incremental_max_wait_time_constraint()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.constraint_functions.constraint.html#pdmlabs.constraint_functions.constraint.sand_parameters_constraint_function"><code class="docutils literal notranslate"><span class="pre">sand_parameters_constraint_function()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.constraint_functions.constraint.html#pdmlabs.constraint_functions.constraint.self_tuning_constraint_function"><code class="docutils literal notranslate"><span class="pre">self_tuning_constraint_function()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.constraint_functions.constraint.html#pdmlabs.constraint_functions.constraint.unsupervised_distance_based"><code class="docutils literal notranslate"><span class="pre">unsupervised_distance_based()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.constraint_functions.constraint.html#pdmlabs.constraint_functions.constraint.unsupervised_max_wait_time_constraint"><code class="docutils literal notranslate"><span class="pre">unsupervised_max_wait_time_constraint()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pdmlabs.evaluation.html">pdmlabs.evaluation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pdmlabs.evaluation.anomaly_evaluator.html">pdmlabs.evaluation.anomaly_evaluator</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.evaluation.anomaly_evaluator.html#pdmlabs.evaluation.anomaly_evaluator.Evaluator"><code class="docutils literal notranslate"><span class="pre">Evaluator</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.evaluation.anomaly_evaluator.html#pdmlabs.evaluation.anomaly_evaluator.evaluate"><code class="docutils literal notranslate"><span class="pre">evaluate()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pdmlabs.evaluation.default_evaluators.html">pdmlabs.evaluation.default_evaluators</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.evaluation.default_evaluators.html#pdmlabs.evaluation.default_evaluators.BaseADEvaluator"><code class="docutils literal notranslate"><span class="pre">BaseADEvaluator</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.evaluation.default_evaluators.html#pdmlabs.evaluation.default_evaluators.DefaultADEvaluator"><code class="docutils literal notranslate"><span class="pre">DefaultADEvaluator</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.evaluation.default_evaluators.html#pdmlabs.evaluation.default_evaluators.DefaultClassificationEvaluator"><code class="docutils literal notranslate"><span class="pre">DefaultClassificationEvaluator</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.evaluation.default_evaluators.html#pdmlabs.evaluation.default_evaluators.DefaultRULEvaluator"><code class="docutils literal notranslate"><span class="pre">DefaultRULEvaluator</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.evaluation.default_evaluators.html#pdmlabs.evaluation.default_evaluators.DefaultSurvEvaluator"><code class="docutils literal notranslate"><span class="pre">DefaultSurvEvaluator</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pdmlabs.evaluation.evaluation.html">pdmlabs.evaluation.evaluation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.evaluation.evaluation.html#pdmlabs.evaluation.evaluation.AUCPR"><code class="docutils literal notranslate"><span class="pre">AUCPR()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.evaluation.evaluation.html#pdmlabs.evaluation.evaluation.AUCPR_new"><code class="docutils literal notranslate"><span class="pre">AUCPR_new()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.evaluation.evaluation.html#pdmlabs.evaluation.evaluation.AUCPR_ranges_new"><code class="docutils literal notranslate"><span class="pre">AUCPR_ranges_new()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.evaluation.evaluation.html#pdmlabs.evaluation.evaluation.Episode_Borders"><code class="docutils literal notranslate"><span class="pre">Episode_Borders()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.evaluation.evaluation.html#pdmlabs.evaluation.evaluation.Episodes_AUCPR"><code class="docutils literal notranslate"><span class="pre">Episodes_AUCPR()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.evaluation.evaluation.html#pdmlabs.evaluation.evaluation.Gather_Episodes"><code class="docutils literal notranslate"><span class="pre">Gather_Episodes()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.evaluation.evaluation.html#pdmlabs.evaluation.evaluation.breakIntoEpisodes"><code class="docutils literal notranslate"><span class="pre">breakIntoEpisodes()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.evaluation.evaluation.html#pdmlabs.evaluation.evaluation.breakIntoEpisodesWithCodes"><code class="docutils literal notranslate"><span class="pre">breakIntoEpisodesWithCodes()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.evaluation.evaluation.html#pdmlabs.evaluation.evaluation.calculatePHandLead"><code class="docutils literal notranslate"><span class="pre">calculatePHandLead()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.evaluation.evaluation.html#pdmlabs.evaluation.evaluation.calculate_AD_levels"><code class="docutils literal notranslate"><span class="pre">calculate_AD_levels()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.evaluation.evaluation.html#pdmlabs.evaluation.evaluation.calculate_ts_recall"><code class="docutils literal notranslate"><span class="pre">calculate_ts_recall()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.evaluation.evaluation.html#pdmlabs.evaluation.evaluation.episodeMyPresicionTPFP"><code class="docutils literal notranslate"><span class="pre">episodeMyPresicionTPFP()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.evaluation.evaluation.html#pdmlabs.evaluation.evaluation.evaluate_episodes"><code class="docutils literal notranslate"><span class="pre">evaluate_episodes()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.evaluation.evaluation.html#pdmlabs.evaluation.evaluation.extract_anomaly_ranges"><code class="docutils literal notranslate"><span class="pre">extract_anomaly_ranges()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.evaluation.evaluation.html#pdmlabs.evaluation.evaluation.formulatedataForEvaluation"><code class="docutils literal notranslate"><span class="pre">formulatedataForEvaluation()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.evaluation.evaluation.html#pdmlabs.evaluation.evaluation.ignore"><code class="docutils literal notranslate"><span class="pre">ignore()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.evaluation.evaluation.html#pdmlabs.evaluation.evaluation.ingnorecounter"><code class="docutils literal notranslate"><span class="pre">ingnorecounter()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.evaluation.evaluation.html#pdmlabs.evaluation.evaluation.integrate"><code class="docutils literal notranslate"><span class="pre">integrate()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.evaluation.evaluation.html#pdmlabs.evaluation.evaluation.myeval"><code class="docutils literal notranslate"><span class="pre">myeval()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.evaluation.evaluation.html#pdmlabs.evaluation.evaluation.myeval_multiPH"><code class="docutils literal notranslate"><span class="pre">myeval_multiPH()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.evaluation.evaluation.html#pdmlabs.evaluation.evaluation.pdm_eval_multi_PH"><code class="docutils literal notranslate"><span class="pre">pdm_eval_multi_PH()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.evaluation.evaluation.html#pdmlabs.evaluation.evaluation.plotforevaluationNonFailure"><code class="docutils literal notranslate"><span class="pre">plotforevaluationNonFailure()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.evaluation.evaluation.html#pdmlabs.evaluation.evaluation.plotforevalurion"><code class="docutils literal notranslate"><span class="pre">plotforevalurion()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pdmlabs.evaluation.evaluator.html">pdmlabs.evaluation.evaluator</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.evaluation.evaluator.html#pdmlabs.evaluation.evaluator.EvaluatorInterface"><code class="docutils literal notranslate"><span class="pre">EvaluatorInterface</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pdmlabs.evaluation.metrics_utils.html">pdmlabs.evaluation.metrics_utils</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.evaluation.metrics_utils.html#pdmlabs.evaluation.metrics_utils.IBR_bins"><code class="docutils literal notranslate"><span class="pre">IBR_bins()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.evaluation.metrics_utils.html#pdmlabs.evaluation.metrics_utils.from_time_to_bins"><code class="docutils literal notranslate"><span class="pre">from_time_to_bins()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.evaluation.metrics_utils.html#pdmlabs.evaluation.metrics_utils.mape_mdape_bins"><code class="docutils literal notranslate"><span class="pre">mape_mdape_bins()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.evaluation.metrics_utils.html#pdmlabs.evaluation.metrics_utils.mdape"><code class="docutils literal notranslate"><span class="pre">mdape()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.evaluation.metrics_utils.html#pdmlabs.evaluation.metrics_utils.mean_absolute_percentage_error"><code class="docutils literal notranslate"><span class="pre">mean_absolute_percentage_error()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.evaluation.metrics_utils.html#pdmlabs.evaluation.metrics_utils.root_mean_squared_error"><code class="docutils literal notranslate"><span class="pre">root_mean_squared_error()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pdmlabs.evaluation.vus.html">pdmlabs.evaluation.vus</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.evaluation.vus.affiliation.html">pdmlabs.evaluation.vus.affiliation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.evaluation.vus.analysis.html">pdmlabs.evaluation.vus.analysis</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.evaluation.vus.basic_metrics.html">pdmlabs.evaluation.vus.basic_metrics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.evaluation.vus.metrics.html">pdmlabs.evaluation.vus.metrics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.evaluation.vus.models.html">pdmlabs.evaluation.vus.models</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.evaluation.vus.utils.html">pdmlabs.evaluation.vus.utils</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pdmlabs.exceptions.html">pdmlabs.exceptions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pdmlabs.exceptions.exception.html">pdmlabs.exceptions.exception</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.exceptions.exception.html#pdmlabs.exceptions.exception.IncompatibleMethodException"><code class="docutils literal notranslate"><span class="pre">IncompatibleMethodException</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.exceptions.exception.html#pdmlabs.exceptions.exception.NotFitForSourceException"><code class="docutils literal notranslate"><span class="pre">NotFitForSourceException</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.exceptions.exception.html#pdmlabs.exceptions.exception.ShortScenarioLengthException"><code class="docutils literal notranslate"><span class="pre">ShortScenarioLengthException</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pdmlabs.experiment.html">pdmlabs.experiment</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pdmlabs.experiment.html#pdmlabs.experiment.PdMExperiment"><code class="docutils literal notranslate"><span class="pre">PdMExperiment</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.experiment.html#pdmlabs.experiment.PdMExperiment.experiment_name"><code class="docutils literal notranslate"><span class="pre">PdMExperiment.experiment_name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.experiment.html#pdmlabs.experiment.PdMExperiment.pipeline"><code class="docutils literal notranslate"><span class="pre">PdMExperiment.pipeline</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.experiment.html#pdmlabs.experiment.PdMExperiment.param_space"><code class="docutils literal notranslate"><span class="pre">PdMExperiment.param_space</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.experiment.html#pdmlabs.experiment.PdMExperiment.optimization_param"><code class="docutils literal notranslate"><span class="pre">PdMExperiment.optimization_param</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.experiment.html#pdmlabs.experiment.PdMExperiment.initial_random"><code class="docutils literal notranslate"><span class="pre">PdMExperiment.initial_random</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.experiment.html#pdmlabs.experiment.PdMExperiment.num_iteration"><code class="docutils literal notranslate"><span class="pre">PdMExperiment.num_iteration</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.experiment.html#pdmlabs.experiment.PdMExperiment.n_jobs"><code class="docutils literal notranslate"><span class="pre">PdMExperiment.n_jobs</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.experiment.html#pdmlabs.experiment.PdMExperiment.random_state"><code class="docutils literal notranslate"><span class="pre">PdMExperiment.random_state</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.experiment.html#pdmlabs.experiment.PdMExperiment.maximize"><code class="docutils literal notranslate"><span class="pre">PdMExperiment.maximize</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.experiment.html#pdmlabs.experiment.PdMExperiment.debug"><code class="docutils literal notranslate"><span class="pre">PdMExperiment.debug</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.experiment.html#pdmlabs.experiment.PdMExperiment.event_data"><code class="docutils literal notranslate"><span class="pre">PdMExperiment.event_data</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.experiment.html#pdmlabs.experiment.PdMExperiment.execute"><code class="docutils literal notranslate"><span class="pre">PdMExperiment.execute()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.experiment.html#pdmlabs.experiment.PdMExperiment.plot_SA_of_RUL"><code class="docutils literal notranslate"><span class="pre">PdMExperiment.plot_SA_of_RUL()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pdmlabs.experiment.batch.html">pdmlabs.experiment.batch</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.experiment.batch.html#pdmlabs.experiment.batch.AutoProfileSemiSupervisedPdMExperiment"><code class="docutils literal notranslate"><span class="pre">AutoProfileSemiSupervisedPdMExperiment</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.experiment.batch.html#pdmlabs.experiment.batch.IncrementalSemiSupervisedPdMExperiment"><code class="docutils literal notranslate"><span class="pre">IncrementalSemiSupervisedPdMExperiment</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.experiment.batch.html#pdmlabs.experiment.batch.SemiSupervisedPdMExperiment"><code class="docutils literal notranslate"><span class="pre">SemiSupervisedPdMExperiment</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.experiment.batch.html#pdmlabs.experiment.batch.SupervisedPdMExperiment"><code class="docutils literal notranslate"><span class="pre">SupervisedPdMExperiment</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.experiment.batch.html#pdmlabs.experiment.batch.SupervisedRULPdMExperiment"><code class="docutils literal notranslate"><span class="pre">SupervisedRULPdMExperiment</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.experiment.batch.html#pdmlabs.experiment.batch.Supervised_SA_PdMExperiment"><code class="docutils literal notranslate"><span class="pre">Supervised_SA_PdMExperiment</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.experiment.batch.html#pdmlabs.experiment.batch.UnsupervisedPdMExperiment"><code class="docutils literal notranslate"><span class="pre">UnsupervisedPdMExperiment</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.experiment.batch.RUL_experiment.html">pdmlabs.experiment.batch.RUL_experiment</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.experiment.batch.SA_experiment.html">pdmlabs.experiment.batch.SA_experiment</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.experiment.batch.auto_profile_semi_supervised_experiment.html">pdmlabs.experiment.batch.auto_profile_semi_supervised_experiment</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.experiment.batch.incremental_semi_supervised_experiment.html">pdmlabs.experiment.batch.incremental_semi_supervised_experiment</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.experiment.batch.semi_supervised_experiment.html">pdmlabs.experiment.batch.semi_supervised_experiment</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.experiment.batch.supervised_experiment.html">pdmlabs.experiment.batch.supervised_experiment</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.experiment.batch.unsupervised_experiment.html">pdmlabs.experiment.batch.unsupervised_experiment</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pdmlabs.experiment.experiment.html">pdmlabs.experiment.experiment</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.experiment.experiment.html#pdmlabs.experiment.experiment.PdMExperiment"><code class="docutils literal notranslate"><span class="pre">PdMExperiment</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.experiment.experiment.html#pdmlabs.experiment.experiment.process_data"><code class="docutils literal notranslate"><span class="pre">process_data()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pdmlabs.experiment.streaming.html">pdmlabs.experiment.streaming</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.experiment.streaming.html#pdmlabs.experiment.streaming.StreamingSemiSupervisedPdMExperiment"><code class="docutils literal notranslate"><span class="pre">StreamingSemiSupervisedPdMExperiment</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.experiment.streaming.html#pdmlabs.experiment.streaming.StreamingUnsupervisedPdMExperiment"><code class="docutils literal notranslate"><span class="pre">StreamingUnsupervisedPdMExperiment</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.experiment.streaming.semi_supervised_experiment.html">pdmlabs.experiment.streaming.semi_supervised_experiment</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.experiment.streaming.unsupervised_experiment.html">pdmlabs.experiment.streaming.unsupervised_experiment</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pdmlabs.loadAnomalyDetectionDataset.html">pdmlabs.loadAnomalyDetectionDataset</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pdmlabs.loadAnomalyDetectionDataset.html#pdmlabs.loadAnomalyDetectionDataset.create_preferencies"><code class="docutils literal notranslate"><span class="pre">create_preferencies()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pdmlabs.loadAnomalyDetectionDataset.html#pdmlabs.loadAnomalyDetectionDataset.generate_RUL_labels"><code class="docutils literal notranslate"><span class="pre">generate_RUL_labels()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pdmlabs.loadAnomalyDetectionDataset.html#pdmlabs.loadAnomalyDetectionDataset.generate_labels"><code class="docutils literal notranslate"><span class="pre">generate_labels()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pdmlabs.loadAnomalyDetectionDataset.html#pdmlabs.loadAnomalyDetectionDataset.load_dataset_from_dataframe"><code class="docutils literal notranslate"><span class="pre">load_dataset_from_dataframe()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pdmlabs.loadAnomalyDetectionDataset.html#pdmlabs.loadAnomalyDetectionDataset.load_dataset_single_source_dataframe"><code class="docutils literal notranslate"><span class="pre">load_dataset_single_source_dataframe()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pdmlabs.loadAnomalyDetectionDataset.html#pdmlabs.loadAnomalyDetectionDataset.load_pickle"><code class="docutils literal notranslate"><span class="pre">load_pickle()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pdmlabs.loadAnomalyDetectionDataset.html#pdmlabs.loadAnomalyDetectionDataset.load_run_to_failure"><code class="docutils literal notranslate"><span class="pre">load_run_to_failure()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pdmlabs.mango.html">pdmlabs.mango</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pdmlabs.mango.html#pdmlabs.mango.MetaTuner"><code class="docutils literal notranslate"><span class="pre">MetaTuner</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.mango.html#pdmlabs.mango.MetaTuner.Config"><code class="docutils literal notranslate"><span class="pre">MetaTuner.Config</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.mango.html#pdmlabs.mango.MetaTuner.calculateDomainSize"><code class="docutils literal notranslate"><span class="pre">MetaTuner.calculateDomainSize()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.mango.html#pdmlabs.mango.MetaTuner.get_max_y_value"><code class="docutils literal notranslate"><span class="pre">MetaTuner.get_max_y_value()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.mango.html#pdmlabs.mango.MetaTuner.run"><code class="docutils literal notranslate"><span class="pre">MetaTuner.run()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.mango.html#pdmlabs.mango.MetaTuner.runExponentialTuner"><code class="docutils literal notranslate"><span class="pre">MetaTuner.runExponentialTuner()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pdmlabs.mango.html#pdmlabs.mango.Tuner"><code class="docutils literal notranslate"><span class="pre">Tuner</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.mango.html#pdmlabs.mango.Tuner.Config"><code class="docutils literal notranslate"><span class="pre">Tuner.Config</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.mango.html#pdmlabs.mango.Tuner.calculateDomainSize"><code class="docutils literal notranslate"><span class="pre">Tuner.calculateDomainSize()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.mango.html#pdmlabs.mango.Tuner.maximize"><code class="docutils literal notranslate"><span class="pre">Tuner.maximize()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.mango.html#pdmlabs.mango.Tuner.minimize"><code class="docutils literal notranslate"><span class="pre">Tuner.minimize()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.mango.html#pdmlabs.mango.Tuner.process_initial_custom"><code class="docutils literal notranslate"><span class="pre">Tuner.process_initial_custom()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.mango.html#pdmlabs.mango.Tuner.run"><code class="docutils literal notranslate"><span class="pre">Tuner.run()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.mango.html#pdmlabs.mango.Tuner.runBayesianOptimizer"><code class="docutils literal notranslate"><span class="pre">Tuner.runBayesianOptimizer()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.mango.html#pdmlabs.mango.Tuner.runRandomOptimizer"><code class="docutils literal notranslate"><span class="pre">Tuner.runRandomOptimizer()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.mango.html#pdmlabs.mango.Tuner.runUserObjective"><code class="docutils literal notranslate"><span class="pre">Tuner.runUserObjective()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.mango.html#pdmlabs.mango.Tuner.run_initial"><code class="docutils literal notranslate"><span class="pre">Tuner.run_initial()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pdmlabs.mango.domain.html">pdmlabs.mango.domain</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.mango.domain.batch_parameter_sampler.html">pdmlabs.mango.domain.batch_parameter_sampler</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.mango.domain.distribution.html">pdmlabs.mango.domain.distribution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.mango.domain.domain_space.html">pdmlabs.mango.domain.domain_space</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pdmlabs.mango.metatuner.html">pdmlabs.mango.metatuner</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.mango.metatuner.html#pdmlabs.mango.metatuner.MetaTuner"><code class="docutils literal notranslate"><span class="pre">MetaTuner</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pdmlabs.mango.optimizer.html">pdmlabs.mango.optimizer</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.mango.optimizer.base_predictor.html">pdmlabs.mango.optimizer.base_predictor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.mango.optimizer.bayesian_learning.html">pdmlabs.mango.optimizer.bayesian_learning</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pdmlabs.mango.scheduler.html">pdmlabs.mango.scheduler</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.mango.scheduler.html#pdmlabs.mango.scheduler.celery"><code class="docutils literal notranslate"><span class="pre">celery()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.mango.scheduler.html#pdmlabs.mango.scheduler.custom"><code class="docutils literal notranslate"><span class="pre">custom()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.mango.scheduler.html#pdmlabs.mango.scheduler.parallel"><code class="docutils literal notranslate"><span class="pre">parallel()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.mango.scheduler.html#pdmlabs.mango.scheduler.serial"><code class="docutils literal notranslate"><span class="pre">serial()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pdmlabs.mango.tuner.html">pdmlabs.mango.tuner</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.mango.tuner.html#pdmlabs.mango.tuner.Tuner"><code class="docutils literal notranslate"><span class="pre">Tuner</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pdmlabs.method.html">pdmlabs.method</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pdmlabs.method.CoxModel.html">pdmlabs.method.CoxModel</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.CoxModel.html#pdmlabs.method.CoxModel.CoxPH"><code class="docutils literal notranslate"><span class="pre">CoxPH</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pdmlabs.method.DAMP.html">pdmlabs.method.DAMP</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.DAMP.html#pdmlabs.method.DAMP.DAMP_2_0"><code class="docutils literal notranslate"><span class="pre">DAMP_2_0()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.DAMP.html#pdmlabs.method.DAMP.Damp"><code class="docutils literal notranslate"><span class="pre">Damp</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.DAMP.html#pdmlabs.method.DAMP.MASS_V2"><code class="docutils literal notranslate"><span class="pre">MASS_V2()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pdmlabs.method.PCA.html">pdmlabs.method.PCA</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.PCA.html#pdmlabs.method.PCA.PCA_semi"><code class="docutils literal notranslate"><span class="pre">PCA_semi</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pdmlabs.method.PCA_uns.html">pdmlabs.method.PCA_uns</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.PCA_uns.html#pdmlabs.method.PCA_uns.PCA_uns"><code class="docutils literal notranslate"><span class="pre">PCA_uns</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pdmlabs.method.TranAD.html">pdmlabs.method.TranAD</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.TranAD.constants.html">pdmlabs.method.TranAD.constants</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.TranAD.folderconstants.html">pdmlabs.method.TranAD.folderconstants</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.TranAD.utils.html">pdmlabs.method.TranAD.utils</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pdmlabs.method.USAD.html">pdmlabs.method.USAD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pdmlabs.method.dist_k_Semi.html">pdmlabs.method.dist_k_Semi</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.dist_k_Semi.html#pdmlabs.method.dist_k_Semi.Distance_Based_Semi"><code class="docutils literal notranslate"><span class="pre">Distance_Based_Semi</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pdmlabs.method.distance_based_k_r_Core.html">pdmlabs.method.distance_based_k_r_Core</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.distance_based_k_r_Core.html#pdmlabs.method.distance_based_k_r_Core.distance_based_k_r"><code class="docutils literal notranslate"><span class="pre">distance_based_k_r</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pdmlabs.method.dummy_all.html">pdmlabs.method.dummy_all</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.dummy_all.html#pdmlabs.method.dummy_all.DummyAll"><code class="docutils literal notranslate"><span class="pre">DummyAll</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pdmlabs.method.dummy_increase.html">pdmlabs.method.dummy_increase</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.dummy_increase.html#pdmlabs.method.dummy_increase.DummyIncrease"><code class="docutils literal notranslate"><span class="pre">DummyIncrease</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pdmlabs.method.isolation_forest.html">pdmlabs.method.isolation_forest</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.isolation_forest.html#pdmlabs.method.isolation_forest.IsolationForest"><code class="docutils literal notranslate"><span class="pre">IsolationForest</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pdmlabs.method.isolation_forest_uns.html">pdmlabs.method.isolation_forest_uns</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.isolation_forest_uns.html#pdmlabs.method.isolation_forest_uns.IsolationForestUnsupervised"><code class="docutils literal notranslate"><span class="pre">IsolationForestUnsupervised</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pdmlabs.method.lof_semi.html">pdmlabs.method.lof_semi</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.lof_semi.html#pdmlabs.method.lof_semi.LocalOutlierFactor"><code class="docutils literal notranslate"><span class="pre">LocalOutlierFactor</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pdmlabs.method.lof_uns.html">pdmlabs.method.lof_uns</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.lof_uns.html#pdmlabs.method.lof_uns.LocalOutlierFactorUnsupervised"><code class="docutils literal notranslate"><span class="pre">LocalOutlierFactorUnsupervised</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pdmlabs.method.method.html">pdmlabs.method.method</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.method.html#pdmlabs.method.method.MethodInterface"><code class="docutils literal notranslate"><span class="pre">MethodInterface</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pdmlabs.method.ocsvm.html">pdmlabs.method.ocsvm</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.ocsvm.html#pdmlabs.method.ocsvm.OneClassSVM"><code class="docutils literal notranslate"><span class="pre">OneClassSVM</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pdmlabs.method.pca_tsb.html">pdmlabs.method.pca_tsb</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.pca_tsb.html#pdmlabs.method.pca_tsb.PCA"><code class="docutils literal notranslate"><span class="pre">PCA</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.pca_tsb.html#pdmlabs.method.pca_tsb.check_parameter"><code class="docutils literal notranslate"><span class="pre">check_parameter()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.pca_tsb.html#pdmlabs.method.pca_tsb.standardizer"><code class="docutils literal notranslate"><span class="pre">standardizer()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pdmlabs.method.profile_based.html">pdmlabs.method.profile_based</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.profile_based.html#pdmlabs.method.profile_based.ProfileBased"><code class="docutils literal notranslate"><span class="pre">ProfileBased</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pdmlabs.method.semi_supervised_method.html">pdmlabs.method.semi_supervised_method</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.semi_supervised_method.html#pdmlabs.method.semi_supervised_method.SemiSupervisedMethodInterface"><code class="docutils literal notranslate"><span class="pre">SemiSupervisedMethodInterface</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pdmlabs.method.sklearn_regression_wraper.html">pdmlabs.method.sklearn_regression_wraper</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.sklearn_regression_wraper.html#pdmlabs.method.sklearn_regression_wraper.AdaBoostRUL"><code class="docutils literal notranslate"><span class="pre">AdaBoostRUL</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.sklearn_regression_wraper.html#pdmlabs.method.sklearn_regression_wraper.BaseSklearnRUL"><code class="docutils literal notranslate"><span class="pre">BaseSklearnRUL</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.sklearn_regression_wraper.html#pdmlabs.method.sklearn_regression_wraper.BayesianRidgeRUL"><code class="docutils literal notranslate"><span class="pre">BayesianRidgeRUL</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.sklearn_regression_wraper.html#pdmlabs.method.sklearn_regression_wraper.DecisionTreeRUL"><code class="docutils literal notranslate"><span class="pre">DecisionTreeRUL</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.sklearn_regression_wraper.html#pdmlabs.method.sklearn_regression_wraper.ElasticNetRUL"><code class="docutils literal notranslate"><span class="pre">ElasticNetRUL</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.sklearn_regression_wraper.html#pdmlabs.method.sklearn_regression_wraper.GPRRUL"><code class="docutils literal notranslate"><span class="pre">GPRRUL</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.sklearn_regression_wraper.html#pdmlabs.method.sklearn_regression_wraper.GradientBoostingRUL"><code class="docutils literal notranslate"><span class="pre">GradientBoostingRUL</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.sklearn_regression_wraper.html#pdmlabs.method.sklearn_regression_wraper.KNNRUL"><code class="docutils literal notranslate"><span class="pre">KNNRUL</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.sklearn_regression_wraper.html#pdmlabs.method.sklearn_regression_wraper.KernelRidgeRUL"><code class="docutils literal notranslate"><span class="pre">KernelRidgeRUL</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.sklearn_regression_wraper.html#pdmlabs.method.sklearn_regression_wraper.LassoRUL"><code class="docutils literal notranslate"><span class="pre">LassoRUL</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.sklearn_regression_wraper.html#pdmlabs.method.sklearn_regression_wraper.LinearRegressionRUL"><code class="docutils literal notranslate"><span class="pre">LinearRegressionRUL</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.sklearn_regression_wraper.html#pdmlabs.method.sklearn_regression_wraper.MLPRUL"><code class="docutils literal notranslate"><span class="pre">MLPRUL</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.sklearn_regression_wraper.html#pdmlabs.method.sklearn_regression_wraper.RandomForestRUL"><code class="docutils literal notranslate"><span class="pre">RandomForestRUL</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.sklearn_regression_wraper.html#pdmlabs.method.sklearn_regression_wraper.RidgeRUL"><code class="docutils literal notranslate"><span class="pre">RidgeRUL</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.sklearn_regression_wraper.html#pdmlabs.method.sklearn_regression_wraper.SVRRUL"><code class="docutils literal notranslate"><span class="pre">SVRRUL</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pdmlabs.method.supervised_method.html">pdmlabs.method.supervised_method</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.supervised_method.html#pdmlabs.method.supervised_method.SupervisedMethodInterface"><code class="docutils literal notranslate"><span class="pre">SupervisedMethodInterface</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pdmlabs.method.unsupervised_method.html">pdmlabs.method.unsupervised_method</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.unsupervised_method.html#pdmlabs.method.unsupervised_method.UnsupervisedMethodInterface"><code class="docutils literal notranslate"><span class="pre">UnsupervisedMethodInterface</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pdmlabs.method.xgboost.html">pdmlabs.method.xgboost</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.xgboost.html#pdmlabs.method.xgboost.XGBoost"><code class="docutils literal notranslate"><span class="pre">XGBoost</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pdmlabs.method.xgboostRUL.html">pdmlabs.method.xgboostRUL</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.xgboostRUL.html#pdmlabs.method.xgboostRUL.XGBoostRUL"><code class="docutils literal notranslate"><span class="pre">XGBoostRUL</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pdmlabs.pdm_evaluation_types.html">pdmlabs.pdm_evaluation_types</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pdmlabs.pdm_evaluation_types.types.html">pdmlabs.pdm_evaluation_types.types</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.pdm_evaluation_types.types.html#pdmlabs.pdm_evaluation_types.types.EventPreferences"><code class="docutils literal notranslate"><span class="pre">EventPreferences</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.pdm_evaluation_types.types.html#pdmlabs.pdm_evaluation_types.types.EventPreferencesTuple"><code class="docutils literal notranslate"><span class="pre">EventPreferencesTuple</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pdmlabs.pipeline.html">pdmlabs.pipeline</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pdmlabs.pipeline.mlflow_pipeline.html">pdmlabs.pipeline.mlflow_pipeline</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.pipeline.mlflow_pipeline.html#pdmlabs.pipeline.mlflow_pipeline.BasePdMPipeline"><code class="docutils literal notranslate"><span class="pre">BasePdMPipeline</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.pipeline.mlflow_pipeline.html#pdmlabs.pipeline.mlflow_pipeline.RULPdMPipeline"><code class="docutils literal notranslate"><span class="pre">RULPdMPipeline</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.pipeline.mlflow_pipeline.html#pdmlabs.pipeline.mlflow_pipeline.SAPdMPipeline"><code class="docutils literal notranslate"><span class="pre">SAPdMPipeline</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.pipeline.mlflow_pipeline.html#pdmlabs.pipeline.mlflow_pipeline.SemiSupervisedPdMPipeline"><code class="docutils literal notranslate"><span class="pre">SemiSupervisedPdMPipeline</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.pipeline.mlflow_pipeline.html#pdmlabs.pipeline.mlflow_pipeline.SupervisedPdMPipeline"><code class="docutils literal notranslate"><span class="pre">SupervisedPdMPipeline</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.pipeline.mlflow_pipeline.html#pdmlabs.pipeline.mlflow_pipeline.UnsupervisedPdMPipeline"><code class="docutils literal notranslate"><span class="pre">UnsupervisedPdMPipeline</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pdmlabs.pipeline.pipeline.html">pdmlabs.pipeline.pipeline</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.pipeline.pipeline.html#pdmlabs.pipeline.pipeline.PdMPipeline"><code class="docutils literal notranslate"><span class="pre">PdMPipeline</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.pipeline.pipeline.html#pdmlabs.pipeline.pipeline.PdMPipelineSteps"><code class="docutils literal notranslate"><span class="pre">PdMPipelineSteps</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pdmlabs.postprocessing.html">pdmlabs.postprocessing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pdmlabs.postprocessing.Moving2T.html">pdmlabs.postprocessing.Moving2T</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.postprocessing.Moving2T.html#pdmlabs.postprocessing.Moving2T.Moving2T"><code class="docutils literal notranslate"><span class="pre">Moving2T()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.postprocessing.Moving2T.html#pdmlabs.postprocessing.Moving2T.Moving2Texclude"><code class="docutils literal notranslate"><span class="pre">Moving2Texclude()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.postprocessing.Moving2T.html#pdmlabs.postprocessing.Moving2T.Moving2Thresholder"><code class="docutils literal notranslate"><span class="pre">Moving2Thresholder</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pdmlabs.postprocessing.causeFeatureSelection.html">pdmlabs.postprocessing.causeFeatureSelection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pdmlabs.postprocessing.default.html">pdmlabs.postprocessing.default</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.postprocessing.default.html#pdmlabs.postprocessing.default.DefaultPostProcessor"><code class="docutils literal notranslate"><span class="pre">DefaultPostProcessor</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pdmlabs.postprocessing.dynamicth.html">pdmlabs.postprocessing.dynamicth</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.postprocessing.dynamicth.html#pdmlabs.postprocessing.dynamicth.DynamicThresholder"><code class="docutils literal notranslate"><span class="pre">DynamicThresholder</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.postprocessing.dynamicth.html#pdmlabs.postprocessing.dynamicth.dynamicThresholding"><code class="docutils literal notranslate"><span class="pre">dynamicThresholding()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pdmlabs.postprocessing.min_max_scaler.html">pdmlabs.postprocessing.min_max_scaler</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.postprocessing.min_max_scaler.html#pdmlabs.postprocessing.min_max_scaler.MinMaxPostProcessor"><code class="docutils literal notranslate"><span class="pre">MinMaxPostProcessor</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pdmlabs.postprocessing.moving_average.html">pdmlabs.postprocessing.moving_average</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.postprocessing.moving_average.html#pdmlabs.postprocessing.moving_average.MovingAveragePostProcessor"><code class="docutils literal notranslate"><span class="pre">MovingAveragePostProcessor</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pdmlabs.postprocessing.post_processor.html">pdmlabs.postprocessing.post_processor</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.postprocessing.post_processor.html#pdmlabs.postprocessing.post_processor.PostProcessorInterface"><code class="docutils literal notranslate"><span class="pre">PostProcessorInterface</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pdmlabs.postprocessing.self_tuning.html">pdmlabs.postprocessing.self_tuning</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.postprocessing.self_tuning.html#pdmlabs.postprocessing.self_tuning.SelfTuningPostProcessor"><code class="docutils literal notranslate"><span class="pre">SelfTuningPostProcessor</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pdmlabs.preprocessing.html">pdmlabs.preprocessing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pdmlabs.preprocessing.record_level.html">pdmlabs.preprocessing.record_level</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.preprocessing.record_level.aggregator.html">pdmlabs.preprocessing.record_level.aggregator</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.preprocessing.record_level.default.html">pdmlabs.preprocessing.record_level.default</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.preprocessing.record_level.feature_selector.html">pdmlabs.preprocessing.record_level.feature_selector</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.preprocessing.record_level.min_max_scaler.html">pdmlabs.preprocessing.record_level.min_max_scaler</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.preprocessing.record_level.min_max_scaler_cheat.html">pdmlabs.preprocessing.record_level.min_max_scaler_cheat</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.preprocessing.record_level.record_level_pre_processor.html">pdmlabs.preprocessing.record_level.record_level_pre_processor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.preprocessing.record_level.windowing.html">pdmlabs.preprocessing.record_level.windowing</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pdmlabs.thresholding.html">pdmlabs.thresholding</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pdmlabs.thresholding.SurvSuperVisedTH.html">pdmlabs.thresholding.SurvSuperVisedTH</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.thresholding.SurvSuperVisedTH.html#pdmlabs.thresholding.SurvSuperVisedTH.SurvToRUL"><code class="docutils literal notranslate"><span class="pre">SurvToRUL</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pdmlabs.thresholding.constant.html">pdmlabs.thresholding.constant</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.thresholding.constant.html#pdmlabs.thresholding.constant.ConstantThresholder"><code class="docutils literal notranslate"><span class="pre">ConstantThresholder</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pdmlabs.thresholding.thresholder.html">pdmlabs.thresholding.thresholder</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.thresholding.thresholder.html#pdmlabs.thresholding.thresholder.ThresholderInterface"><code class="docutils literal notranslate"><span class="pre">ThresholderInterface</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pdmlabs.utils.html">pdmlabs.utils</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pdmlabs.utils.automatic_parameter_generation.html">pdmlabs.utils.automatic_parameter_generation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.utils.automatic_parameter_generation.html#pdmlabs.utils.automatic_parameter_generation.default_TSB_semi"><code class="docutils literal notranslate"><span class="pre">default_TSB_semi()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.utils.automatic_parameter_generation.html#pdmlabs.utils.automatic_parameter_generation.get_exponential_parameters"><code class="docutils literal notranslate"><span class="pre">get_exponential_parameters()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.utils.automatic_parameter_generation.html#pdmlabs.utils.automatic_parameter_generation.incremental_technique"><code class="docutils literal notranslate"><span class="pre">incremental_technique()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.utils.automatic_parameter_generation.html#pdmlabs.utils.automatic_parameter_generation.incremental_windows"><code class="docutils literal notranslate"><span class="pre">incremental_windows()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.utils.automatic_parameter_generation.html#pdmlabs.utils.automatic_parameter_generation.online_technique"><code class="docutils literal notranslate"><span class="pre">online_technique()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.utils.automatic_parameter_generation.html#pdmlabs.utils.automatic_parameter_generation.post_proccessing_params"><code class="docutils literal notranslate"><span class="pre">post_proccessing_params()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.utils.automatic_parameter_generation.html#pdmlabs.utils.automatic_parameter_generation.pre_proccessing_params"><code class="docutils literal notranslate"><span class="pre">pre_proccessing_params()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.utils.automatic_parameter_generation.html#pdmlabs.utils.automatic_parameter_generation.profile_values"><code class="docutils literal notranslate"><span class="pre">profile_values()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.utils.automatic_parameter_generation.html#pdmlabs.utils.automatic_parameter_generation.semi_technique"><code class="docutils literal notranslate"><span class="pre">semi_technique()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.utils.automatic_parameter_generation.html#pdmlabs.utils.automatic_parameter_generation.supervised_technique"><code class="docutils literal notranslate"><span class="pre">supervised_technique()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.utils.automatic_parameter_generation.html#pdmlabs.utils.automatic_parameter_generation.uniform"><code class="docutils literal notranslate"><span class="pre">uniform()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.utils.automatic_parameter_generation.html#pdmlabs.utils.automatic_parameter_generation.uniform_even_numbers"><code class="docutils literal notranslate"><span class="pre">uniform_even_numbers()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.utils.automatic_parameter_generation.html#pdmlabs.utils.automatic_parameter_generation.unsupervised_technique"><code class="docutils literal notranslate"><span class="pre">unsupervised_technique()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pdmlabs.utils.dataset.html">pdmlabs.utils.dataset</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.utils.dataset.html#pdmlabs.utils.dataset.Dataset"><code class="docutils literal notranslate"><span class="pre">Dataset</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.utils.dataset.html#pdmlabs.utils.dataset.data_split_by_event"><code class="docutils literal notranslate"><span class="pre">data_split_by_event()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.utils.dataset.html#pdmlabs.utils.dataset.episodes_formulation"><code class="docutils literal notranslate"><span class="pre">episodes_formulation()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pdmlabs.utils.distance.html">pdmlabs.utils.distance</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.utils.distance.html#pdmlabs.utils.distance.DTW"><code class="docutils literal notranslate"><span class="pre">DTW</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.utils.distance.html#pdmlabs.utils.distance.EDRS"><code class="docutils literal notranslate"><span class="pre">EDRS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.utils.distance.html#pdmlabs.utils.distance.Euclidean"><code class="docutils literal notranslate"><span class="pre">Euclidean</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.utils.distance.html#pdmlabs.utils.distance.Fourier"><code class="docutils literal notranslate"><span class="pre">Fourier</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.utils.distance.html#pdmlabs.utils.distance.Garch"><code class="docutils literal notranslate"><span class="pre">Garch</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.utils.distance.html#pdmlabs.utils.distance.Mahalanobis"><code class="docutils literal notranslate"><span class="pre">Mahalanobis</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.utils.distance.html#pdmlabs.utils.distance.SSA_DISTANCE"><code class="docutils literal notranslate"><span class="pre">SSA_DISTANCE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.utils.distance.html#pdmlabs.utils.distance.TWED"><code class="docutils literal notranslate"><span class="pre">TWED</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pdmlabs.utils.distances.html">pdmlabs.utils.distances</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.utils.distances.html#pdmlabs.utils.distances.calculate_distance_many_to_many"><code class="docutils literal notranslate"><span class="pre">calculate_distance_many_to_many()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.utils.distances.html#pdmlabs.utils.distances.calculate_distance_many_to_one"><code class="docutils literal notranslate"><span class="pre">calculate_distance_many_to_one()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.utils.distances.html#pdmlabs.utils.distances.cross_dists"><code class="docutils literal notranslate"><span class="pre">cross_dists()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pdmlabs.utils.rul_transformations.html">pdmlabs.utils.rul_transformations</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.utils.rul_transformations.html#pdmlabs.utils.rul_transformations.hard_transform_survival"><code class="docutils literal notranslate"><span class="pre">hard_transform_survival()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.utils.rul_transformations.html#pdmlabs.utils.rul_transformations.sigmoid_survival"><code class="docutils literal notranslate"><span class="pre">sigmoid_survival()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.utils.rul_transformations.html#pdmlabs.utils.rul_transformations.sigmoid_survival_batch"><code class="docutils literal notranslate"><span class="pre">sigmoid_survival_batch()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.utils.rul_transformations.html#pdmlabs.utils.rul_transformations.softmax"><code class="docutils literal notranslate"><span class="pre">softmax()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.utils.rul_transformations.html#pdmlabs.utils.rul_transformations.softmax_distance_survival"><code class="docutils literal notranslate"><span class="pre">softmax_distance_survival()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.utils.rul_transformations.html#pdmlabs.utils.rul_transformations.softmax_distance_survival_batch"><code class="docutils literal notranslate"><span class="pre">softmax_distance_survival_batch()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pdmlabs.utils.utils.html">pdmlabs.utils.utils</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.utils.utils.html#pdmlabs.utils.utils.Window"><code class="docutils literal notranslate"><span class="pre">Window</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.utils.utils.html#pdmlabs.utils.utils.calculate_mango_parameters"><code class="docutils literal notranslate"><span class="pre">calculate_mango_parameters()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.utils.utils.html#pdmlabs.utils.utils.expand_event_preferences"><code class="docutils literal notranslate"><span class="pre">expand_event_preferences()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.utils.utils.html#pdmlabs.utils.utils.find_length"><code class="docutils literal notranslate"><span class="pre">find_length()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.utils.utils.html#pdmlabs.utils.utils.process_event_preference_with_one_dont_care_bit"><code class="docutils literal notranslate"><span class="pre">process_event_preference_with_one_dont_care_bit()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.utils.utils.html#pdmlabs.utils.utils.process_event_preference_with_two_dont_care_bits"><code class="docutils literal notranslate"><span class="pre">process_event_preference_with_two_dont_care_bits()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.utils.utils.html#pdmlabs.utils.utils.process_event_preferences_key"><code class="docutils literal notranslate"><span class="pre">process_event_preferences_key()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.utils.utils.html#pdmlabs.utils.utils.sliding_window"><code class="docutils literal notranslate"><span class="pre">sliding_window()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Anastasios Papadopoulos, Apostolos Giannoulidis, DataLab Auth
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026, Anastasios Papadopoulos, Apostolos Giannoulidis, DataLab Auth.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    <p class="last-updated">
+  Last updated on May 01, 2026.
+  <br/>
+</p>
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

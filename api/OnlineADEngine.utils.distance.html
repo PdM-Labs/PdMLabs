@@ -1,0 +1,1420 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>pdmlabs.utils.distance &#8212; PdMLabs Documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles.css?v=2b15ee4a" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=e645c8fa"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'api/OnlineADEngine.utils.distance';</script>
+    <link rel="icon" href="../_static/PdMLabs_logo.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+    <meta name="docbuild:last-update" content="May 01, 2026"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/PdMLabs_logo.png" class="logo__image only-light" alt="PdMLabs Documentation - Home"/>
+    <script>document.write(`<img src="../_static/PdMLabs_logo.png" class="logo__image only-dark" alt="PdMLabs Documentation - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../index.html">🏠 Home</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">📜 Our Manifesto</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../concepts/index.html">📚 Concepts</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/experiment_flavors_analysis.html">Analysis of PdMLabs Experiment Flavors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/evaluation.html">Evaluation &amp; Metrics</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/index.html">🚀 Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/index.html">💡 Examples</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../user-guide/index.html">📖 User Guide</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../user-guide/implementing-methods/index.html">🛠️ Implementing Custom Methods</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../user-guide/implementing-methods/01_unsupervised_method.html">🔍 Implementing Unsupervised Methods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user-guide/implementing-methods/02_semi_supervised_method.html">📊 Implementing Semi-Supervised Methods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user-guide/implementing-methods/03_classification_method.html">🎯 Implementing Classification Methods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user-guide/implementing-methods/04_rul_regression_method.html">⏱️ Implementing RUL Regression Methods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user-guide/implementing-methods/05_survival_analysis_method.html">🧬 Implementing Survival Analysis Methods</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../user-guide/implementing-methods/01_unsupervised_method.html">🔍 Implementing Unsupervised Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user-guide/implementing-methods/02_semi_supervised_method.html">📊 Implementing Semi-Supervised Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user-guide/implementing-methods/03_classification_method.html">🎯 Implementing Classification Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user-guide/implementing-methods/04_rul_regression_method.html">⏱️ Implementing RUL Regression Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user-guide/implementing-methods/05_survival_analysis_method.html">🧬 Implementing Survival Analysis Methods</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../api-reference.html">📖 API Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="pdmlabs.html">pdmlabs</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="pdmlabs.RunExperiment.html">pdmlabs.RunExperiment</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="pdmlabs.constraint_functions.html">pdmlabs.constraint_functions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.constraint_functions.constraint.html">pdmlabs.constraint_functions.constraint</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="pdmlabs.evaluation.html">pdmlabs.evaluation</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.evaluation.anomaly_evaluator.html">pdmlabs.evaluation.anomaly_evaluator</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.evaluation.default_evaluators.html">pdmlabs.evaluation.default_evaluators</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.evaluation.evaluation.html">pdmlabs.evaluation.evaluation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.evaluation.evaluator.html">pdmlabs.evaluation.evaluator</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.evaluation.metrics_utils.html">pdmlabs.evaluation.metrics_utils</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.evaluation.vus.html">pdmlabs.evaluation.vus</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="pdmlabs.exceptions.html">pdmlabs.exceptions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.exceptions.exception.html">pdmlabs.exceptions.exception</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="pdmlabs.experiment.html">pdmlabs.experiment</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.experiment.batch.html">pdmlabs.experiment.batch</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.experiment.experiment.html">pdmlabs.experiment.experiment</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.experiment.streaming.html">pdmlabs.experiment.streaming</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="pdmlabs.loadAnomalyDetectionDataset.html">pdmlabs.loadAnomalyDetectionDataset</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="pdmlabs.mango.html">pdmlabs.mango</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.mango.domain.html">pdmlabs.mango.domain</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.mango.metatuner.html">pdmlabs.mango.metatuner</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.mango.optimizer.html">pdmlabs.mango.optimizer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.mango.scheduler.html">pdmlabs.mango.scheduler</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.mango.tuner.html">pdmlabs.mango.tuner</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="pdmlabs.method.html">pdmlabs.method</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.CoxModel.html">pdmlabs.method.CoxModel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.DAMP.html">pdmlabs.method.DAMP</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.PCA.html">pdmlabs.method.PCA</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.PCA_uns.html">pdmlabs.method.PCA_uns</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.TranAD.html">pdmlabs.method.TranAD</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.USAD.html">pdmlabs.method.USAD</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.dist_k_Semi.html">pdmlabs.method.dist_k_Semi</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.distance_based_k_r_Core.html">pdmlabs.method.distance_based_k_r_Core</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.dummy_all.html">pdmlabs.method.dummy_all</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.dummy_increase.html">pdmlabs.method.dummy_increase</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.isolation_forest.html">pdmlabs.method.isolation_forest</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.isolation_forest_uns.html">pdmlabs.method.isolation_forest_uns</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.lof_semi.html">pdmlabs.method.lof_semi</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.lof_uns.html">pdmlabs.method.lof_uns</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.method.html">pdmlabs.method.method</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.ocsvm.html">pdmlabs.method.ocsvm</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.pca_tsb.html">pdmlabs.method.pca_tsb</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.profile_based.html">pdmlabs.method.profile_based</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.semi_supervised_method.html">pdmlabs.method.semi_supervised_method</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.sklearn_regression_wraper.html">pdmlabs.method.sklearn_regression_wraper</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.supervised_method.html">pdmlabs.method.supervised_method</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.unsupervised_method.html">pdmlabs.method.unsupervised_method</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.xgboost.html">pdmlabs.method.xgboost</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.xgboostRUL.html">pdmlabs.method.xgboostRUL</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="pdmlabs.pdm_evaluation_types.html">pdmlabs.pdm_evaluation_types</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.pdm_evaluation_types.types.html">pdmlabs.pdm_evaluation_types.types</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="pdmlabs.pipeline.html">pdmlabs.pipeline</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.pipeline.mlflow_pipeline.html">pdmlabs.pipeline.mlflow_pipeline</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.pipeline.pipeline.html">pdmlabs.pipeline.pipeline</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="pdmlabs.postprocessing.html">pdmlabs.postprocessing</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.postprocessing.Moving2T.html">pdmlabs.postprocessing.Moving2T</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.postprocessing.causeFeatureSelection.html">pdmlabs.postprocessing.causeFeatureSelection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.postprocessing.default.html">pdmlabs.postprocessing.default</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.postprocessing.dynamicth.html">pdmlabs.postprocessing.dynamicth</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.postprocessing.min_max_scaler.html">pdmlabs.postprocessing.min_max_scaler</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.postprocessing.moving_average.html">pdmlabs.postprocessing.moving_average</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.postprocessing.post_processor.html">pdmlabs.postprocessing.post_processor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.postprocessing.self_tuning.html">pdmlabs.postprocessing.self_tuning</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="pdmlabs.preprocessing.html">pdmlabs.preprocessing</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.preprocessing.record_level.html">pdmlabs.preprocessing.record_level</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="pdmlabs.thresholding.html">pdmlabs.thresholding</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.thresholding.SurvSuperVisedTH.html">pdmlabs.thresholding.SurvSuperVisedTH</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.thresholding.constant.html">pdmlabs.thresholding.constant</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.thresholding.thresholder.html">pdmlabs.thresholding.thresholder</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="pdmlabs.utils.html">pdmlabs.utils</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.utils.automatic_parameter_generation.html">pdmlabs.utils.automatic_parameter_generation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.utils.dataset.html">pdmlabs.utils.dataset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.utils.distance.html">pdmlabs.utils.distance</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.utils.distances.html">pdmlabs.utils.distances</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.utils.rul_transformations.html">pdmlabs.utils.rul_transformations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.utils.utils.html">pdmlabs.utils.utils</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/PdMLabs/PdMLabs" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/api/OnlineADEngine.utils.distance.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>pdmlabs.utils.distance</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.utils.distance.DTW"><code class="docutils literal notranslate"><span class="pre">DTW</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.utils.distance.DTW.decision_scores_"><code class="docutils literal notranslate"><span class="pre">DTW.decision_scores_</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.utils.distance.DTW.detector"><code class="docutils literal notranslate"><span class="pre">DTW.detector</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.utils.distance.DTW.measure"><code class="docutils literal notranslate"><span class="pre">DTW.measure()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.utils.distance.DTW.set_param"><code class="docutils literal notranslate"><span class="pre">DTW.set_param()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.utils.distance.EDRS"><code class="docutils literal notranslate"><span class="pre">EDRS</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.utils.distance.EDRS.decision_scores_"><code class="docutils literal notranslate"><span class="pre">EDRS.decision_scores_</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.utils.distance.EDRS.detector"><code class="docutils literal notranslate"><span class="pre">EDRS.detector</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.utils.distance.EDRS.measure"><code class="docutils literal notranslate"><span class="pre">EDRS.measure()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.utils.distance.EDRS.set_param"><code class="docutils literal notranslate"><span class="pre">EDRS.set_param()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.utils.distance.Euclidean"><code class="docutils literal notranslate"><span class="pre">Euclidean</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.utils.distance.Euclidean.decision_scores_"><code class="docutils literal notranslate"><span class="pre">Euclidean.decision_scores_</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.utils.distance.Euclidean.detector"><code class="docutils literal notranslate"><span class="pre">Euclidean.detector</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.utils.distance.Euclidean.measure"><code class="docutils literal notranslate"><span class="pre">Euclidean.measure()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.utils.distance.Euclidean.set_param"><code class="docutils literal notranslate"><span class="pre">Euclidean.set_param()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.utils.distance.Fourier"><code class="docutils literal notranslate"><span class="pre">Fourier</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.utils.distance.Fourier.decision_scores_"><code class="docutils literal notranslate"><span class="pre">Fourier.decision_scores_</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.utils.distance.Fourier.detector"><code class="docutils literal notranslate"><span class="pre">Fourier.detector</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.utils.distance.Fourier.measure"><code class="docutils literal notranslate"><span class="pre">Fourier.measure()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.utils.distance.Fourier.set_param"><code class="docutils literal notranslate"><span class="pre">Fourier.set_param()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.utils.distance.Garch"><code class="docutils literal notranslate"><span class="pre">Garch</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.utils.distance.Garch.decision_scores_"><code class="docutils literal notranslate"><span class="pre">Garch.decision_scores_</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.utils.distance.Garch.volatility"><code class="docutils literal notranslate"><span class="pre">Garch.volatility</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.utils.distance.Garch.measure"><code class="docutils literal notranslate"><span class="pre">Garch.measure()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.utils.distance.Garch.set_param"><code class="docutils literal notranslate"><span class="pre">Garch.set_param()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.utils.distance.Mahalanobis"><code class="docutils literal notranslate"><span class="pre">Mahalanobis</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.utils.distance.Mahalanobis.detector"><code class="docutils literal notranslate"><span class="pre">Mahalanobis.detector</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.utils.distance.Mahalanobis.decision_scores_"><code class="docutils literal notranslate"><span class="pre">Mahalanobis.decision_scores_</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.utils.distance.Mahalanobis.cov"><code class="docutils literal notranslate"><span class="pre">Mahalanobis.cov</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.utils.distance.Mahalanobis.mu"><code class="docutils literal notranslate"><span class="pre">Mahalanobis.mu</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.utils.distance.Mahalanobis.measure"><code class="docutils literal notranslate"><span class="pre">Mahalanobis.measure()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.utils.distance.Mahalanobis.norm_pdf_multivariate"><code class="docutils literal notranslate"><span class="pre">Mahalanobis.norm_pdf_multivariate()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.utils.distance.Mahalanobis.normpdf"><code class="docutils literal notranslate"><span class="pre">Mahalanobis.normpdf()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.utils.distance.Mahalanobis.set_param"><code class="docutils literal notranslate"><span class="pre">Mahalanobis.set_param()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.utils.distance.SSA_DISTANCE"><code class="docutils literal notranslate"><span class="pre">SSA_DISTANCE</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.utils.distance.SSA_DISTANCE.decision_scores_"><code class="docutils literal notranslate"><span class="pre">SSA_DISTANCE.decision_scores_</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.utils.distance.SSA_DISTANCE.detector"><code class="docutils literal notranslate"><span class="pre">SSA_DISTANCE.detector</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.utils.distance.SSA_DISTANCE.Linearization"><code class="docutils literal notranslate"><span class="pre">SSA_DISTANCE.Linearization()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.utils.distance.SSA_DISTANCE.measure"><code class="docutils literal notranslate"><span class="pre">SSA_DISTANCE.measure()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.utils.distance.SSA_DISTANCE.set_param"><code class="docutils literal notranslate"><span class="pre">SSA_DISTANCE.set_param()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.utils.distance.TWED"><code class="docutils literal notranslate"><span class="pre">TWED</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.utils.distance.TWED.decision_scores_"><code class="docutils literal notranslate"><span class="pre">TWED.decision_scores_</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.utils.distance.TWED.detector"><code class="docutils literal notranslate"><span class="pre">TWED.detector</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.utils.distance.TWED.measure"><code class="docutils literal notranslate"><span class="pre">TWED.measure()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.utils.distance.TWED.set_param"><code class="docutils literal notranslate"><span class="pre">TWED.set_param()</span></code></a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="module-pdmlabs.utils.distance">
+<span id="pdmlabs-utils-distance"></span><h1>pdmlabs.utils.distance<a class="headerlink" href="#module-pdmlabs.utils.distance" title="Link to this heading">#</a></h1>
+<p>Distance measure classes for time-series anomaly detection.</p>
+<p>This module provides advanced distance metrics designed for time-series anomaly detection,
+particularly for reconstruction-based and distance-based methods. Each class measures
+the dissimilarity between observed and predicted/expected subsequences.</p>
+<dl>
+<dt>Classes:</dt><dd><p>Euclidean: Lp norm-based distance with optional normalization
+Mahalanobis: Covariance-based distance for multivariate time-series
+Garch: Volatility-adjusted distance using ARCH/GARCH models
+SSA_DISTANCE: Singular Spectrum Analysis distance for contextual anomalies</p>
+</dd>
+<dt>Usage:</dt><dd><p>The distance classes are typically used with time-series anomaly detectors
+that have train data (<a href="#id1"><span class="problematic" id="id2">X_train_</span></a>), a window size, and estimation/prediction errors.</p>
+<p>Steps:
+1. Create distance object: dist = Euclidean(power=2, neighborhood=100)
+2. Set detector: dist.set_param() after assigning detector
+3. Measure: score = dist.measure(X_real, X_predicted, index)</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">pdmlabs.utils.distance</span><span class="w"> </span><span class="kn">import</span> <span class="n">Euclidean</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">euclidean_dist</span> <span class="o">=</span> <span class="n">Euclidean</span><span class="p">(</span><span class="n">power</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">euclidean_dist</span><span class="o">.</span><span class="n">detector</span> <span class="o">=</span> <span class="n">my_detector</span>  <span class="c1"># Set detector first</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">euclidean_dist</span><span class="o">.</span><span class="n">set_param</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">score</span> <span class="o">=</span> <span class="n">euclidean_dist</span><span class="o">.</span><span class="n">measure</span><span class="p">(</span><span class="n">X_obs</span><span class="p">,</span> <span class="n">X_pred</span><span class="p">,</span> <span class="n">sample_index</span><span class="p">)</span>
+</pre></div>
+</div>
+<p class="rubric">Classes</p>
+<div class="pst-scrollable-table-container"><table class="autosummary longtable table autosummary">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="pdmlabs.utils.distance.html#pdmlabs.utils.distance.DTW" title="pdmlabs.utils.distance.DTW"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DTW</span></code></a>([method])</p></td>
+<td><p>The function class for dynamic time warping measure</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pdmlabs.utils.distance.html#pdmlabs.utils.distance.EDRS" title="pdmlabs.utils.distance.EDRS"><code class="xref py py-obj docutils literal notranslate"><span class="pre">EDRS</span></code></a>([method, ep, vol])</p></td>
+<td><p>The function class for edit distance on real sequences</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pdmlabs.utils.distance.html#pdmlabs.utils.distance.Euclidean" title="pdmlabs.utils.distance.Euclidean"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Euclidean</span></code></a>([power, neighborhood, window, norm])</p></td>
+<td><p>Lp norm distance measure for reconstruction-based anomaly detection.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pdmlabs.utils.distance.html#pdmlabs.utils.distance.Fourier" title="pdmlabs.utils.distance.Fourier"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Fourier</span></code></a>([power])</p></td>
+<td><p>The function class for Fourier measure good for contextual anomolies ---------- power: int, optional (default = 2)     Lp norm for dissimiarlity measure considered .. attribute:: <a href="#id3"><span class="problematic" id="id4">decision_scores_</span></a>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pdmlabs.utils.distance.html#pdmlabs.utils.distance.Garch" title="pdmlabs.utils.distance.Garch"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Garch</span></code></a>([p, q, mean, vol])</p></td>
+<td><p>GARCH-based distance measure using volatility modeling.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pdmlabs.utils.distance.html#pdmlabs.utils.distance.Mahalanobis" title="pdmlabs.utils.distance.Mahalanobis"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Mahalanobis</span></code></a>([probability])</p></td>
+<td><p>Mahalanobis distance measure accounting for covariance structure.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pdmlabs.utils.distance.html#pdmlabs.utils.distance.SSA_DISTANCE" title="pdmlabs.utils.distance.SSA_DISTANCE"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SSA_DISTANCE</span></code></a>([method, e])</p></td>
+<td><p>The function class for SSA measure good for contextual anomolies ---------- method : string, optional (default='linear' )     The method to fit the line and derives the SSA score e: float, optional (default = 1)     The upper bound to start new line search for linear method .. attribute:: <a href="#id5"><span class="problematic" id="id6">decision_scores_</span></a>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pdmlabs.utils.distance.html#pdmlabs.utils.distance.TWED" title="pdmlabs.utils.distance.TWED"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TWED</span></code></a>([gamma, v])</p></td>
+<td><p>Function class for Time-warped edit distance(TWED) measure</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<dl class="py class">
+<dt class="sig sig-object py" id="pdmlabs.utils.distance.DTW">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pdmlabs.utils.distance.</span></span><span class="sig-name descname"><span class="pre">DTW</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'L2'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pdmlabs.utils.distance.DTW" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>The function class for dynamic time warping measure</p>
+<blockquote>
+<div><p>Avaliable “L2”, “L1”, and custom</p>
+</div></blockquote>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pdmlabs.utils.distance.DTW.decision_scores_">
+<span class="sig-name descname"><span class="pre">decision_scores_</span></span><a class="headerlink" href="#pdmlabs.utils.distance.DTW.decision_scores_" title="Link to this definition">#</a></dt>
+<dd><p>The outlier scores of the training data.
+The higher, the more abnormal. Outliers tend to have higher
+scores. This value is available once the detector is
+fitted.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>numpy array of shape (n_samples,)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pdmlabs.utils.distance.DTW.detector">
+<span class="sig-name descname"><span class="pre">detector</span></span><a class="headerlink" href="#pdmlabs.utils.distance.DTW.detector" title="Link to this definition">#</a></dt>
+<dd><p>the anomaly detector that is used</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Object classifier</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pdmlabs.utils.distance.DTW.measure">
+<span class="sig-name descname"><span class="pre">measure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">X2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start_index</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pdmlabs.utils.distance.DTW.measure" title="Link to this definition">#</a></dt>
+<dd><p>Obtain the SSA similarity score.
+:param X1: the reference timeseries
+:type X1: numpy array of shape (n, )
+:param X2: the tested timeseries
+:type X2: numpy array of shape (n, )
+:param index:
+:type index: int,
+:param current index for the subseqeuence that is being measured:</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>score</strong></p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float, the higher the more dissimilar are the two curves</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pdmlabs.utils.distance.DTW.set_param">
+<span class="sig-name descname"><span class="pre">set_param</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pdmlabs.utils.distance.DTW.set_param" title="Link to this definition">#</a></dt>
+<dd><p>update the parameters with the detector that is used
+since the FFT measure doens’t need the attributes of detector
+or characteristics of X_train, the process is omitted.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pdmlabs.utils.distance.EDRS">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pdmlabs.utils.distance.</span></span><span class="sig-name descname"><span class="pre">EDRS</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'L1'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ep</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vol</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pdmlabs.utils.distance.EDRS" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>The function class for edit distance on real sequences</p>
+<blockquote>
+<div><p>Avaliable “L2”, “L1”, and custom</p>
+</div></blockquote>
+<dl class="simple">
+<dt>ep: float, optiona (default = 0.1)</dt><dd><p>the threshold value to decide Di_j</p>
+</dd>
+<dt>vot<span class="classifier">boolean, optional (default = False)</span></dt><dd><p>whether to adapt a chaging votilities estimaed by garch
+for ep at different windows.</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pdmlabs.utils.distance.EDRS.decision_scores_">
+<span class="sig-name descname"><span class="pre">decision_scores_</span></span><a class="headerlink" href="#pdmlabs.utils.distance.EDRS.decision_scores_" title="Link to this definition">#</a></dt>
+<dd><p>The outlier scores of the training data.
+The higher, the more abnormal. Outliers tend to have higher
+scores. This value is available once the detector is
+fitted.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>numpy array of shape (n_samples,)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pdmlabs.utils.distance.EDRS.detector">
+<span class="sig-name descname"><span class="pre">detector</span></span><a class="headerlink" href="#pdmlabs.utils.distance.EDRS.detector" title="Link to this definition">#</a></dt>
+<dd><p>the anomaly detector that is used</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Object classifier</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pdmlabs.utils.distance.EDRS.measure">
+<span class="sig-name descname"><span class="pre">measure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">X2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start_index</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pdmlabs.utils.distance.EDRS.measure" title="Link to this definition">#</a></dt>
+<dd><p>Obtain the SSA similarity score.
+:param X1: the reference timeseries
+:type X1: numpy array of shape (n, )
+:param X2: the tested timeseries
+:type X2: numpy array of shape (n, )
+:param index:
+:type index: int,
+:param current index for the subseqeuence that is being measured:</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>score</strong></p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float, the higher the more dissimilar are the two curves</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pdmlabs.utils.distance.EDRS.set_param">
+<span class="sig-name descname"><span class="pre">set_param</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pdmlabs.utils.distance.EDRS.set_param" title="Link to this definition">#</a></dt>
+<dd><p>update the ep based on the votalitiy of the model</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pdmlabs.utils.distance.Euclidean">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pdmlabs.utils.distance.</span></span><span class="sig-name descname"><span class="pre">Euclidean</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">power</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">neighborhood</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">window</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">norm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pdmlabs.utils.distance.Euclidean" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Lp norm distance measure for reconstruction-based anomaly detection.</p>
+<p>Computes the Lp norm (L1, L2, etc.) between observed and predicted time-series
+subsequences. Can optionally normalize by local neighborhood statistics to
+account for varying baseline behavior.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>power</strong> (<em>int</em><em>, </em><em>default=1</em>) – The power p for the Lp norm. power=1 is Manhattan distance, power=2 is Euclidean.</p></li>
+<li><p><strong>neighborhood</strong> (<em>int</em><em>, </em><em>default=100</em>) – Size of neighborhood window (±samples around each point) used to compute
+normalization factor D (difference between max and min in neighborhood).
+If None, skips normalization.</p></li>
+<li><p><strong>window</strong> (<em>int</em><em>, </em><em>default=20</em>) – Length of each subsequence being compared.</p></li>
+<li><p><strong>norm</strong> (<em>bool</em><em>, </em><em>default=False</em>) – If True, normalizes distance by local neighborhood statistics (dividing by D).
+If False, returns raw Lp norm.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pdmlabs.utils.distance.Euclidean.decision_scores_">
+<span class="sig-name descname"><span class="pre">decision_scores_</span></span><a class="headerlink" href="#pdmlabs.utils.distance.Euclidean.decision_scores_" title="Link to this definition">#</a></dt>
+<dd><p>List of (index, score) tuples generated during measure() calls.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pdmlabs.utils.distance.Euclidean.detector">
+<span class="sig-name descname"><span class="pre">detector</span></span><a class="headerlink" href="#pdmlabs.utils.distance.Euclidean.detector" title="Link to this definition">#</a></dt>
+<dd><p>Reference to the anomaly detector providing <a href="#id7"><span class="problematic" id="id8">X_train_</span></a>, window, neighborhood.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Unnormalized L2 distance</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">euclidean</span> <span class="o">=</span> <span class="n">Euclidean</span><span class="p">(</span><span class="n">power</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">score</span> <span class="o">=</span> <span class="n">euclidean</span><span class="o">.</span><span class="n">measure</span><span class="p">(</span><span class="n">observed_X</span><span class="p">,</span> <span class="n">predicted_X</span><span class="p">,</span> <span class="n">start_index</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Normalized distance with neighborhood statistics</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">euclidean_norm</span> <span class="o">=</span> <span class="n">Euclidean</span><span class="p">(</span><span class="n">power</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">neighborhood</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">euclidean_norm</span><span class="o">.</span><span class="n">detector</span> <span class="o">=</span> <span class="n">detector</span>  <span class="c1"># Must set detector first</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">euclidean_norm</span><span class="o">.</span><span class="n">set_param</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">score</span> <span class="o">=</span> <span class="n">euclidean_norm</span><span class="o">.</span><span class="n">measure</span><span class="p">(</span><span class="n">X_real</span><span class="p">,</span> <span class="n">X_pred</span><span class="p">,</span> <span class="n">idx</span><span class="p">)</span>
+</pre></div>
+</div>
+<p class="rubric">Notes</p>
+<p>Without normalization, the metric treats all points equally regardless of their
+local context. Normalization accounts for natural variations in the data by
+dividing by the range observed in nearby samples.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pdmlabs.utils.distance.Euclidean.measure">
+<span class="sig-name descname"><span class="pre">measure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pdmlabs.utils.distance.Euclidean.measure" title="Link to this definition">#</a></dt>
+<dd><p>Calculate distance anomaly score between observed and expected subsequences.</p>
+<p>Computes the Lp norm between X and Y, optionally normalized by neighborhood
+statistics. Higher scores indicate greater dissimilarity (anomaly).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> (<em>np.ndarray</em>) – Observed/actual subsequence values (1D array).</p></li>
+<li><p><strong>Y</strong> (<em>np.ndarray</em>) – Expected/predicted subsequence values (1D array, same length as X).</p></li>
+<li><p><strong>index</strong> (<em>int</em>) – Position in the training data where this window starts.
+Used to identify the neighborhood region for normalization.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Anomaly score (distance). Range depends on normalization:
+- Without norm: typically 0 to infinity
+- With norm: typically 0 to 1 (normalized)</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><p>Stores result in <a href="#id9"><span class="problematic" id="id10">self.decision_scores_</span></a> list for analysis</p></li>
+<li><p>For normalized mode: D = max(neighborhood) - min(neighborhood)</p></li>
+<li><p>Handles edge cases: empty arrays, single dimensions, boundary indices</p></li>
+</ul>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">dist</span> <span class="o">=</span> <span class="n">Euclidean</span><span class="p">(</span><span class="n">power</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dist</span><span class="o">.</span><span class="n">detector</span> <span class="o">=</span> <span class="n">detector</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dist</span><span class="o">.</span><span class="n">set_param</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">X_real</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">X_pred</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.1</span><span class="p">,</span> <span class="mf">2.1</span><span class="p">,</span> <span class="mf">2.9</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">score</span> <span class="o">=</span> <span class="n">dist</span><span class="o">.</span><span class="n">measure</span><span class="p">(</span><span class="n">X_real</span><span class="p">,</span> <span class="n">X_pred</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>  <span class="c1"># ~0.14</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pdmlabs.utils.distance.Euclidean.set_param">
+<span class="sig-name descname"><span class="pre">set_param</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pdmlabs.utils.distance.Euclidean.set_param" title="Link to this definition">#</a></dt>
+<dd><p>Initialize parameters from detector object.</p>
+<p>Extracts window, neighborhood, training data, and other properties
+from the detector to ensure consistency. Must be called after
+setting the detector attribute.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Returns self for method chaining.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>self</p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>AttributeError</strong> – If detector is None or lacks required attributes.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pdmlabs.utils.distance.Fourier">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pdmlabs.utils.distance.</span></span><span class="sig-name descname"><span class="pre">Fourier</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">power</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pdmlabs.utils.distance.Fourier" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>The function class for Fourier measure
+good for contextual anomolies
+———-
+power: int, optional (default = 2)</p>
+<blockquote>
+<div><p>Lp norm for dissimiarlity measure considered</p>
+</div></blockquote>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pdmlabs.utils.distance.Fourier.decision_scores_">
+<span class="sig-name descname"><span class="pre">decision_scores_</span></span><a class="headerlink" href="#pdmlabs.utils.distance.Fourier.decision_scores_" title="Link to this definition">#</a></dt>
+<dd><p>The outlier scores of the training data.
+The higher, the more abnormal. Outliers tend to have higher
+scores. This value is available once the detector is
+fitted.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>numpy array of shape (n_samples,)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pdmlabs.utils.distance.Fourier.detector">
+<span class="sig-name descname"><span class="pre">detector</span></span><a class="headerlink" href="#pdmlabs.utils.distance.Fourier.detector" title="Link to this definition">#</a></dt>
+<dd><p>the anomaly detector that is used</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Object classifier</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pdmlabs.utils.distance.Fourier.measure">
+<span class="sig-name descname"><span class="pre">measure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">X3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start_index</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pdmlabs.utils.distance.Fourier.measure" title="Link to this definition">#</a></dt>
+<dd><p>Obtain the SSA similarity score.
+:param X2: the reference timeseries
+:type X2: numpy array of shape (n, )
+:param X3: the tested timeseries
+:type X3: numpy array of shape (n, )
+:param index:
+:type index: int,
+:param current index for the subseqeuence that is being measured:</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>score</strong></p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float, the higher the more dissimilar are the two curves</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pdmlabs.utils.distance.Fourier.set_param">
+<span class="sig-name descname"><span class="pre">set_param</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pdmlabs.utils.distance.Fourier.set_param" title="Link to this definition">#</a></dt>
+<dd><p>update the parameters with the detector that is used
+since the FFT measure doens’t need the attributes of detector
+or characteristics of X_train, the process is omitted.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pdmlabs.utils.distance.Garch">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pdmlabs.utils.distance.</span></span><span class="sig-name descname"><span class="pre">Garch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">p</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">q</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mean</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'zero'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vol</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'garch'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pdmlabs.utils.distance.Garch" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>GARCH-based distance measure using volatility modeling.</p>
+<p>Models residual volatility using ARCH/GARCH (Generalized AutoRegressive Conditional
+Heteroskedasticity) models. Divides reconstruction error by the modeled volatility
+to create volatility-adjusted anomaly scores.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p</strong> (<em>int</em><em>, </em><em>default=1</em>) – ARCH order (number of lagged squared errors in volatility equation).</p></li>
+<li><p><strong>q</strong> (<em>int</em><em>, </em><em>default=1</em>) – GARCH order (number of lagged variance terms in volatility equation).</p></li>
+<li><p><strong>mean</strong> (<em>str</em><em>, </em><em>default='zero'</em>) – Mean model: ‘Zero’, ‘Constant’, ‘AR’, ‘ARX’, ‘ARMAX’, etc.</p></li>
+<li><p><strong>vol</strong> (<em>str</em><em>, </em><em>default='garch'</em>) – Volatility model: ‘GARCH’, ‘ARCH’, ‘ConstantMean’, ‘ZeroMean’, etc.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pdmlabs.utils.distance.Garch.decision_scores_">
+<span class="sig-name descname"><span class="pre">decision_scores_</span></span><a class="headerlink" href="#pdmlabs.utils.distance.Garch.decision_scores_" title="Link to this definition">#</a></dt>
+<dd><p>List of (index, score) tuples.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pdmlabs.utils.distance.Garch.volatility">
+<span class="sig-name descname"><span class="pre">volatility</span></span><a class="headerlink" href="#pdmlabs.utils.distance.Garch.volatility" title="Link to this definition">#</a></dt>
+<dd><p>Estimated volatility at each timepoint.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>np.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">garch_dist</span> <span class="o">=</span> <span class="n">Garch</span><span class="p">(</span><span class="n">p</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">q</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">mean</span><span class="o">=</span><span class="s1">&#39;zero&#39;</span><span class="p">,</span> <span class="n">vol</span><span class="o">=</span><span class="s1">&#39;garch&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">garch_dist</span><span class="o">.</span><span class="n">detector</span> <span class="o">=</span> <span class="n">detector</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">garch_dist</span><span class="o">.</span><span class="n">set_param</span><span class="p">()</span>  <span class="c1"># Fits GARCH model on training residuals</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">score</span> <span class="o">=</span> <span class="n">garch_dist</span><span class="o">.</span><span class="n">measure</span><span class="p">(</span><span class="n">X_real</span><span class="p">,</span> <span class="n">X_pred</span><span class="p">,</span> <span class="n">idx</span><span class="p">)</span>
+</pre></div>
+</div>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><p>GARCH models are effective for time-series with changing volatility</p></li>
+<li><p>Residuals are scaled by 10 during fitting for numerical stability</p></li>
+<li><p>Volatility-adjusted errors better capture anomalies in volatile regimes</p></li>
+<li><p>More computationally expensive than simpler distance measures</p></li>
+</ul>
+<dl class="py method">
+<dt class="sig sig-object py" id="pdmlabs.utils.distance.Garch.measure">
+<span class="sig-name descname"><span class="pre">measure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pdmlabs.utils.distance.Garch.measure" title="Link to this definition">#</a></dt>
+<dd><p>Derive the decision score based on the given distance measure
+:param X: The real input samples subsequence.
+:type X: numpy array of shape (n_samples, )
+:param Y: The estimated input samples subsequence.
+:type Y: numpy array of shape (n_samples, )
+:param Index:
+:type Index: int
+:param the index of the starting point in the subsequence:</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>score</strong> – dissimiarity score between the two subsquences</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pdmlabs.utils.distance.Garch.set_param">
+<span class="sig-name descname"><span class="pre">set_param</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pdmlabs.utils.distance.Garch.set_param" title="Link to this definition">#</a></dt>
+<dd><p>update the parameters with the detector that is used</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pdmlabs.utils.distance.Mahalanobis">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pdmlabs.utils.distance.</span></span><span class="sig-name descname"><span class="pre">Mahalanobis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">probability</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pdmlabs.utils.distance.Mahalanobis" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Mahalanobis distance measure accounting for covariance structure.</p>
+<p>Computes Mahalanobis distance which measures dissimilarity while accounting
+for correlations between dimensions. Uses covariance matrix computed from
+residuals (X_train - estimation) in a neighborhood window.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>probability</strong> (<em>bool</em><em>, </em><em>default=False</em>) – If False: Returns Mahalanobis distance (quadratic form with inverse covariance)
+If True: Returns probability via multivariate/univariate normal PDF</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pdmlabs.utils.distance.Mahalanobis.detector">
+<span class="sig-name descname"><span class="pre">detector</span></span><a class="headerlink" href="#pdmlabs.utils.distance.Mahalanobis.detector" title="Link to this definition">#</a></dt>
+<dd><p>Reference to anomaly detector with <a href="#id11"><span class="problematic" id="id12">X_train_</span></a>, estimation, window, <a href="#id13"><span class="problematic" id="id14">n_initial_</span></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pdmlabs.utils.distance.Mahalanobis.decision_scores_">
+<span class="sig-name descname"><span class="pre">decision_scores_</span></span><a class="headerlink" href="#pdmlabs.utils.distance.Mahalanobis.decision_scores_" title="Link to this definition">#</a></dt>
+<dd><p>List of (index, score) tuples.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pdmlabs.utils.distance.Mahalanobis.cov">
+<span class="sig-name descname"><span class="pre">cov</span></span><a class="headerlink" href="#pdmlabs.utils.distance.Mahalanobis.cov" title="Link to this definition">#</a></dt>
+<dd><p>Covariance matrix of residuals (computed in set_param).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>np.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pdmlabs.utils.distance.Mahalanobis.mu">
+<span class="sig-name descname"><span class="pre">mu</span></span><a class="headerlink" href="#pdmlabs.utils.distance.Mahalanobis.mu" title="Link to this definition">#</a></dt>
+<dd><p>Mean vector (typically zeros).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>np.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Mahalanobis distance</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">maha</span> <span class="o">=</span> <span class="n">Mahalanobis</span><span class="p">(</span><span class="n">probability</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">maha</span><span class="o">.</span><span class="n">detector</span> <span class="o">=</span> <span class="n">detector</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">maha</span><span class="o">.</span><span class="n">set_param</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">score</span> <span class="o">=</span> <span class="n">maha</span><span class="o">.</span><span class="n">measure</span><span class="p">(</span><span class="n">X_obs</span><span class="p">,</span> <span class="n">X_pred</span><span class="p">,</span> <span class="n">idx</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Probability-based scoring</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">maha_prob</span> <span class="o">=</span> <span class="n">Mahalanobis</span><span class="p">(</span><span class="n">probability</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">maha_prob</span><span class="o">.</span><span class="n">detector</span> <span class="o">=</span> <span class="n">detector</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">maha_prob</span><span class="o">.</span><span class="n">set_param</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">prob_score</span> <span class="o">=</span> <span class="n">maha_prob</span><span class="o">.</span><span class="n">measure</span><span class="p">(</span><span class="n">X_obs</span><span class="p">,</span> <span class="n">X_pred</span><span class="p">,</span> <span class="n">idx</span><span class="p">)</span>
+</pre></div>
+</div>
+<p class="rubric">Notes</p>
+<p>Mahalanobis distance is particularly useful when features have different scales
+or when correlations between features are important for anomaly detection.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pdmlabs.utils.distance.Mahalanobis.measure">
+<span class="sig-name descname"><span class="pre">measure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pdmlabs.utils.distance.Mahalanobis.measure" title="Link to this definition">#</a></dt>
+<dd><p>Derive the decision score based on the given distance measure
+:param X: The real input samples subsequence.
+:type X: numpy array of shape (n_samples, )
+:param Y: The estimated input samples subsequence.
+:type Y: numpy array of shape (n_samples, )
+:param Index:
+:type Index: int
+:param the index of the starting point in the subsequence:</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>score</strong> – dissimiarity score between the two subsquence</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pdmlabs.utils.distance.Mahalanobis.norm_pdf_multivariate">
+<span class="sig-name descname"><span class="pre">norm_pdf_multivariate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pdmlabs.utils.distance.Mahalanobis.norm_pdf_multivariate" title="Link to this definition">#</a></dt>
+<dd><p>multivarite normal density function</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pdmlabs.utils.distance.Mahalanobis.normpdf">
+<span class="sig-name descname"><span class="pre">normpdf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pdmlabs.utils.distance.Mahalanobis.normpdf" title="Link to this definition">#</a></dt>
+<dd><p>univariate normal</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pdmlabs.utils.distance.Mahalanobis.set_param">
+<span class="sig-name descname"><span class="pre">set_param</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pdmlabs.utils.distance.Mahalanobis.set_param" title="Link to this definition">#</a></dt>
+<dd><p>update the parameters with the detector that is used</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pdmlabs.utils.distance.SSA_DISTANCE">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pdmlabs.utils.distance.</span></span><span class="sig-name descname"><span class="pre">SSA_DISTANCE</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'linear'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">e</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pdmlabs.utils.distance.SSA_DISTANCE" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>The function class for SSA measure
+good for contextual anomolies
+———-
+method : string, optional (default=’linear’ )</p>
+<blockquote>
+<div><p>The method to fit the line and derives the SSA score</p>
+</div></blockquote>
+<dl class="simple">
+<dt>e: float, optional (default = 1)</dt><dd><p>The upper bound to start new line search for linear method</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pdmlabs.utils.distance.SSA_DISTANCE.decision_scores_">
+<span class="sig-name descname"><span class="pre">decision_scores_</span></span><a class="headerlink" href="#pdmlabs.utils.distance.SSA_DISTANCE.decision_scores_" title="Link to this definition">#</a></dt>
+<dd><p>The outlier scores of the training data.
+The higher, the more abnormal. Outliers tend to have higher
+scores. This value is available once the detector is
+fitted.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>numpy array of shape (n_samples,)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pdmlabs.utils.distance.SSA_DISTANCE.detector">
+<span class="sig-name descname"><span class="pre">detector</span></span><a class="headerlink" href="#pdmlabs.utils.distance.SSA_DISTANCE.detector" title="Link to this definition">#</a></dt>
+<dd><p>the anomaly detector that is used</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Object classifier</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pdmlabs.utils.distance.SSA_DISTANCE.Linearization">
+<span class="sig-name descname"><span class="pre">Linearization</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pdmlabs.utils.distance.SSA_DISTANCE.Linearization" title="Link to this definition">#</a></dt>
+<dd><p>Obtain the linearized curve.
+:param X2: the time series curve to be fitted
+:type X2: numpy array of shape (n, )
+:param e:
+:type e: float, integer, or numpy array
+:param weights to obtain the:</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>fit</strong></p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>parameters for the fitted linear curve</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pdmlabs.utils.distance.SSA_DISTANCE.measure">
+<span class="sig-name descname"><span class="pre">measure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">X3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start_index</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pdmlabs.utils.distance.SSA_DISTANCE.measure" title="Link to this definition">#</a></dt>
+<dd><p>Obtain the SSA similarity score.
+:param X2: the reference timeseries
+:type X2: numpy array of shape (n, )
+:param X3: the tested timeseries
+:type X3: numpy array of shape (n, )
+:param e:
+:type e: float, integer, or numpy array
+:param weights to obtain the:</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>score</strong></p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float, the higher the more dissimilar are the two curves</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pdmlabs.utils.distance.SSA_DISTANCE.set_param">
+<span class="sig-name descname"><span class="pre">set_param</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pdmlabs.utils.distance.SSA_DISTANCE.set_param" title="Link to this definition">#</a></dt>
+<dd><p>update the parameters with the detector that is used.
+Since the SSA measure doens’t need the attributes of detector
+or characteristics of X_train, the process is omitted.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pdmlabs.utils.distance.TWED">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pdmlabs.utils.distance.</span></span><span class="sig-name descname"><span class="pre">TWED</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gamma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pdmlabs.utils.distance.TWED" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Function class for Time-warped edit distance(TWED) measure</p>
+<blockquote>
+<div><p>Avaliable “L2”, “L1”, and custom</p>
+</div></blockquote>
+<dl class="simple">
+<dt>gamma: float, optiona (default = 0.1)</dt><dd><p>mismatch penalty</p>
+</dd>
+<dt>v<span class="classifier">float, optional (default = False)</span></dt><dd><p>stifness parameter</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pdmlabs.utils.distance.TWED.decision_scores_">
+<span class="sig-name descname"><span class="pre">decision_scores_</span></span><a class="headerlink" href="#pdmlabs.utils.distance.TWED.decision_scores_" title="Link to this definition">#</a></dt>
+<dd><p>The outlier scores of the training data.
+The higher, the more abnormal. Outliers tend to have higher
+scores. This value is available once the detector is
+fitted.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>numpy array of shape (n_samples,)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pdmlabs.utils.distance.TWED.detector">
+<span class="sig-name descname"><span class="pre">detector</span></span><a class="headerlink" href="#pdmlabs.utils.distance.TWED.detector" title="Link to this definition">#</a></dt>
+<dd><p>the anomaly detector that is used</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Object classifier</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pdmlabs.utils.distance.TWED.measure">
+<span class="sig-name descname"><span class="pre">measure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">A</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">B</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start_index</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pdmlabs.utils.distance.TWED.measure" title="Link to this definition">#</a></dt>
+<dd><p>Obtain the SSA similarity score.
+:param X1: the reference timeseries
+:type X1: numpy array of shape (n, )
+:param X2: the tested timeseries
+:type X2: numpy array of shape (n, )
+:param index:
+:type index: int,
+:param current index for the subseqeuence that is being measured:</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>score</strong></p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float, the higher the more dissimilar are the two curves</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pdmlabs.utils.distance.TWED.set_param">
+<span class="sig-name descname"><span class="pre">set_param</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pdmlabs.utils.distance.TWED.set_param" title="Link to this definition">#</a></dt>
+<dd><p>No need</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.utils.distance.DTW"><code class="docutils literal notranslate"><span class="pre">DTW</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.utils.distance.DTW.decision_scores_"><code class="docutils literal notranslate"><span class="pre">DTW.decision_scores_</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.utils.distance.DTW.detector"><code class="docutils literal notranslate"><span class="pre">DTW.detector</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.utils.distance.DTW.measure"><code class="docutils literal notranslate"><span class="pre">DTW.measure()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.utils.distance.DTW.set_param"><code class="docutils literal notranslate"><span class="pre">DTW.set_param()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.utils.distance.EDRS"><code class="docutils literal notranslate"><span class="pre">EDRS</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.utils.distance.EDRS.decision_scores_"><code class="docutils literal notranslate"><span class="pre">EDRS.decision_scores_</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.utils.distance.EDRS.detector"><code class="docutils literal notranslate"><span class="pre">EDRS.detector</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.utils.distance.EDRS.measure"><code class="docutils literal notranslate"><span class="pre">EDRS.measure()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.utils.distance.EDRS.set_param"><code class="docutils literal notranslate"><span class="pre">EDRS.set_param()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.utils.distance.Euclidean"><code class="docutils literal notranslate"><span class="pre">Euclidean</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.utils.distance.Euclidean.decision_scores_"><code class="docutils literal notranslate"><span class="pre">Euclidean.decision_scores_</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.utils.distance.Euclidean.detector"><code class="docutils literal notranslate"><span class="pre">Euclidean.detector</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.utils.distance.Euclidean.measure"><code class="docutils literal notranslate"><span class="pre">Euclidean.measure()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.utils.distance.Euclidean.set_param"><code class="docutils literal notranslate"><span class="pre">Euclidean.set_param()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.utils.distance.Fourier"><code class="docutils literal notranslate"><span class="pre">Fourier</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.utils.distance.Fourier.decision_scores_"><code class="docutils literal notranslate"><span class="pre">Fourier.decision_scores_</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.utils.distance.Fourier.detector"><code class="docutils literal notranslate"><span class="pre">Fourier.detector</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.utils.distance.Fourier.measure"><code class="docutils literal notranslate"><span class="pre">Fourier.measure()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.utils.distance.Fourier.set_param"><code class="docutils literal notranslate"><span class="pre">Fourier.set_param()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.utils.distance.Garch"><code class="docutils literal notranslate"><span class="pre">Garch</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.utils.distance.Garch.decision_scores_"><code class="docutils literal notranslate"><span class="pre">Garch.decision_scores_</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.utils.distance.Garch.volatility"><code class="docutils literal notranslate"><span class="pre">Garch.volatility</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.utils.distance.Garch.measure"><code class="docutils literal notranslate"><span class="pre">Garch.measure()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.utils.distance.Garch.set_param"><code class="docutils literal notranslate"><span class="pre">Garch.set_param()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.utils.distance.Mahalanobis"><code class="docutils literal notranslate"><span class="pre">Mahalanobis</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.utils.distance.Mahalanobis.detector"><code class="docutils literal notranslate"><span class="pre">Mahalanobis.detector</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.utils.distance.Mahalanobis.decision_scores_"><code class="docutils literal notranslate"><span class="pre">Mahalanobis.decision_scores_</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.utils.distance.Mahalanobis.cov"><code class="docutils literal notranslate"><span class="pre">Mahalanobis.cov</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.utils.distance.Mahalanobis.mu"><code class="docutils literal notranslate"><span class="pre">Mahalanobis.mu</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.utils.distance.Mahalanobis.measure"><code class="docutils literal notranslate"><span class="pre">Mahalanobis.measure()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.utils.distance.Mahalanobis.norm_pdf_multivariate"><code class="docutils literal notranslate"><span class="pre">Mahalanobis.norm_pdf_multivariate()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.utils.distance.Mahalanobis.normpdf"><code class="docutils literal notranslate"><span class="pre">Mahalanobis.normpdf()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.utils.distance.Mahalanobis.set_param"><code class="docutils literal notranslate"><span class="pre">Mahalanobis.set_param()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.utils.distance.SSA_DISTANCE"><code class="docutils literal notranslate"><span class="pre">SSA_DISTANCE</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.utils.distance.SSA_DISTANCE.decision_scores_"><code class="docutils literal notranslate"><span class="pre">SSA_DISTANCE.decision_scores_</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.utils.distance.SSA_DISTANCE.detector"><code class="docutils literal notranslate"><span class="pre">SSA_DISTANCE.detector</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.utils.distance.SSA_DISTANCE.Linearization"><code class="docutils literal notranslate"><span class="pre">SSA_DISTANCE.Linearization()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.utils.distance.SSA_DISTANCE.measure"><code class="docutils literal notranslate"><span class="pre">SSA_DISTANCE.measure()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.utils.distance.SSA_DISTANCE.set_param"><code class="docutils literal notranslate"><span class="pre">SSA_DISTANCE.set_param()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.utils.distance.TWED"><code class="docutils literal notranslate"><span class="pre">TWED</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.utils.distance.TWED.decision_scores_"><code class="docutils literal notranslate"><span class="pre">TWED.decision_scores_</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.utils.distance.TWED.detector"><code class="docutils literal notranslate"><span class="pre">TWED.detector</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.utils.distance.TWED.measure"><code class="docutils literal notranslate"><span class="pre">TWED.measure()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.utils.distance.TWED.set_param"><code class="docutils literal notranslate"><span class="pre">TWED.set_param()</span></code></a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Anastasios Papadopoulos, Apostolos Giannoulidis, DataLab Auth
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026, Anastasios Papadopoulos, Apostolos Giannoulidis, DataLab Auth.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    <p class="last-updated">
+  Last updated on May 01, 2026.
+  <br/>
+</p>
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
