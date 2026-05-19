@@ -11,10 +11,12 @@ import sys
 
 sys.path.insert(0, os.path.abspath(".."))
 
+import pdmlabs
+
 project = 'PdMLabs'
 copyright = '2026, Anastasios Papadopoulos, Apostolos Giannoulidis, DataLab AUTh'
 author = 'Anastasios Papadopoulos, Apostolos Giannoulidis, DataLab AUTh'
-release = '0.0.1'
+release = pdmlabs.__version__
 
 extensions = [
     'sphinx.ext.autodoc',
