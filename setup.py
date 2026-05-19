@@ -12,9 +12,34 @@ extensions = [
     )
 ]
 
+import os
+import re
+
+with open("README.md", "r", encoding="utf-8") as fh:
+    long_description = fh.read()
+
+def get_version():
+    init_path = os.path.join(os.path.dirname(__file__), "pdmlabs", "__init__.py")
+    with open(init_path, "r", encoding="utf-8") as f:
+        match = re.search(r"__version__\s*=\s*['\"]([^'\"]+)['\"]", f.read())
+        if match:
+            return match.group(1)
+        raise RuntimeError("Unable to find version string.")
+
 setup(
     name="pdmlabs",
-    version="0.1",
+    version=get_version(),
+    author="Anastasios Papadopoulos, Apostolos Giannoulidis, DataLab AUTh",
+    description="PdMLabs is an open-source Python automated machine learning benchmarking platform designed to navigate industrial time-series data.",
+    long_description=long_description,
+    long_description_content_type="text/markdown",
+    url="https://github.com/PdM-Labs/PdMLabs",
+    project_urls={
+        "Documentation": "https://pdm-labs.github.io/PdMLabs/",
+        "Source": "https://github.com/PdM-Labs/PdMLabs",
+        "Tracker": "https://github.com/PdM-Labs/PdMLabs/issues",
+    },
+    python_requires=">=3.11",
     packages=find_packages(include=["pdmlabs", "pdmlabs.*"]),
     ext_modules=cythonize(extensions),
     setup_requires=[
@@ -44,6 +69,14 @@ setup(
         "tslearn>=0.6.3",
         "scikit-survival>=0.25.0",
         # "torch",
+    ],
+    classifiers=[
+        "Programming Language :: Python :: 3",
+        "Programming Language :: Python :: 3.11",
+        "License :: OSI Approved :: Apache Software License",
+        "Operating System :: OS Independent",
+        "Topic :: Scientific/Engineering :: Artificial Intelligence",
+        "Topic :: Scientific/Engineering :: Information Analysis",
     ],
 )
 
