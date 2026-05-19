@@ -12,8 +12,8 @@ import sys
 sys.path.insert(0, os.path.abspath(".."))
 
 project = 'PdMLabs'
-copyright = '2026, Anastasios Papadopoulos, Apostolos Giannoulidis, DataLab Auth'
-author = 'Anastasios Papadopoulos, Apostolos Giannoulidis, DataLab Auth'
+copyright = '2026, Anastasios Papadopoulos, Apostolos Giannoulidis, DataLab AUTh'
+author = 'Anastasios Papadopoulos, Apostolos Giannoulidis, DataLab AUTh'
 release = '0.0.1'
 
 extensions = [
@@ -63,7 +63,7 @@ html_favicon = "../PdMLabs_logo.png"
 html_last_updated_fmt = ""
 
 html_theme_options = {
-    "repository_url": "https://github.com/PdMLabs/PdMLabs",
+    "repository_url": "https://github.com/PdM-Labs/PdMLabs",
     "use_repository_button": True,
     # for more pygment styles, see: https://pygments.org/styles/
     "pygments_light_style": "tango",
