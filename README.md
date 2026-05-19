@@ -24,8 +24,14 @@ For comprehensive guides, API reference, and concepts, check out our [official d
 ```bash
 pip install cython
 pip install .
-# Or if published to PyPI: pip install pdmlabs
 ```
+
+or
+
+```bash
+pip install pdmlabs
+```
+
 **Requirements**: Python >= 3.11
 
 ### Basic Usage Example
