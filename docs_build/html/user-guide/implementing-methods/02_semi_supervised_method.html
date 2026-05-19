@@ -1,0 +1,888 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>📊 Implementing Semi-Supervised Methods &#8212; PdMLabs Documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles.css?v=2b15ee4a" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=e645c8fa"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'user-guide/implementing-methods/02_semi_supervised_method';</script>
+    <link rel="icon" href="../../_static/PdMLabs_logo.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="🎯 Implementing Classification Methods" href="03_classification_method.html" />
+    <link rel="prev" title="🔍 Implementing Unsupervised Methods" href="01_unsupervised_method.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+    <meta name="docbuild:last-update" content="May 01, 2026"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/PdMLabs_logo.png" class="logo__image only-light" alt="PdMLabs Documentation - Home"/>
+    <script>document.write(`<img src="../../_static/PdMLabs_logo.png" class="logo__image only-dark" alt="PdMLabs Documentation - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../index.html">🏠 Home</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../introduction.html">📜 Our Manifesto</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../concepts/index.html">📚 Concepts</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../concepts/experiment_flavors_analysis.html">Analysis of PdMLabs Experiment Flavors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../concepts/evaluation.html">Evaluation &amp; Metrics</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/index.html">🚀 Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/index.html">💡 Examples</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../index.html">📖 User Guide</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="index.html">🛠️ Implementing Custom Methods</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="01_unsupervised_method.html">🔍 Implementing Unsupervised Methods</a></li>
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">📊 Implementing Semi-Supervised Methods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="03_classification_method.html">🎯 Implementing Classification Methods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="04_rul_regression_method.html">⏱️ Implementing RUL Regression Methods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="05_survival_analysis_method.html">🧬 Implementing Survival Analysis Methods</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="01_unsupervised_method.html">🔍 Implementing Unsupervised Methods</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">📊 Implementing Semi-Supervised Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03_classification_method.html">🎯 Implementing Classification Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04_rul_regression_method.html">⏱️ Implementing RUL Regression Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05_survival_analysis_method.html">🧬 Implementing Survival Analysis Methods</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../api-reference.html">📖 API Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../api/pdmlabs.html">pdmlabs</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../api/pdmlabs.RunExperiment.html">pdmlabs.RunExperiment</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../api/pdmlabs.constraint_functions.html">pdmlabs.constraint_functions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../api/pdmlabs.constraint_functions.constraint.html">pdmlabs.constraint_functions.constraint</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../api/pdmlabs.evaluation.html">pdmlabs.evaluation</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../api/pdmlabs.evaluation.anomaly_evaluator.html">pdmlabs.evaluation.anomaly_evaluator</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/pdmlabs.evaluation.default_evaluators.html">pdmlabs.evaluation.default_evaluators</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/pdmlabs.evaluation.evaluation.html">pdmlabs.evaluation.evaluation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/pdmlabs.evaluation.evaluator.html">pdmlabs.evaluation.evaluator</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/pdmlabs.evaluation.metrics_utils.html">pdmlabs.evaluation.metrics_utils</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/pdmlabs.evaluation.vus.html">pdmlabs.evaluation.vus</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../api/pdmlabs.exceptions.html">pdmlabs.exceptions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../api/pdmlabs.exceptions.exception.html">pdmlabs.exceptions.exception</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../api/pdmlabs.experiment.html">pdmlabs.experiment</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../api/pdmlabs.experiment.batch.html">pdmlabs.experiment.batch</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/pdmlabs.experiment.experiment.html">pdmlabs.experiment.experiment</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/pdmlabs.experiment.streaming.html">pdmlabs.experiment.streaming</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/pdmlabs.loadAnomalyDetectionDataset.html">pdmlabs.loadAnomalyDetectionDataset</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../api/pdmlabs.mango.html">pdmlabs.mango</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../api/pdmlabs.mango.domain.html">pdmlabs.mango.domain</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/pdmlabs.mango.metatuner.html">pdmlabs.mango.metatuner</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/pdmlabs.mango.optimizer.html">pdmlabs.mango.optimizer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/pdmlabs.mango.scheduler.html">pdmlabs.mango.scheduler</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/pdmlabs.mango.tuner.html">pdmlabs.mango.tuner</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../api/pdmlabs.method.html">pdmlabs.method</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../api/pdmlabs.method.CoxModel.html">pdmlabs.method.CoxModel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/pdmlabs.method.DAMP.html">pdmlabs.method.DAMP</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/pdmlabs.method.PCA.html">pdmlabs.method.PCA</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/pdmlabs.method.PCA_uns.html">pdmlabs.method.PCA_uns</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/pdmlabs.method.TranAD.html">pdmlabs.method.TranAD</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/pdmlabs.method.USAD.html">pdmlabs.method.USAD</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/pdmlabs.method.dist_k_Semi.html">pdmlabs.method.dist_k_Semi</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/pdmlabs.method.distance_based_k_r_Core.html">pdmlabs.method.distance_based_k_r_Core</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/pdmlabs.method.dummy_all.html">pdmlabs.method.dummy_all</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/pdmlabs.method.dummy_increase.html">pdmlabs.method.dummy_increase</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/pdmlabs.method.isolation_forest.html">pdmlabs.method.isolation_forest</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/pdmlabs.method.isolation_forest_uns.html">pdmlabs.method.isolation_forest_uns</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/pdmlabs.method.lof_semi.html">pdmlabs.method.lof_semi</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/pdmlabs.method.lof_uns.html">pdmlabs.method.lof_uns</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/pdmlabs.method.method.html">pdmlabs.method.method</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/pdmlabs.method.ocsvm.html">pdmlabs.method.ocsvm</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/pdmlabs.method.pca_tsb.html">pdmlabs.method.pca_tsb</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/pdmlabs.method.profile_based.html">pdmlabs.method.profile_based</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/pdmlabs.method.semi_supervised_method.html">pdmlabs.method.semi_supervised_method</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/pdmlabs.method.sklearn_regression_wraper.html">pdmlabs.method.sklearn_regression_wraper</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/pdmlabs.method.supervised_method.html">pdmlabs.method.supervised_method</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/pdmlabs.method.unsupervised_method.html">pdmlabs.method.unsupervised_method</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/pdmlabs.method.xgboost.html">pdmlabs.method.xgboost</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/pdmlabs.method.xgboostRUL.html">pdmlabs.method.xgboostRUL</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../api/pdmlabs.pdm_evaluation_types.html">pdmlabs.pdm_evaluation_types</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../api/pdmlabs.pdm_evaluation_types.types.html">pdmlabs.pdm_evaluation_types.types</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../api/pdmlabs.pipeline.html">pdmlabs.pipeline</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../api/pdmlabs.pipeline.mlflow_pipeline.html">pdmlabs.pipeline.mlflow_pipeline</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/pdmlabs.pipeline.pipeline.html">pdmlabs.pipeline.pipeline</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../api/pdmlabs.postprocessing.html">pdmlabs.postprocessing</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../api/pdmlabs.postprocessing.Moving2T.html">pdmlabs.postprocessing.Moving2T</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/pdmlabs.postprocessing.causeFeatureSelection.html">pdmlabs.postprocessing.causeFeatureSelection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/pdmlabs.postprocessing.default.html">pdmlabs.postprocessing.default</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/pdmlabs.postprocessing.dynamicth.html">pdmlabs.postprocessing.dynamicth</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/pdmlabs.postprocessing.min_max_scaler.html">pdmlabs.postprocessing.min_max_scaler</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/pdmlabs.postprocessing.moving_average.html">pdmlabs.postprocessing.moving_average</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/pdmlabs.postprocessing.post_processor.html">pdmlabs.postprocessing.post_processor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/pdmlabs.postprocessing.self_tuning.html">pdmlabs.postprocessing.self_tuning</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../api/pdmlabs.preprocessing.html">pdmlabs.preprocessing</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../api/pdmlabs.preprocessing.record_level.html">pdmlabs.preprocessing.record_level</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../api/pdmlabs.thresholding.html">pdmlabs.thresholding</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../api/pdmlabs.thresholding.SurvSuperVisedTH.html">pdmlabs.thresholding.SurvSuperVisedTH</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/pdmlabs.thresholding.constant.html">pdmlabs.thresholding.constant</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/pdmlabs.thresholding.thresholder.html">pdmlabs.thresholding.thresholder</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../api/pdmlabs.utils.html">pdmlabs.utils</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../api/pdmlabs.utils.automatic_parameter_generation.html">pdmlabs.utils.automatic_parameter_generation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/pdmlabs.utils.dataset.html">pdmlabs.utils.dataset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/pdmlabs.utils.distance.html">pdmlabs.utils.distance</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/pdmlabs.utils.distances.html">pdmlabs.utils.distances</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/pdmlabs.utils.rul_transformations.html">pdmlabs.utils.rul_transformations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/pdmlabs.utils.utils.html">pdmlabs.utils.utils</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/PdMLabs/PdMLabs" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/user-guide/implementing-methods/02_semi_supervised_method.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>📊 Implementing Semi-Supervised Methods</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interface-overview">Interface Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#required-methods">Required Methods</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-local-outlier-factor-semi-supervised">Example: Local Outlier Factor Semi-Supervised</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-your-own-semi-supervised-method">Creating Your Own Semi-Supervised Method</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#testing-your-implementation">Testing Your Implementation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#next-steps">Next Steps</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="implementing-semi-supervised-methods">
+<h1>📊 Implementing Semi-Supervised Methods<a class="headerlink" href="#implementing-semi-supervised-methods" title="Link to this heading">#</a></h1>
+<p>Semi-supervised methods learn from clean profile/baseline data to establish normal behavior patterns, then detect deviations as anomalies. This is the most common scenario in predictive maintenance.</p>
+<p><strong>When to Use:</strong> When you have clean operational data (profiles) and want to detect degradation (anomalies). Works with AutoProfile, Incremental, and Historical semi-supervised experiments.</p>
+<p><strong>Key Difference from Unsupervised:</strong> Your method receives labeled training data representing normal operation.</p>
+<section id="interface-overview">
+<h2>Interface Overview<a class="headerlink" href="#interface-overview" title="Link to this heading">#</a></h2>
+<p>Semi-supervised methods inherit from <code class="docutils literal notranslate"><span class="pre">SemiSupervisedMethodInterface</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pdmlabs.method.semi_supervised_method</span><span class="w"> </span><span class="kn">import</span> <span class="n">SemiSupervisedMethodInterface</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pdmlabs.pdm_evaluation_types.types</span><span class="w"> </span><span class="kn">import</span> <span class="n">EventPreferences</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">MySemiSupervisedMethod</span><span class="p">(</span><span class="n">SemiSupervisedMethodInterface</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event_preferences</span><span class="p">:</span> <span class="n">EventPreferences</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">event_preferences</span><span class="o">=</span><span class="n">event_preferences</span><span class="p">)</span>
+        <span class="c1"># Your initialization</span>
+</pre></div>
+</div>
+<p><strong>Key Characteristics:</strong>
+- Has <code class="docutils literal notranslate"><span class="pre">fit()</span></code> method (training on clean profiles)
+- Trains separate models per data source
+- Can run with AutoProfile, Incremental, or Historical experiments
+- Scores test data against learned normal patterns</p>
+</section>
+<section id="required-methods">
+<h2>Required Methods<a class="headerlink" href="#required-methods" title="Link to this heading">#</a></h2>
+<p>All semi-supervised methods must implement:</p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">fit(historic_data,</span> <span class="pre">historic_sources,</span> <span class="pre">event_data)</span></code> — Train on clean profiles</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">predict(target_data,</span> <span class="pre">source,</span> <span class="pre">event_data)</span></code> — Score test data</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">predict_one(new_sample,</span> <span class="pre">source,</span> <span class="pre">is_event)</span></code> — Score single sample (online)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">get_params()</span></code> — Return configuration dictionary</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">__str__()</span></code> — Return method name</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">get_library()</span></code> — Return library name for serialization (usually <code class="docutils literal notranslate"><span class="pre">'no_save'</span></code>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">get_all_models()</span></code> — Return trained models (for export)</p></li>
+</ol>
+</section>
+<section id="example-local-outlier-factor-semi-supervised">
+<h2>Example: Local Outlier Factor Semi-Supervised<a class="headerlink" href="#example-local-outlier-factor-semi-supervised" title="Link to this heading">#</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">LocalOutlierFactor</span></code> is a reference implementation of semi-supervised anomaly detection.</p>
+<p><strong>File Location:</strong> <code class="docutils literal notranslate"><span class="pre">pdmlabs/method/lof_semi.py</span></code></p>
+<p><strong>What It Does:</strong>
+- Trains LOF models on historical clean profiles
+- Detects anomalies as deviations from learned local density
+- Maintains separate models per data source (bearing, pump, etc.)</p>
+<p><strong>Implementation Details:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">LocalOutlierFactor</span><span class="p">(</span><span class="n">SemiSupervisedMethodInterface</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event_preferences</span><span class="p">:</span> <span class="n">EventPreferences</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">event_preferences</span><span class="o">=</span><span class="n">event_preferences</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">initial_args</span> <span class="o">=</span> <span class="n">args</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">initial_kwargs</span> <span class="o">=</span> <span class="n">kwargs</span>
+
+        <span class="c1"># Remove profile_size if present (framework-specific param)</span>
+        <span class="k">if</span> <span class="s1">&#39;profile_size&#39;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+            <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">initial_kwargs</span><span class="p">[</span><span class="s1">&#39;profile_size&#39;</span><span class="p">]</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">clf_class</span> <span class="o">=</span> <span class="n">local_outlier_factor</span>  <span class="c1"># sklearn&#39;s LocalOutlierFactor</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model_per_source</span> <span class="o">=</span> <span class="p">{}</span>  <span class="c1"># Stores trained models per source</span>
+</pre></div>
+</div>
+<p><strong>Training Phase:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">historic_data</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">],</span>
+        <span class="n">historic_sources</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
+        <span class="n">event_data</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Train LOF model on each data source.&quot;&quot;&quot;</span>
+    <span class="k">for</span> <span class="n">data</span><span class="p">,</span> <span class="n">source</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">historic_data</span><span class="p">,</span> <span class="n">historic_sources</span><span class="p">):</span>
+        <span class="c1"># Create model with novelty=True for out-of-distribution detection</span>
+        <span class="n">model</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">clf_class</span><span class="p">(</span><span class="n">novelty</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">initial_args</span><span class="p">,</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">initial_kwargs</span><span class="p">)</span>
+        <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model_per_source</span><span class="p">[</span><span class="n">source</span><span class="p">]</span> <span class="o">=</span> <span class="n">model</span>
+</pre></div>
+</div>
+<p><strong>Key Parameters:</strong>
+- <code class="docutils literal notranslate"><span class="pre">novelty=True</span></code> — Switches to novelty detection (one-class classification)
+- <code class="docutils literal notranslate"><span class="pre">n_neighbors</span></code> — Number of neighbors for local density (default: 20)
+- <code class="docutils literal notranslate"><span class="pre">contamination</span></code> — Expected fraction of anomalies (default: auto)</p>
+<p><strong>Prediction Phase:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target_data</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">source</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">event_data</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">float</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Score test data against trained LOF model.&quot;&quot;&quot;</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model_per_source</span><span class="p">[</span><span class="n">source</span><span class="p">]</span>
+    <span class="c1"># score_samples returns decision scores (negative = anomaly)</span>
+    <span class="n">scores</span> <span class="o">=</span> <span class="o">-</span><span class="n">model</span><span class="o">.</span><span class="n">score_samples</span><span class="p">(</span><span class="n">target_data</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">scores</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="creating-your-own-semi-supervised-method">
+<h2>Creating Your Own Semi-Supervised Method<a class="headerlink" href="#creating-your-own-semi-supervised-method" title="Link to this heading">#</a></h2>
+<p>Follow this template:</p>
+<p><strong>Step 1: Create File</strong></p>
+<p>Create <code class="docutils literal notranslate"><span class="pre">pdmlabs/method/my_semi_supervised_method.py</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.base</span><span class="w"> </span><span class="kn">import</span> <span class="n">BaseEstimator</span>  <span class="c1"># Your chosen algorithm</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">pdmlabs.method.semi_supervised_method</span><span class="w"> </span><span class="kn">import</span> <span class="n">SemiSupervisedMethodInterface</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pdmlabs.pdm_evaluation_types.types</span><span class="w"> </span><span class="kn">import</span> <span class="n">EventPreferences</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">MySemiSupervisedMethod</span><span class="p">(</span><span class="n">SemiSupervisedMethodInterface</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Describe your semi-supervised anomaly detection method.</span>
+
+<span class="sd">    This method learns normal behavior from clean training data,</span>
+<span class="sd">    then detects anomalies as deviations from the learned model.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">event_preferences</span><span class="p">:</span> <span class="n">EventPreferences</span><span class="p">,</span>
+                 <span class="n">n_neighbors</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">20</span><span class="p">,</span>
+                 <span class="n">contamination</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;auto&#39;</span><span class="p">,</span>
+                 <span class="o">*</span><span class="n">args</span><span class="p">,</span>
+                 <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">event_preferences</span><span class="o">=</span><span class="n">event_preferences</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">n_neighbors</span> <span class="o">=</span> <span class="n">n_neighbors</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">contamination</span> <span class="o">=</span> <span class="n">contamination</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">initial_args</span> <span class="o">=</span> <span class="n">args</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">initial_kwargs</span> <span class="o">=</span> <span class="n">kwargs</span>
+
+        <span class="c1"># Important: Clean up framework-specific parameters</span>
+        <span class="k">if</span> <span class="s1">&#39;profile_size&#39;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">initial_kwargs</span><span class="p">:</span>
+            <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">initial_kwargs</span><span class="p">[</span><span class="s1">&#39;profile_size&#39;</span><span class="p">]</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">model_per_source</span> <span class="o">=</span> <span class="p">{}</span>  <span class="c1"># Will store trained models</span>
+</pre></div>
+</div>
+<p><strong>Step 2: Implement fit()</strong></p>
+<p>Train on clean profiles (one model per source):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">historic_data</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">],</span>
+        <span class="n">historic_sources</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
+        <span class="n">event_data</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Train anomaly detector on clean historical data.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        historic_data: List of training DataFrames (one per source).</span>
+<span class="sd">            Each represents clean operation periods.</span>
+<span class="sd">        historic_sources: List of source names (e.g., [&#39;bearing_1&#39;, &#39;bearing_2&#39;])</span>
+<span class="sd">        event_data: Event log for reference (optional)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">for</span> <span class="n">data</span><span class="p">,</span> <span class="n">source</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">historic_data</span><span class="p">,</span> <span class="n">historic_sources</span><span class="p">):</span>
+        <span class="c1"># Initialize model for this source</span>
+        <span class="n">model</span> <span class="o">=</span> <span class="n">SomeAlgorithm</span><span class="p">(</span>
+            <span class="n">n_neighbors</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">n_neighbors</span><span class="p">,</span>
+            <span class="n">contamination</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">contamination</span><span class="p">,</span>
+            <span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">initial_args</span><span class="p">,</span>
+            <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">initial_kwargs</span>
+        <span class="p">)</span>
+
+        <span class="c1"># Train on clean profile data</span>
+        <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+        <span class="c1"># Store for later prediction</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model_per_source</span><span class="p">[</span><span class="n">source</span><span class="p">]</span> <span class="o">=</span> <span class="n">model</span>
+</pre></div>
+</div>
+<p><strong>Step 3: Implement predict()</strong></p>
+<p>Score test data using trained models:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target_data</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">source</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">event_data</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">float</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Score all test samples against trained model for source.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        target_data: Test features (rows=samples, cols=features)</span>
+<span class="sd">        source: Source identifier to look up trained model</span>
+<span class="sd">        event_data: Event log (optional reference)</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        List of anomaly scores (higher = more anomalous)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">source</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">model_per_source</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;No model trained for source &#39;</span><span class="si">{</span><span class="n">source</span><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="p">)</span>
+
+    <span class="n">model</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model_per_source</span><span class="p">[</span><span class="n">source</span><span class="p">]</span>
+
+    <span class="c1"># Get anomaly scores (method-specific)</span>
+    <span class="c1"># Most sklearn detectors: score_samples() returns decision scores</span>
+    <span class="n">scores</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">score_samples</span><span class="p">(</span><span class="n">target_data</span><span class="p">)</span>
+
+    <span class="c1"># Ensure higher = more anomalous (negate if needed)</span>
+    <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="s1">&#39;_invert_scores&#39;</span><span class="p">):</span>
+        <span class="n">scores</span> <span class="o">=</span> <span class="o">-</span><span class="n">scores</span>
+
+    <span class="k">return</span> <span class="n">scores</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><strong>Step 4: Implement predict_one()</strong></p>
+<p>Score single samples (for online/incremental experiments):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">predict_one</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">new_sample</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">,</span> <span class="n">source</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">is_event</span><span class="p">:</span> <span class="nb">bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Score a single new sample.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        new_sample: Single sample as pandas Series</span>
+<span class="sd">        source: Source identifier</span>
+<span class="sd">        is_event: Whether marked as event (context only)</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Anomaly score for the sample</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">source</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">model_per_source</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;No model trained for source &#39;</span><span class="si">{</span><span class="n">source</span><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="p">)</span>
+
+    <span class="n">model</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model_per_source</span><span class="p">[</span><span class="n">source</span><span class="p">]</span>
+
+    <span class="c1"># Convert to expected shape</span>
+    <span class="n">sample_array</span> <span class="o">=</span> <span class="n">new_sample</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="c1"># Score using same logic as batch predict</span>
+    <span class="n">score</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">score_samples</span><span class="p">(</span><span class="n">sample_array</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="s1">&#39;_invert_scores&#39;</span><span class="p">):</span>
+        <span class="n">score</span> <span class="o">=</span> <span class="o">-</span><span class="n">score</span>
+
+    <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="n">score</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Step 5: Implement get_params()</strong></p>
+<p>Return configuration for reproducibility:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_params</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Return all hyperparameters.&quot;&quot;&quot;</span>
+    <span class="c1"># Get params from first trained model as reference</span>
+    <span class="n">first_source</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model_per_source</span><span class="o">.</span><span class="n">keys</span><span class="p">())[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model_per_source</span><span class="p">[</span><span class="n">first_source</span><span class="p">]</span>
+
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="o">**</span><span class="n">model</span><span class="o">.</span><span class="n">get_params</span><span class="p">(),</span>  <span class="c1"># Include underlying algorithm params</span>
+        <span class="s1">&#39;n_neighbors&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_neighbors</span><span class="p">,</span>
+        <span class="s1">&#39;contamination&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">contamination</span><span class="p">,</span>
+    <span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Step 6: Implement __str__(), get_library(), get_all_models()</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Human-readable method name.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="s1">&#39;MySemiSupervisedMethod&#39;</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">get_library</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Return library for serialization.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="s1">&#39;no_save&#39;</span>  <span class="c1"># or your library name</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">get_all_models</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Return trained models for export (optional).&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">model_per_source</span>
+</pre></div>
+</div>
+</section>
+<section id="testing-your-implementation">
+<h2>Testing Your Implementation<a class="headerlink" href="#testing-your-implementation" title="Link to this heading">#</a></h2>
+<p>With your dataset prepared, test your custom semi-supervised method using <code class="docutils literal notranslate"><span class="pre">run_experiment</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pdmlabs.utils.dataset</span><span class="w"> </span><span class="kn">import</span> <span class="n">Dataset</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pdmlabs.experiment.batch.auto_profile_semi_supervised_experiment</span><span class="w"> </span><span class="kn">import</span> <span class="n">AutoProfileSemiSupervisedPdMExperiment</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pdmlabs.RunExperiment</span><span class="w"> </span><span class="kn">import</span> <span class="n">run_experiment</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">my_semi_supervised_method</span><span class="w"> </span><span class="kn">import</span> <span class="n">MySemiSupervisedMethod</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pdmlabs.pdm_evaluation_types.types</span><span class="w"> </span><span class="kn">import</span> <span class="n">EventPreferences</span>
+
+<span class="c1"># 1. Load data (clean profiles for training)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;your_data.csv&#39;</span><span class="p">)</span>
+<span class="n">dataset_handler</span> <span class="o">=</span> <span class="n">Dataset</span><span class="p">(</span>
+    <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span>
+    <span class="n">datetime_column</span><span class="o">=</span><span class="s2">&quot;timestamp&quot;</span><span class="p">,</span>
+    <span class="n">source_column</span><span class="o">=</span><span class="s2">&quot;source&quot;</span><span class="p">,</span>
+    <span class="n">train_sources</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span>
+    <span class="n">val_sources</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span>
+    <span class="n">test_sources</span><span class="o">=</span><span class="mf">0.2</span>
+<span class="p">)</span>
+<span class="n">ds_semi</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">dataset_handler</span><span class="o">.</span><span class="n">get_semi_dataset</span><span class="p">()</span>
+
+<span class="c1"># 2. Define hyperparameters for your method</span>
+<span class="n">method_param_space</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;n_neighbors&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">15</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">25</span><span class="p">],</span>
+    <span class="s1">&#39;contamination&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;auto&#39;</span><span class="p">],</span>
+<span class="p">}</span>
+
+<span class="c1"># 3. Run experiment with run_experiment</span>
+<span class="n">best_params</span> <span class="o">=</span> <span class="n">run_experiment</span><span class="p">(</span>
+    <span class="n">dataset</span><span class="o">=</span><span class="n">ds_semi</span><span class="p">,</span>
+    <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="n">MySemiSupervisedMethod</span><span class="p">],</span>
+    <span class="n">param_space_dict_per_method</span><span class="o">=</span><span class="p">[</span><span class="n">method_param_space</span><span class="p">],</span>
+    <span class="n">method_names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;MySemiSupervisedMethod&#39;</span><span class="p">],</span>
+    <span class="n">experiments</span><span class="o">=</span><span class="p">[</span><span class="n">AutoProfileSemiSupervisedPdMExperiment</span><span class="p">],</span>
+    <span class="n">experiment_names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;AutoProfile&#39;</span><span class="p">],</span>
+    <span class="n">MAX_RUNS</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+    <span class="n">MAX_JOBS</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+    <span class="n">INITIAL_RANDOM</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+    <span class="n">profile_size</span><span class="o">=</span><span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span>
+    <span class="n">fit_size</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+    <span class="n">optimization_param</span><span class="o">=</span><span class="s1">&#39;AD1_AUC&#39;</span>
+<span class="p">)</span>
+
+<span class="c1"># 5. Check results</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Best parameters: </span><span class="si">{</span><span class="n">best_params</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="next-steps">
+<h2>Next Steps<a class="headerlink" href="#next-steps" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Review <code class="docutils literal notranslate"><span class="pre">LocalOutlierFactor</span></code> source code in <code class="docutils literal notranslate"><span class="pre">pdmlabs/method/lof_semi.py</span></code></p></li>
+<li><p>Explore parameter generation in <code class="docutils literal notranslate"><span class="pre">pdmlabs/utils/automatic_parameter_generation.py::online_technique()</span></code></p></li>
+<li><p>Check dataset structure in <code class="docutils literal notranslate"><span class="pre">pdmlabs/utils/dataset.py::get_semi_dataset()</span></code></p></li>
+</ul>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="01_unsupervised_method.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">🔍 Implementing Unsupervised Methods</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="03_classification_method.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">🎯 Implementing Classification Methods</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interface-overview">Interface Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#required-methods">Required Methods</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-local-outlier-factor-semi-supervised">Example: Local Outlier Factor Semi-Supervised</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-your-own-semi-supervised-method">Creating Your Own Semi-Supervised Method</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#testing-your-implementation">Testing Your Implementation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#next-steps">Next Steps</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Anastasios Papadopoulos, Apostolos Giannoulidis, DataLab Auth
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026, Anastasios Papadopoulos, Apostolos Giannoulidis, DataLab Auth.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    <p class="last-updated">
+  Last updated on May 01, 2026.
+  <br/>
+</p>
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

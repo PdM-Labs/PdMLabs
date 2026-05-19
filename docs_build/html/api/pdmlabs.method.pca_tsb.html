@@ -1,0 +1,987 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>pdmlabs.method.pca_tsb &#8212; PdMLabs Documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles.css?v=2b15ee4a" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=e645c8fa"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'api/pdmlabs.method.pca_tsb';</script>
+    <link rel="icon" href="../_static/PdMLabs_logo.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="pdmlabs.method.profile_based" href="pdmlabs.method.profile_based.html" />
+    <link rel="prev" title="pdmlabs.method.ocsvm" href="pdmlabs.method.ocsvm.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+    <meta name="docbuild:last-update" content="May 01, 2026"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/PdMLabs_logo.png" class="logo__image only-light" alt="PdMLabs Documentation - Home"/>
+    <script>document.write(`<img src="../_static/PdMLabs_logo.png" class="logo__image only-dark" alt="PdMLabs Documentation - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../index.html">🏠 Home</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">📜 Our Manifesto</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../concepts/index.html">📚 Concepts</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/experiment_flavors_analysis.html">Analysis of PdMLabs Experiment Flavors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/evaluation.html">Evaluation &amp; Metrics</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/index.html">🚀 Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/index.html">💡 Examples</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../user-guide/index.html">📖 User Guide</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../user-guide/implementing-methods/index.html">🛠️ Implementing Custom Methods</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../user-guide/implementing-methods/01_unsupervised_method.html">🔍 Implementing Unsupervised Methods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user-guide/implementing-methods/02_semi_supervised_method.html">📊 Implementing Semi-Supervised Methods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user-guide/implementing-methods/03_classification_method.html">🎯 Implementing Classification Methods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user-guide/implementing-methods/04_rul_regression_method.html">⏱️ Implementing RUL Regression Methods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user-guide/implementing-methods/05_survival_analysis_method.html">🧬 Implementing Survival Analysis Methods</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../user-guide/implementing-methods/01_unsupervised_method.html">🔍 Implementing Unsupervised Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user-guide/implementing-methods/02_semi_supervised_method.html">📊 Implementing Semi-Supervised Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user-guide/implementing-methods/03_classification_method.html">🎯 Implementing Classification Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user-guide/implementing-methods/04_rul_regression_method.html">⏱️ Implementing RUL Regression Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user-guide/implementing-methods/05_survival_analysis_method.html">🧬 Implementing Survival Analysis Methods</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../api-reference.html">📖 API Reference</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="pdmlabs.html">pdmlabs</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="pdmlabs.RunExperiment.html">pdmlabs.RunExperiment</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="pdmlabs.constraint_functions.html">pdmlabs.constraint_functions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.constraint_functions.constraint.html">pdmlabs.constraint_functions.constraint</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="pdmlabs.evaluation.html">pdmlabs.evaluation</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.evaluation.anomaly_evaluator.html">pdmlabs.evaluation.anomaly_evaluator</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.evaluation.default_evaluators.html">pdmlabs.evaluation.default_evaluators</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.evaluation.evaluation.html">pdmlabs.evaluation.evaluation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.evaluation.evaluator.html">pdmlabs.evaluation.evaluator</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.evaluation.metrics_utils.html">pdmlabs.evaluation.metrics_utils</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.evaluation.vus.html">pdmlabs.evaluation.vus</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="pdmlabs.exceptions.html">pdmlabs.exceptions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.exceptions.exception.html">pdmlabs.exceptions.exception</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="pdmlabs.experiment.html">pdmlabs.experiment</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.experiment.batch.html">pdmlabs.experiment.batch</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.experiment.experiment.html">pdmlabs.experiment.experiment</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.experiment.streaming.html">pdmlabs.experiment.streaming</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="pdmlabs.loadAnomalyDetectionDataset.html">pdmlabs.loadAnomalyDetectionDataset</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="pdmlabs.mango.html">pdmlabs.mango</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.mango.domain.html">pdmlabs.mango.domain</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.mango.metatuner.html">pdmlabs.mango.metatuner</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.mango.optimizer.html">pdmlabs.mango.optimizer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.mango.scheduler.html">pdmlabs.mango.scheduler</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.mango.tuner.html">pdmlabs.mango.tuner</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 current active has-children"><a class="reference internal" href="pdmlabs.method.html">pdmlabs.method</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.CoxModel.html">pdmlabs.method.CoxModel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.DAMP.html">pdmlabs.method.DAMP</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.PCA.html">pdmlabs.method.PCA</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.PCA_uns.html">pdmlabs.method.PCA_uns</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.TranAD.html">pdmlabs.method.TranAD</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.USAD.html">pdmlabs.method.USAD</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.dist_k_Semi.html">pdmlabs.method.dist_k_Semi</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.distance_based_k_r_Core.html">pdmlabs.method.distance_based_k_r_Core</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.dummy_all.html">pdmlabs.method.dummy_all</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.dummy_increase.html">pdmlabs.method.dummy_increase</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.isolation_forest.html">pdmlabs.method.isolation_forest</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.isolation_forest_uns.html">pdmlabs.method.isolation_forest_uns</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.lof_semi.html">pdmlabs.method.lof_semi</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.lof_uns.html">pdmlabs.method.lof_uns</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.method.html">pdmlabs.method.method</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.ocsvm.html">pdmlabs.method.ocsvm</a></li>
+<li class="toctree-l4 current active"><a class="current reference internal" href="#">pdmlabs.method.pca_tsb</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.profile_based.html">pdmlabs.method.profile_based</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.semi_supervised_method.html">pdmlabs.method.semi_supervised_method</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.sklearn_regression_wraper.html">pdmlabs.method.sklearn_regression_wraper</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.supervised_method.html">pdmlabs.method.supervised_method</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.unsupervised_method.html">pdmlabs.method.unsupervised_method</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.xgboost.html">pdmlabs.method.xgboost</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.xgboostRUL.html">pdmlabs.method.xgboostRUL</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="pdmlabs.pdm_evaluation_types.html">pdmlabs.pdm_evaluation_types</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.pdm_evaluation_types.types.html">pdmlabs.pdm_evaluation_types.types</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="pdmlabs.pipeline.html">pdmlabs.pipeline</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.pipeline.mlflow_pipeline.html">pdmlabs.pipeline.mlflow_pipeline</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.pipeline.pipeline.html">pdmlabs.pipeline.pipeline</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="pdmlabs.postprocessing.html">pdmlabs.postprocessing</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.postprocessing.Moving2T.html">pdmlabs.postprocessing.Moving2T</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.postprocessing.causeFeatureSelection.html">pdmlabs.postprocessing.causeFeatureSelection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.postprocessing.default.html">pdmlabs.postprocessing.default</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.postprocessing.dynamicth.html">pdmlabs.postprocessing.dynamicth</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.postprocessing.min_max_scaler.html">pdmlabs.postprocessing.min_max_scaler</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.postprocessing.moving_average.html">pdmlabs.postprocessing.moving_average</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.postprocessing.post_processor.html">pdmlabs.postprocessing.post_processor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.postprocessing.self_tuning.html">pdmlabs.postprocessing.self_tuning</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="pdmlabs.preprocessing.html">pdmlabs.preprocessing</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.preprocessing.record_level.html">pdmlabs.preprocessing.record_level</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="pdmlabs.thresholding.html">pdmlabs.thresholding</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.thresholding.SurvSuperVisedTH.html">pdmlabs.thresholding.SurvSuperVisedTH</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.thresholding.constant.html">pdmlabs.thresholding.constant</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.thresholding.thresholder.html">pdmlabs.thresholding.thresholder</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="pdmlabs.utils.html">pdmlabs.utils</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.utils.automatic_parameter_generation.html">pdmlabs.utils.automatic_parameter_generation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.utils.dataset.html">pdmlabs.utils.dataset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.utils.distance.html">pdmlabs.utils.distance</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.utils.distances.html">pdmlabs.utils.distances</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.utils.rul_transformations.html">pdmlabs.utils.rul_transformations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.utils.utils.html">pdmlabs.utils.utils</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/PdMLabs/PdMLabs" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/api/pdmlabs.method.pca_tsb.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>pdmlabs.method.pca_tsb</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.method.pca_tsb.PCA"><code class="docutils literal notranslate"><span class="pre">PCA</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.method.pca_tsb.PCA.components_"><code class="docutils literal notranslate"><span class="pre">PCA.components_</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.method.pca_tsb.PCA.explained_variance_"><code class="docutils literal notranslate"><span class="pre">PCA.explained_variance_</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.method.pca_tsb.PCA.explained_variance_ratio_"><code class="docutils literal notranslate"><span class="pre">PCA.explained_variance_ratio_</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.method.pca_tsb.PCA.singular_values_"><code class="docutils literal notranslate"><span class="pre">PCA.singular_values_</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.method.pca_tsb.PCA.mean_"><code class="docutils literal notranslate"><span class="pre">PCA.mean_</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.method.pca_tsb.PCA.n_components_"><code class="docutils literal notranslate"><span class="pre">PCA.n_components_</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.method.pca_tsb.PCA.noise_variance_"><code class="docutils literal notranslate"><span class="pre">PCA.noise_variance_</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.method.pca_tsb.PCA.decision_scores_"><code class="docutils literal notranslate"><span class="pre">PCA.decision_scores_</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.method.pca_tsb.PCA.threshold_"><code class="docutils literal notranslate"><span class="pre">PCA.threshold_</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.method.pca_tsb.PCA.labels_"><code class="docutils literal notranslate"><span class="pre">PCA.labels_</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.method.pca_tsb.PCA.decision_function"><code class="docutils literal notranslate"><span class="pre">PCA.decision_function()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id0"><code class="docutils literal notranslate"><span class="pre">PCA.explained_variance_</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5"><code class="docutils literal notranslate"><span class="pre">PCA.explained_variance_ratio_</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.method.pca_tsb.PCA.fit"><code class="docutils literal notranslate"><span class="pre">PCA.fit()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6"><code class="docutils literal notranslate"><span class="pre">PCA.mean_</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7"><code class="docutils literal notranslate"><span class="pre">PCA.noise_variance_</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8"><code class="docutils literal notranslate"><span class="pre">PCA.singular_values_</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.method.pca_tsb.check_parameter"><code class="docutils literal notranslate"><span class="pre">check_parameter()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.method.pca_tsb.standardizer"><code class="docutils literal notranslate"><span class="pre">standardizer()</span></code></a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="module-pdmlabs.method.pca_tsb">
+<span id="pdmlabs-method-pca-tsb"></span><h1>pdmlabs.method.pca_tsb<a class="headerlink" href="#module-pdmlabs.method.pca_tsb" title="Link to this heading">#</a></h1>
+<p>PCA class modifed over from PYOD package</p>
+<p class="rubric">Functions</p>
+<div class="pst-scrollable-table-container"><table class="autosummary longtable table autosummary">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pdmlabs.method.pca_tsb.check_parameter" title="pdmlabs.method.pca_tsb.check_parameter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">check_parameter</span></code></a>(param[, low, high, ...])</p></td>
+<td><p>Check if an input is within the defined range.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pdmlabs.method.pca_tsb.standardizer" title="pdmlabs.method.pca_tsb.standardizer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">standardizer</span></code></a>(X[, X_t, keep_scalar])</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p class="rubric">Classes</p>
+<div class="pst-scrollable-table-container"><table class="autosummary longtable table autosummary">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pdmlabs.method.pca_tsb.PCA" title="pdmlabs.method.pca_tsb.PCA"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PCA</span></code></a>([n_components, n_selected_components, ...])</p></td>
+<td><p>Principal component analysis (PCA) can be used in detecting outliers. PCA is a linear dimensionality reduction using Singular Value Decomposition of the data to project it to a lower dimensional space. In this procedure, covariance matrix of the data can be decomposed to orthogonal vectors, called eigenvectors, associated with eigenvalues. The eigenvectors with high eigenvalues capture most of the variance in the data. Therefore, a low dimensional hyperplane constructed by k eigenvectors can capture most of the variance in the data. However, outliers are different from normal data points, which is more obvious on the hyperplane constructed by the eigenvectors with small eigenvalues. Therefore, outlier scores can be obtained as the sum of the projected distance of a sample on all eigenvectors. See <a href="#id1"><span class="problematic" id="id2">:cite:`shyu2003novel,aggarwal2015outlier`</span></a> for details. Score(X) = Sum of weighted euclidean distance between each sample to the hyperplane constructed by the selected eigenvectors :param n_components: Number of components to keep. if n_components is not set all components are kept::                          n_components == min(n_samples, n_features)                      if n_components == 'mle' and svd_solver == 'full', Minka's MLE is used                      to guess the dimension                      if <code class="docutils literal notranslate"><span class="pre">0</span> <span class="pre">&lt;</span> <span class="pre">n_components</span> <span class="pre">&lt;</span> <span class="pre">1</span></code> and svd_solver == 'full', select the number                      of components such that the amount of variance that needs to be                      explained is greater than the percentage specified by n_components                      n_components cannot be equal to n_features for svd_solver == 'arpack'. :type n_components: int, float, None or string :param n_selected_components: Number of selected principal components                               for calculating the outlier scores. It is not necessarily equal to                               the total number of the principal components. If not set, use                               all principal components. :type n_selected_components: int, optional (default=None) :param contamination: The amount of contamination of the data set, i.e. the proportion of outliers in the data set. Used when fitting to                       define the threshold on the decision function. :type contamination: float in (0., 0.5), optional (default=0.1) :param copy: If False, data passed to fit are overwritten and running              fit(X).transform(X) will not yield the expected results,              use fit_transform(X) instead. :type copy: bool (default True) :param whiten: When True (False by default) the <cite>components_</cite> vectors are multiplied                by the square root of n_samples and then divided by the singular values                to ensure uncorrelated outputs with unit component-wise variances. Whitening will remove some information from the transformed signal                (the relative variance scales of the components) but can sometime                improve the predictive accuracy of the downstream estimators by                making their data respect some hard-wired assumptions. :type whiten: bool, optional (default False) :param svd_solver:                    auto :                        the solver is selected by a default policy based on <cite>X.shape</cite> and                        <cite>n_components</cite>: if the input data is larger than 500x500 and the                        number of components to extract is lower than 80% of the smallest                        dimension of the data, then the more efficient 'randomized'                        method is enabled. Otherwise the exact full SVD is computed and                        optionally truncated afterwards. full :                        run exact full SVD calling the standard LAPACK solver via                        <cite>scipy.linalg.svd</cite> and select the components by postprocessing                    arpack :                        run SVD truncated to n_components calling ARPACK solver via                        <cite>scipy.sparse.linalg.svds</cite>. It requires strictly                        0 &lt; n_components &lt; X.shape[1]                    randomized :                        run randomized SVD by the method of Halko et al. :type svd_solver: string {'auto', 'full', 'arpack', 'randomized'} :param tol: Tolerance for singular values computed by svd_solver == 'arpack'. :type tol: float &gt;= 0, optional (default .0) :param iterated_power: Number of iterations for the power method computed by                        svd_solver == 'randomized'. :type iterated_power: int &gt;= 0, or 'auto', (default 'auto') :param random_state: If int, random_state is the seed used by the random number generator;                      If RandomState instance, random_state is the random number generator;                      If None, the random number generator is the RandomState instance used                      by <cite>np.random</cite>. Used when <code class="docutils literal notranslate"><span class="pre">svd_solver</span></code> == 'arpack' or 'randomized'. :type random_state: int, RandomState instance or None, optional (default None) :param weighted: If True, the eigenvalues are used in score computation. The eigenvectors with small eigenvalues comes with more importance                  in outlier score calculation. :type weighted: bool, optional (default=True) :param standardization: If True, perform standardization first to convert                         data to zero mean and unit variance. See <a class="reference external" href="http://scikit-learn.org/stable/auto_examples/preprocessing/plot_scaling_importance.html">http://scikit-learn.org/stable/auto_examples/preprocessing/plot_scaling_importance.html</a> :type standardization: bool, optional (default=True).</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<dl class="py class">
+<dt class="sig sig-object py" id="pdmlabs.method.pca_tsb.PCA">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pdmlabs.method.pca_tsb.</span></span><span class="sig-name descname"><span class="pre">PCA</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_components</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_selected_components</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">contamination</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">copy</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">whiten</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">svd_solver</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'auto'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tol</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iterated_power</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'auto'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weighted</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">standardization</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pdmlabs.method.pca_tsb.PCA" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Principal component analysis (PCA) can be used in detecting outliers.
+PCA is a linear dimensionality reduction using Singular Value Decomposition
+of the data to project it to a lower dimensional space.
+In this procedure, covariance matrix of the data can be decomposed to
+orthogonal vectors, called eigenvectors, associated with eigenvalues. The
+eigenvectors with high eigenvalues capture most of the variance in the
+data.
+Therefore, a low dimensional hyperplane constructed by k eigenvectors can
+capture most of the variance in the data. However, outliers are different
+from normal data points, which is more obvious on the hyperplane
+constructed by the eigenvectors with small eigenvalues.
+Therefore, outlier scores can be obtained as the sum of the projected
+distance of a sample on all eigenvectors.
+See <a href="#id3"><span class="problematic" id="id4">:cite:`shyu2003novel,aggarwal2015outlier`</span></a> for details.
+Score(X) = Sum of weighted euclidean distance between each sample to the
+hyperplane constructed by the selected eigenvectors
+:param n_components: Number of components to keep.</p>
+<blockquote>
+<div><dl class="simple">
+<dt>if n_components is not set all components are kept::</dt><dd><p>n_components == min(n_samples, n_features)</p>
+</dd>
+</dl>
+<p>if n_components == ‘mle’ and svd_solver == ‘full’, Minka’s MLE is used
+to guess the dimension
+if <code class="docutils literal notranslate"><span class="pre">0</span> <span class="pre">&lt;</span> <span class="pre">n_components</span> <span class="pre">&lt;</span> <span class="pre">1</span></code> and svd_solver == ‘full’, select the number
+of components such that the amount of variance that needs to be
+explained is greater than the percentage specified by n_components
+n_components cannot be equal to n_features for svd_solver == ‘arpack’.</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>n_selected_components</strong> (<em>int</em><em>, </em><em>optional</em><em> (</em><em>default=None</em><em>)</em>) – Number of selected principal components
+for calculating the outlier scores. It is not necessarily equal to
+the total number of the principal components. If not set, use
+all principal components.</p></li>
+<li><p><strong>contamination</strong> (<em>float in</em><em> (</em><em>0.</em><em>, </em><em>0.5</em><em>)</em><em>, </em><em>optional</em><em> (</em><em>default=0.1</em><em>)</em>) – The amount of contamination of the data set, i.e.
+the proportion of outliers in the data set. Used when fitting to
+define the threshold on the decision function.</p></li>
+<li><p><strong>copy</strong> (<em>bool</em><em> (</em><em>default True</em><em>)</em>) – If False, data passed to fit are overwritten and running
+fit(X).transform(X) will not yield the expected results,
+use fit_transform(X) instead.</p></li>
+<li><p><strong>whiten</strong> (<em>bool</em><em>, </em><em>optional</em><em> (</em><em>default False</em><em>)</em>) – When True (False by default) the <cite>components_</cite> vectors are multiplied
+by the square root of n_samples and then divided by the singular values
+to ensure uncorrelated outputs with unit component-wise variances.
+Whitening will remove some information from the transformed signal
+(the relative variance scales of the components) but can sometime
+improve the predictive accuracy of the downstream estimators by
+making their data respect some hard-wired assumptions.</p></li>
+<li><p><strong>svd_solver</strong> (<em>string {'auto'</em><em>, </em><em>'full'</em><em>, </em><em>'arpack'</em><em>, </em><em>'randomized'}</em>) – <dl class="simple">
+<dt>auto :</dt><dd><p>the solver is selected by a default policy based on <cite>X.shape</cite> and
+<cite>n_components</cite>: if the input data is larger than 500x500 and the
+number of components to extract is lower than 80% of the smallest
+dimension of the data, then the more efficient ‘randomized’
+method is enabled. Otherwise the exact full SVD is computed and
+optionally truncated afterwards.</p>
+</dd>
+<dt>full :</dt><dd><p>run exact full SVD calling the standard LAPACK solver via
+<cite>scipy.linalg.svd</cite> and select the components by postprocessing</p>
+</dd>
+<dt>arpack :</dt><dd><p>run SVD truncated to n_components calling ARPACK solver via
+<cite>scipy.sparse.linalg.svds</cite>. It requires strictly
+0 &lt; n_components &lt; X.shape[1]</p>
+</dd>
+<dt>randomized :</dt><dd><p>run randomized SVD by the method of Halko et al.</p>
+</dd>
+</dl>
+</p></li>
+<li><p><strong>tol</strong> (<em>float &gt;= 0</em><em>, </em><em>optional</em><em> (</em><em>default .0</em><em>)</em>) – Tolerance for singular values computed by svd_solver == ‘arpack’.</p></li>
+<li><p><strong>iterated_power</strong> (<em>int &gt;= 0</em><em>, or </em><em>'auto'</em><em>, </em><em>(</em><em>default 'auto'</em><em>)</em>) – Number of iterations for the power method computed by
+svd_solver == ‘randomized’.</p></li>
+<li><p><strong>random_state</strong> (<em>int</em><em>, </em><em>RandomState instance</em><em> or </em><em>None</em><em>, </em><em>optional</em><em> (</em><em>default None</em><em>)</em>) – If int, random_state is the seed used by the random number generator;
+If RandomState instance, random_state is the random number generator;
+If None, the random number generator is the RandomState instance used
+by <cite>np.random</cite>. Used when <code class="docutils literal notranslate"><span class="pre">svd_solver</span></code> == ‘arpack’ or ‘randomized’.</p></li>
+<li><p><strong>weighted</strong> (<em>bool</em><em>, </em><em>optional</em><em> (</em><em>default=True</em><em>)</em>) – If True, the eigenvalues are used in score computation.
+The eigenvectors with small eigenvalues comes with more importance
+in outlier score calculation.</p></li>
+<li><p><strong>standardization</strong> (<em>bool</em><em>, </em><em>optional</em><em> (</em><em>default=True</em><em>)</em>) – If True, perform standardization first to convert
+data to zero mean and unit variance.
+See <a class="reference external" href="http://scikit-learn.org/stable/auto_examples/preprocessing/plot_scaling_importance.html">http://scikit-learn.org/stable/auto_examples/preprocessing/plot_scaling_importance.html</a></p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pdmlabs.method.pca_tsb.PCA.components_">
+<span class="sig-name descname"><span class="pre">components_</span></span><a class="headerlink" href="#pdmlabs.method.pca_tsb.PCA.components_" title="Link to this definition">#</a></dt>
+<dd><p>Principal axes in feature space, representing the directions of
+maximum variance in the data. The components are sorted by
+<code class="docutils literal notranslate"><span class="pre">explained_variance_</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>array, shape (n_components, n_features)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pdmlabs.method.pca_tsb.PCA.explained_variance_">
+<span class="sig-name descname"><span class="pre">explained_variance_</span></span><a class="headerlink" href="#pdmlabs.method.pca_tsb.PCA.explained_variance_" title="Link to this definition">#</a></dt>
+<dd><p>The amount of variance explained by each of the selected components.
+Equal to n_components largest eigenvalues
+of the covariance matrix of X.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>array, shape (n_components,)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pdmlabs.method.pca_tsb.PCA.explained_variance_ratio_">
+<span class="sig-name descname"><span class="pre">explained_variance_ratio_</span></span><a class="headerlink" href="#pdmlabs.method.pca_tsb.PCA.explained_variance_ratio_" title="Link to this definition">#</a></dt>
+<dd><p>Percentage of variance explained by each of the selected components.
+If <code class="docutils literal notranslate"><span class="pre">n_components</span></code> is not set then all components are stored and the
+sum of explained variances is equal to 1.0.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>array, shape (n_components,)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pdmlabs.method.pca_tsb.PCA.singular_values_">
+<span class="sig-name descname"><span class="pre">singular_values_</span></span><a class="headerlink" href="#pdmlabs.method.pca_tsb.PCA.singular_values_" title="Link to this definition">#</a></dt>
+<dd><p>The singular values corresponding to each of the selected components.
+The singular values are equal to the 2-norms of the <code class="docutils literal notranslate"><span class="pre">n_components</span></code>
+variables in the lower-dimensional space.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>array, shape (n_components,)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pdmlabs.method.pca_tsb.PCA.mean_">
+<span class="sig-name descname"><span class="pre">mean_</span></span><a class="headerlink" href="#pdmlabs.method.pca_tsb.PCA.mean_" title="Link to this definition">#</a></dt>
+<dd><p>Per-feature empirical mean, estimated from the training set.
+Equal to <cite>X.mean(axis=0)</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>array, shape (n_features,)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pdmlabs.method.pca_tsb.PCA.n_components_">
+<span class="sig-name descname"><span class="pre">n_components_</span></span><a class="headerlink" href="#pdmlabs.method.pca_tsb.PCA.n_components_" title="Link to this definition">#</a></dt>
+<dd><p>The estimated number of components. When n_components is set
+to ‘mle’ or a number between 0 and 1 (with svd_solver == ‘full’) this
+number is estimated from input data. Otherwise it equals the parameter
+n_components, or n_features if n_components is None.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pdmlabs.method.pca_tsb.PCA.noise_variance_">
+<span class="sig-name descname"><span class="pre">noise_variance_</span></span><a class="headerlink" href="#pdmlabs.method.pca_tsb.PCA.noise_variance_" title="Link to this definition">#</a></dt>
+<dd><p>The estimated noise covariance following the Probabilistic PCA model
+from Tipping and Bishop 1999. See “Pattern Recognition and
+Machine Learning” by C. Bishop, 12.2.1 p. 574 or
+<a class="reference external" href="http://www.miketipping.com/papers/met-mppca.pdf">http://www.miketipping.com/papers/met-mppca.pdf</a>. It is required to
+computed the estimated data covariance and score samples.
+Equal to the average of (min(n_features, n_samples) - n_components)
+smallest eigenvalues of the covariance matrix of X.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pdmlabs.method.pca_tsb.PCA.decision_scores_">
+<span class="sig-name descname"><span class="pre">decision_scores_</span></span><a class="headerlink" href="#pdmlabs.method.pca_tsb.PCA.decision_scores_" title="Link to this definition">#</a></dt>
+<dd><p>The outlier scores of the training data.
+The higher, the more abnormal. Outliers tend to have higher
+scores. This value is available once the detector is fitted.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>numpy array of shape (n_samples,)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pdmlabs.method.pca_tsb.PCA.threshold_">
+<span class="sig-name descname"><span class="pre">threshold_</span></span><a class="headerlink" href="#pdmlabs.method.pca_tsb.PCA.threshold_" title="Link to this definition">#</a></dt>
+<dd><p>The threshold is based on <code class="docutils literal notranslate"><span class="pre">contamination</span></code>. It is the
+<code class="docutils literal notranslate"><span class="pre">n_samples</span> <span class="pre">*</span> <span class="pre">contamination</span></code> most abnormal samples in
+<code class="docutils literal notranslate"><span class="pre">decision_scores_</span></code>. The threshold is calculated for generating
+binary outlier labels.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pdmlabs.method.pca_tsb.PCA.labels_">
+<span class="sig-name descname"><span class="pre">labels_</span></span><a class="headerlink" href="#pdmlabs.method.pca_tsb.PCA.labels_" title="Link to this definition">#</a></dt>
+<dd><p>The binary labels of the training data. 0 stands for inliers
+and 1 for outliers/anomalies. It is generated by applying
+<code class="docutils literal notranslate"><span class="pre">threshold_</span></code> on <code class="docutils literal notranslate"><span class="pre">decision_scores_</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int, either 0 or 1</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pdmlabs.method.pca_tsb.PCA.decision_function">
+<span class="sig-name descname"><span class="pre">decision_function</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pdmlabs.method.pca_tsb.PCA.decision_function" title="Link to this definition">#</a></dt>
+<dd><p>Predict raw anomaly score of X using the fitted detector.
+The anomaly score of an input sample is computed based on different
+detector algorithms. For consistency, outliers are assigned with
+larger anomaly scores.
+:param X: The training input samples. Sparse matrices are accepted only</p>
+<blockquote>
+<div><p>if they are supported by the base estimator.</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>anomaly_scores</strong> – The anomaly score of the input samples.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>numpy array of shape (n_samples,)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="id0">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">explained_variance_</span></span><a class="headerlink" href="#id0" title="Link to this definition">#</a></dt>
+<dd><p>The amount of variance explained by each of the selected components.
+Equal to n_components largest eigenvalues
+of the covariance matrix of X.
+Decorator for scikit-learn PCA attributes.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="id5">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">explained_variance_ratio_</span></span><a class="headerlink" href="#id5" title="Link to this definition">#</a></dt>
+<dd><p>Percentage of variance explained by each of the selected components.
+If <code class="docutils literal notranslate"><span class="pre">n_components</span></code> is not set then all components are stored and the
+sum of explained variances is equal to 1.0.
+Decorator for scikit-learn PCA attributes.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pdmlabs.method.pca_tsb.PCA.fit">
+<span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pdmlabs.method.pca_tsb.PCA.fit" title="Link to this definition">#</a></dt>
+<dd><p>Fit detector. y is ignored in unsupervised methods.
+:param X: The input samples.
+:type X: numpy array of shape (n_samples, n_features)
+:param y: Not used, present for API consistency by convention.
+:type y: Ignored</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>self</strong> – Fitted estimator.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="id6">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">mean_</span></span><a class="headerlink" href="#id6" title="Link to this definition">#</a></dt>
+<dd><p>Per-feature empirical mean, estimated from the training set.
+Decorator for scikit-learn PCA attributes.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="id7">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">noise_variance_</span></span><a class="headerlink" href="#id7" title="Link to this definition">#</a></dt>
+<dd><p>The estimated noise covariance following the Probabilistic PCA model
+from Tipping and Bishop 1999. See “Pattern Recognition and
+Machine Learning” by C. Bishop, 12.2.1 p. 574 or
+<a class="reference external" href="http://www.miketipping.com/papers/met-mppca.pdf">http://www.miketipping.com/papers/met-mppca.pdf</a>. It is required to
+computed the estimated data covariance and score samples.
+Equal to the average of (min(n_features, n_samples) - n_components)
+smallest eigenvalues of the covariance matrix of X.
+Decorator for scikit-learn PCA attributes.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="id8">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">singular_values_</span></span><a class="headerlink" href="#id8" title="Link to this definition">#</a></dt>
+<dd><p>The singular values corresponding to each of the selected
+components. The singular values are equal to the 2-norms of the
+<code class="docutils literal notranslate"><span class="pre">n_components</span></code> variables in the lower-dimensional space.
+Decorator for scikit-learn PCA attributes.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pdmlabs.method.pca_tsb.check_parameter">
+<span class="sig-prename descclassname"><span class="pre">pdmlabs.method.pca_tsb.</span></span><span class="sig-name descname"><span class="pre">check_parameter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">param</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">low</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-2147483647</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">high</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2147483647</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">param_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_left</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_right</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pdmlabs.method.pca_tsb.check_parameter" title="Link to this definition">#</a></dt>
+<dd><p>Check if an input is within the defined range.
+:param param: The input parameter to check.
+:type param: int, float
+:param low: The lower bound of the range.
+:type low: int, float
+:param high: The higher bound of the range.
+:type high: int, float
+:param param_name: The name of the parameter.
+:type param_name: str, optional (default=’’)
+:param include_left: Whether includes the lower bound (lower bound &lt;=).
+:type include_left: bool, optional (default=False)
+:param include_right: Whether includes the higher bound (&lt;= higher bound).
+:type include_right: bool, optional (default=False)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>within_range</strong> – Whether the parameter is within the range of (low, high)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool or raise errors</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pdmlabs.method.pca_tsb.standardizer">
+<span class="sig-prename descclassname"><span class="pre">pdmlabs.method.pca_tsb.</span></span><span class="sig-name descname"><span class="pre">standardizer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">X_t</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keep_scalar</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pdmlabs.method.pca_tsb.standardizer" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="pdmlabs.method.ocsvm.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">pdmlabs.method.ocsvm</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="pdmlabs.method.profile_based.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">pdmlabs.method.profile_based</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.method.pca_tsb.PCA"><code class="docutils literal notranslate"><span class="pre">PCA</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.method.pca_tsb.PCA.components_"><code class="docutils literal notranslate"><span class="pre">PCA.components_</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.method.pca_tsb.PCA.explained_variance_"><code class="docutils literal notranslate"><span class="pre">PCA.explained_variance_</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.method.pca_tsb.PCA.explained_variance_ratio_"><code class="docutils literal notranslate"><span class="pre">PCA.explained_variance_ratio_</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.method.pca_tsb.PCA.singular_values_"><code class="docutils literal notranslate"><span class="pre">PCA.singular_values_</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.method.pca_tsb.PCA.mean_"><code class="docutils literal notranslate"><span class="pre">PCA.mean_</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.method.pca_tsb.PCA.n_components_"><code class="docutils literal notranslate"><span class="pre">PCA.n_components_</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.method.pca_tsb.PCA.noise_variance_"><code class="docutils literal notranslate"><span class="pre">PCA.noise_variance_</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.method.pca_tsb.PCA.decision_scores_"><code class="docutils literal notranslate"><span class="pre">PCA.decision_scores_</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.method.pca_tsb.PCA.threshold_"><code class="docutils literal notranslate"><span class="pre">PCA.threshold_</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.method.pca_tsb.PCA.labels_"><code class="docutils literal notranslate"><span class="pre">PCA.labels_</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.method.pca_tsb.PCA.decision_function"><code class="docutils literal notranslate"><span class="pre">PCA.decision_function()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id0"><code class="docutils literal notranslate"><span class="pre">PCA.explained_variance_</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5"><code class="docutils literal notranslate"><span class="pre">PCA.explained_variance_ratio_</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.method.pca_tsb.PCA.fit"><code class="docutils literal notranslate"><span class="pre">PCA.fit()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6"><code class="docutils literal notranslate"><span class="pre">PCA.mean_</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7"><code class="docutils literal notranslate"><span class="pre">PCA.noise_variance_</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8"><code class="docutils literal notranslate"><span class="pre">PCA.singular_values_</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.method.pca_tsb.check_parameter"><code class="docutils literal notranslate"><span class="pre">check_parameter()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.method.pca_tsb.standardizer"><code class="docutils literal notranslate"><span class="pre">standardizer()</span></code></a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Anastasios Papadopoulos, Apostolos Giannoulidis, DataLab Auth
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026, Anastasios Papadopoulos, Apostolos Giannoulidis, DataLab Auth.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    <p class="last-updated">
+  Last updated on May 01, 2026.
+  <br/>
+</p>
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,897 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>pdmlabs.utils.dataset &#8212; PdMLabs Documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles.css?v=2b15ee4a" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=e645c8fa"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'api/OnlineADEngine.utils.dataset';</script>
+    <link rel="icon" href="../_static/PdMLabs_logo.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+    <meta name="docbuild:last-update" content="May 01, 2026"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/PdMLabs_logo.png" class="logo__image only-light" alt="PdMLabs Documentation - Home"/>
+    <script>document.write(`<img src="../_static/PdMLabs_logo.png" class="logo__image only-dark" alt="PdMLabs Documentation - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../index.html">🏠 Home</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">📜 Our Manifesto</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../concepts/index.html">📚 Concepts</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/experiment_flavors_analysis.html">Analysis of PdMLabs Experiment Flavors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/evaluation.html">Evaluation &amp; Metrics</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/index.html">🚀 Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/index.html">💡 Examples</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../user-guide/index.html">📖 User Guide</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../user-guide/implementing-methods/index.html">🛠️ Implementing Custom Methods</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../user-guide/implementing-methods/01_unsupervised_method.html">🔍 Implementing Unsupervised Methods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user-guide/implementing-methods/02_semi_supervised_method.html">📊 Implementing Semi-Supervised Methods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user-guide/implementing-methods/03_classification_method.html">🎯 Implementing Classification Methods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user-guide/implementing-methods/04_rul_regression_method.html">⏱️ Implementing RUL Regression Methods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user-guide/implementing-methods/05_survival_analysis_method.html">🧬 Implementing Survival Analysis Methods</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../user-guide/implementing-methods/01_unsupervised_method.html">🔍 Implementing Unsupervised Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user-guide/implementing-methods/02_semi_supervised_method.html">📊 Implementing Semi-Supervised Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user-guide/implementing-methods/03_classification_method.html">🎯 Implementing Classification Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user-guide/implementing-methods/04_rul_regression_method.html">⏱️ Implementing RUL Regression Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user-guide/implementing-methods/05_survival_analysis_method.html">🧬 Implementing Survival Analysis Methods</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../api-reference.html">📖 API Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="pdmlabs.html">pdmlabs</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="pdmlabs.RunExperiment.html">pdmlabs.RunExperiment</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="pdmlabs.constraint_functions.html">pdmlabs.constraint_functions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.constraint_functions.constraint.html">pdmlabs.constraint_functions.constraint</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="pdmlabs.evaluation.html">pdmlabs.evaluation</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.evaluation.anomaly_evaluator.html">pdmlabs.evaluation.anomaly_evaluator</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.evaluation.default_evaluators.html">pdmlabs.evaluation.default_evaluators</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.evaluation.evaluation.html">pdmlabs.evaluation.evaluation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.evaluation.evaluator.html">pdmlabs.evaluation.evaluator</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.evaluation.metrics_utils.html">pdmlabs.evaluation.metrics_utils</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.evaluation.vus.html">pdmlabs.evaluation.vus</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="pdmlabs.exceptions.html">pdmlabs.exceptions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.exceptions.exception.html">pdmlabs.exceptions.exception</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="pdmlabs.experiment.html">pdmlabs.experiment</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.experiment.batch.html">pdmlabs.experiment.batch</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.experiment.experiment.html">pdmlabs.experiment.experiment</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.experiment.streaming.html">pdmlabs.experiment.streaming</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="pdmlabs.loadAnomalyDetectionDataset.html">pdmlabs.loadAnomalyDetectionDataset</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="pdmlabs.mango.html">pdmlabs.mango</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.mango.domain.html">pdmlabs.mango.domain</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.mango.metatuner.html">pdmlabs.mango.metatuner</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.mango.optimizer.html">pdmlabs.mango.optimizer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.mango.scheduler.html">pdmlabs.mango.scheduler</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.mango.tuner.html">pdmlabs.mango.tuner</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="pdmlabs.method.html">pdmlabs.method</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.CoxModel.html">pdmlabs.method.CoxModel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.DAMP.html">pdmlabs.method.DAMP</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.PCA.html">pdmlabs.method.PCA</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.PCA_uns.html">pdmlabs.method.PCA_uns</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.TranAD.html">pdmlabs.method.TranAD</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.USAD.html">pdmlabs.method.USAD</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.dist_k_Semi.html">pdmlabs.method.dist_k_Semi</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.distance_based_k_r_Core.html">pdmlabs.method.distance_based_k_r_Core</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.dummy_all.html">pdmlabs.method.dummy_all</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.dummy_increase.html">pdmlabs.method.dummy_increase</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.isolation_forest.html">pdmlabs.method.isolation_forest</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.isolation_forest_uns.html">pdmlabs.method.isolation_forest_uns</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.lof_semi.html">pdmlabs.method.lof_semi</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.lof_uns.html">pdmlabs.method.lof_uns</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.method.html">pdmlabs.method.method</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.ocsvm.html">pdmlabs.method.ocsvm</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.pca_tsb.html">pdmlabs.method.pca_tsb</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.profile_based.html">pdmlabs.method.profile_based</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.semi_supervised_method.html">pdmlabs.method.semi_supervised_method</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.sklearn_regression_wraper.html">pdmlabs.method.sklearn_regression_wraper</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.supervised_method.html">pdmlabs.method.supervised_method</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.unsupervised_method.html">pdmlabs.method.unsupervised_method</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.xgboost.html">pdmlabs.method.xgboost</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.xgboostRUL.html">pdmlabs.method.xgboostRUL</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="pdmlabs.pdm_evaluation_types.html">pdmlabs.pdm_evaluation_types</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.pdm_evaluation_types.types.html">pdmlabs.pdm_evaluation_types.types</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="pdmlabs.pipeline.html">pdmlabs.pipeline</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.pipeline.mlflow_pipeline.html">pdmlabs.pipeline.mlflow_pipeline</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.pipeline.pipeline.html">pdmlabs.pipeline.pipeline</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="pdmlabs.postprocessing.html">pdmlabs.postprocessing</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.postprocessing.Moving2T.html">pdmlabs.postprocessing.Moving2T</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.postprocessing.causeFeatureSelection.html">pdmlabs.postprocessing.causeFeatureSelection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.postprocessing.default.html">pdmlabs.postprocessing.default</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.postprocessing.dynamicth.html">pdmlabs.postprocessing.dynamicth</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.postprocessing.min_max_scaler.html">pdmlabs.postprocessing.min_max_scaler</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.postprocessing.moving_average.html">pdmlabs.postprocessing.moving_average</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.postprocessing.post_processor.html">pdmlabs.postprocessing.post_processor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.postprocessing.self_tuning.html">pdmlabs.postprocessing.self_tuning</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="pdmlabs.preprocessing.html">pdmlabs.preprocessing</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.preprocessing.record_level.html">pdmlabs.preprocessing.record_level</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="pdmlabs.thresholding.html">pdmlabs.thresholding</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.thresholding.SurvSuperVisedTH.html">pdmlabs.thresholding.SurvSuperVisedTH</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.thresholding.constant.html">pdmlabs.thresholding.constant</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.thresholding.thresholder.html">pdmlabs.thresholding.thresholder</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="pdmlabs.utils.html">pdmlabs.utils</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.utils.automatic_parameter_generation.html">pdmlabs.utils.automatic_parameter_generation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.utils.dataset.html">pdmlabs.utils.dataset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.utils.distance.html">pdmlabs.utils.distance</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.utils.distances.html">pdmlabs.utils.distances</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.utils.rul_transformations.html">pdmlabs.utils.rul_transformations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.utils.utils.html">pdmlabs.utils.utils</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/PdMLabs/PdMLabs" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/api/OnlineADEngine.utils.dataset.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>pdmlabs.utils.dataset</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.utils.dataset.Dataset"><code class="docutils literal notranslate"><span class="pre">Dataset</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.utils.dataset.Dataset.df_to_x_y_surv"><code class="docutils literal notranslate"><span class="pre">Dataset.df_to_x_y_surv()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.utils.dataset.Dataset.generate_binary_labels"><code class="docutils literal notranslate"><span class="pre">Dataset.generate_binary_labels()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.utils.dataset.Dataset.get_Classification_dataset"><code class="docutils literal notranslate"><span class="pre">Dataset.get_Classification_dataset()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.utils.dataset.Dataset.get_SA_dataset"><code class="docutils literal notranslate"><span class="pre">Dataset.get_SA_dataset()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.utils.dataset.Dataset.get_events_from_df"><code class="docutils literal notranslate"><span class="pre">Dataset.get_events_from_df()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.utils.dataset.Dataset.get_rul_dataset"><code class="docutils literal notranslate"><span class="pre">Dataset.get_rul_dataset()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.utils.dataset.Dataset.get_semi_dataset"><code class="docutils literal notranslate"><span class="pre">Dataset.get_semi_dataset()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.utils.dataset.Dataset.get_unsupervised_dataset"><code class="docutils literal notranslate"><span class="pre">Dataset.get_unsupervised_dataset()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.utils.dataset.Dataset.safe_splitting"><code class="docutils literal notranslate"><span class="pre">Dataset.safe_splitting()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.utils.dataset.Dataset.slide_calculation"><code class="docutils literal notranslate"><span class="pre">Dataset.slide_calculation()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.utils.dataset.Dataset.split_sources_to_train_test_val"><code class="docutils literal notranslate"><span class="pre">Dataset.split_sources_to_train_test_val()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.utils.dataset.data_split_by_event"><code class="docutils literal notranslate"><span class="pre">data_split_by_event()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.utils.dataset.episodes_formulation"><code class="docutils literal notranslate"><span class="pre">episodes_formulation()</span></code></a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="module-pdmlabs.utils.dataset">
+<span id="pdmlabs-utils-dataset"></span><h1>pdmlabs.utils.dataset<a class="headerlink" href="#module-pdmlabs.utils.dataset" title="Link to this heading">#</a></h1>
+<p>Dataset preparation and management for predictive maintenance tasks.</p>
+<p>This module provides the Dataset class for handling time-series data preparation,
+episode management, train/validation/test splitting, and generation of labeled
+datasets for various learning paradigms (supervised, unsupervised, semi-supervised).</p>
+<dl class="simple">
+<dt>Key Features:</dt><dd><ul class="simple">
+<li><p>Automatic episode extraction from time-series data</p></li>
+<li><p>Intelligent train/val/test splitting with failure-aware strategy</p></li>
+<li><p>Support for multiple dataset formats (RUL, survival analysis, classification)</p></li>
+<li><p>Event data integration and wildcard-based event preference handling</p></li>
+<li><p>Configurable predictive horizon and sliding window parameters</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">pdmlabs.utils.dataset</span><span class="w"> </span><span class="kn">import</span> <span class="n">Dataset</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;sensor_data.csv&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dataset</span> <span class="o">=</span> <span class="n">Dataset</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">datetime_column</span><span class="o">=</span><span class="s1">&#39;timestamp&#39;</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">failure_column</span><span class="o">=</span><span class="s1">&#39;is_failure&#39;</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">source_column</span><span class="o">=</span><span class="s1">&#39;equipment_id&#39;</span>
+<span class="gp">... </span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">train_data</span><span class="p">,</span> <span class="n">test_data</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">get_rul_dataset</span><span class="p">()</span>
+</pre></div>
+</div>
+<p class="rubric">Functions</p>
+<div class="pst-scrollable-table-container"><table class="autosummary longtable table autosummary">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="pdmlabs.utils.dataset.html#pdmlabs.utils.dataset.data_split_by_event" title="pdmlabs.utils.dataset.data_split_by_event"><code class="xref py py-obj docutils literal notranslate"><span class="pre">data_split_by_event</span></code></a>(df_source, event_source, ...)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pdmlabs.utils.dataset.html#pdmlabs.utils.dataset.episodes_formulation" title="pdmlabs.utils.dataset.episodes_formulation"><code class="xref py py-obj docutils literal notranslate"><span class="pre">episodes_formulation</span></code></a>(data, datetime_column)</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p class="rubric">Classes</p>
+<div class="pst-scrollable-table-container"><table class="autosummary longtable table autosummary">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="pdmlabs.utils.dataset.html#pdmlabs.utils.dataset.Dataset" title="pdmlabs.utils.dataset.Dataset"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Dataset</span></code></a>(data, datetime_column[, ...])</p></td>
+<td><p>A class to handle dataset preparation and processing for predictive maintenance tasks.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<dl class="py class">
+<dt class="sig sig-object py" id="pdmlabs.utils.dataset.Dataset">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pdmlabs.utils.dataset.</span></span><span class="sig-name descname"><span class="pre">Dataset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">datetime_column</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">event_indicator</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maintenance_column</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">failure_column</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">event_df</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source_column</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'source'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">beta</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">slide</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lead</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'0</span> <span class="pre">seconds'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">predictive_horizon</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">train_sources</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.6</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">val_sources</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">test_sources</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_wait_time</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">in_source_split</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">DIVIDER</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3600</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pdmlabs.utils.dataset.Dataset" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A class to handle dataset preparation and processing for predictive maintenance tasks.
+This includes splitting data into episodes, calculating sliding windows, and preparing
+training, validation, and testing datasets.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<em>pd.DataFrame</em>) – The input data containing time-series information. If <cite>event_df</cite> is not provided but <cite>maintenance_column</cite> and <cite>failure_column</cite> are provided
+it except that <cite>maintenance_column</cite> and <cite>failure_column</cite> are included in data, and use them to derive on the episodes.
+If <cite>maintenance_column</cite> and <cite>failure_column</cite> and <cite>event_df</cite> are not provided it assumes every source as a single run-to-failure episode.</p></li>
+<li><p><strong>datetime_column</strong> (<em>str</em>) – The name of the column representing datetime values.</p></li>
+<li><p><strong>event_indicator</strong> (<em>str</em><em>, </em><em>default=None</em>) – The name of the column indicating event occurrence (binary). If provided, it is used to derive episode ending (0: maintenance/reset or 1: failure).</p></li>
+<li><p><strong>maintenance_column</strong> (<em>str</em><em>, </em><em>default=None</em>) – The name of the column indicating maintenance events.</p></li>
+<li><p><strong>failure_column</strong> (<em>str</em><em>, </em><em>default=None</em>) – The name of the column indicating failure events.</p></li>
+<li><p><strong>event_df</strong> (<em>pd.DataFrame</em><em>, </em><em>optional</em>) – A DataFrame containing event data. If provided, <cite>data</cite>, <cite>datetime_column</cite>, and <cite>failure_column</cite> must also be given.
+The <cite>event_df</cite> must contain the columns <cite>datetime_column</cite>, <cite>source_column</cite>, <cite>maintenance_column</cite>, and <cite>failure_column</cite>.
+Events are generated based on the following:
+- Failure event: <cite>failure_column=1</cite>
+- Maintenance (resetting) event: <cite>maintenance_column=1</cite></p></li>
+<li><p><strong>source_column</strong> (<em>str</em><em>, </em><em>default='source'</em>) – The name of the column representing the source of the data.</p></li>
+<li><p><strong>beta</strong> (<em>int</em><em>, </em><em>default=1</em>) – A parameter used for objective calculations.</p></li>
+<li><p><strong>slide</strong> (<em>int</em><em>, </em><em>optional</em>) – The sliding window size. If None, it is calculated automatically.</p></li>
+<li><p><strong>lead</strong> (<em>str</em><em>, </em><em>default=&quot;2 seconds&quot;</em>) – The lead time for predictions.</p></li>
+<li><p><strong>predictive_horizon</strong> (<em>str</em><em>, </em><em>optional</em>) – The predictive horizon for the dataset. If None, it is calculated automatically.</p></li>
+<li><p><strong>train_sources</strong> (<em>float</em><em> or </em><em>list</em><em>, </em><em>default=0.6</em>) – The ratio (float) or list of source names used for training. If a float, it represents the proportion of sources used for training.</p></li>
+<li><p><strong>val_sources</strong> (<em>float</em><em> or </em><em>list</em><em>, </em><em>default=0.2</em>) – The ratio (float) or list of source names used for validation. If a float, it represents the proportion of sources used for validation.</p></li>
+<li><p><strong>test_sources</strong> (<em>float</em><em> or </em><em>list</em><em>, </em><em>default=0.2</em>) – The ratio (float) or list of source names used for testing. If a float, it represents the proportion of sources used for testing.</p></li>
+<li><p><strong>max_wait_time</strong> (<em>int</em><em>, </em><em>control the maximym length</em><em> of </em><em>profile parameter in OnlineFlavor and Sliding Window flavor</em><em> (</em><em>i.e. the maximum length</em><em> of </em><em>the</em>) – data to fit anomaly detectors). This is the time that the user is willing to wait before detectors produce alarms. If None, it is set to
+2/3 of the minimum episode length.</p></li>
+<li><p><strong>in_source_split</strong> (<em>bool</em><em>, </em><em>default=False Whether to select train/val/test sources from within each source</em><em> (</em><em>True</em><em>) or </em><em>from the overall sources</em><em> (</em><em>False</em><em>)</em><em>.</em>)</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="pdmlabs.utils.dataset.Dataset.df_to_x_y_surv">
+<span class="sig-name descname"><span class="pre">df_to_x_y_surv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">indicator</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pdmlabs.utils.dataset.Dataset.df_to_x_y_surv" title="Link to this definition">#</a></dt>
+<dd><p>Convert dataframe to survival analysis format (time, event) tuples.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>df</strong> (<em>pd.DataFrame</em>) – Dataframe containing RUL and event columns.</p></li>
+<li><p><strong>indicator</strong> (<em>int</em><em>, </em><em>optional</em>) – Event indicator value (0 or 1). If None, uses ‘event’ column from df.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>List of (rul, event) tuples for survival analysis models.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list[tuple]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pdmlabs.utils.dataset.Dataset.generate_binary_labels">
+<span class="sig-name descname"><span class="pre">generate_binary_labels</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sources</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">list_dfs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pdmlabs.utils.dataset.Dataset.generate_binary_labels" title="Link to this definition">#</a></dt>
+<dd><p>Generate binary anomaly labels based on predictive horizon and lead time.</p>
+<p>Creates binary labels (0=normal, 1=anomaly) by identifying samples within
+the predictive horizon before failure events and considering lead time.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sources</strong> (<em>list</em><em>[</em><em>str</em><em>]</em>) – Source identifiers corresponding to dataframes.</p></li>
+<li><p><strong>list_dfs</strong> (<em>list</em><em>[</em><em>pd.DataFrame</em><em>]</em>) – List of episode dataframes to label.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>(final_ranges, leadranges) - Lists of binary label arrays and lead time flags.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tuple[list, list]</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><p>Uses predictive_horizon and lead time from Dataset initialization</p></li>
+<li><p>Any sample within lead range (before failure) is marked as 1</p></li>
+<li><p>Helper uses _data_formulation and extract_anomaly_ranges from evaluation module</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pdmlabs.utils.dataset.Dataset.get_Classification_dataset">
+<span class="sig-name descname"><span class="pre">get_Classification_dataset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">keep_sources</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pdmlabs.utils.dataset.Dataset.get_Classification_dataset" title="Link to this definition">#</a></dt>
+<dd><p>From train episodes without failures, we ignore the last predictive_horizon period to ensure healthy operation,
+based on the objective the user wants to optimize. Then generate binary labels for all training data, labeling
+every record as 0, except those that lie within the predictive horizon before a failure event, which are labeled</p>
+<blockquote>
+<div><p>as 1.</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pdmlabs.utils.dataset.Dataset.get_SA_dataset">
+<span class="sig-name descname"><span class="pre">get_SA_dataset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">keep_sources</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pdmlabs.utils.dataset.Dataset.get_SA_dataset" title="Link to this definition">#</a></dt>
+<dd><p>Generate Survival Analysis dataset with reliability labels.</p>
+<p>Creates datasets for survival regression tasks where the goal is to predict
+survival probabilities or remaining time until events. Combines all training
+episodes and marks event indicators (failure/maintenance).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>keep_sources</strong> (<em>str</em><em>, </em><em>optional</em>) – If provided, preserves this column for source tracking.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>(dataset, test_dataset) - Dictionaries containing:
+- ‘target_labels’: Tuples of (RUL, event_indicator) for each sample
+- ‘anomaly_labels’: Tuples of (RUL, event_flag) for training
+- Other fields same as get_rul_dataset()</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tuple[dict, dict]</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><p>Survival analysis labels are tuples (time, event) used by survival methods</p></li>
+<li><p>Event indicator: 1 for failure, 0 for maintenance/reset</p></li>
+<li><p>Combines event information from the rtf_dict (run-to-failure mapping)</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pdmlabs.utils.dataset.Dataset.get_events_from_df">
+<span class="sig-name descname"><span class="pre">get_events_from_df</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df_list</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pdmlabs.utils.dataset.Dataset.get_events_from_df" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pdmlabs.utils.dataset.Dataset.get_rul_dataset">
+<span class="sig-name descname"><span class="pre">get_rul_dataset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">keep_sources</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pdmlabs.utils.dataset.Dataset.get_rul_dataset" title="Link to this definition">#</a></dt>
+<dd><p>Generate RUL (Remaining Useful Life) prediction dataset.</p>
+<p>Creates training, validation, and testing datasets optimized for RUL regression tasks.
+Uses only run-to-failure episodes for training and generates RUL labels indicating
+time remaining until failure.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>keep_sources</strong> (<em>str</em><em>, </em><em>optional</em>) – If provided, preserves this column (e.g., ‘source’) in the dataset
+for source tracking. Otherwise, removes source and RUL columns.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>(dataset, test_dataset) - Two dictionaries containing:
+- ‘match_sources’: Source mapping for transfer learning
+- ‘target_sources’: Sources used for validation/testing
+- ‘target_data’: Feature data for val/test
+- ‘target_labels’: RUL values (time to failure) for val/test
+- ‘is_failure’: Whether each source had failures
+- ‘historic_data’: Training data (run-to-failure episodes only)
+- ‘historic_sources’: Source names for training data
+- ‘anomaly_labels’: RUL labels for training data
+- ‘predictive_horizon’: Time window before failure
+- ‘slide’: Sliding window step size
+- ‘lead’: Lead time for predictions
+- ‘beta’: Objective weighting parameter</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tuple[dict, dict]</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">dataset_obj</span> <span class="o">=</span> <span class="n">Dataset</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="s1">&#39;timestamp&#39;</span><span class="p">,</span> <span class="n">failure_column</span><span class="o">=</span><span class="s1">&#39;is_failure&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">train_set</span><span class="p">,</span> <span class="n">test_set</span> <span class="o">=</span> <span class="n">dataset_obj</span><span class="o">.</span><span class="n">get_rul_dataset</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Access training RUL data</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">rul_labels</span> <span class="o">=</span> <span class="n">train_set</span><span class="p">[</span><span class="s1">&#39;anomaly_labels&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pdmlabs.utils.dataset.Dataset.get_semi_dataset">
+<span class="sig-name descname"><span class="pre">get_semi_dataset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pdmlabs.utils.dataset.Dataset.get_semi_dataset" title="Link to this definition">#</a></dt>
+<dd><p>From train episodes we only keep those without failures, and we ignore the last predictive_horizon period to
+ensure healthy operation, based on the objective the user wants to optimize. These are used as historical data
+without labels, to train Semi Supervised anomaly detector.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pdmlabs.utils.dataset.Dataset.get_unsupervised_dataset">
+<span class="sig-name descname"><span class="pre">get_unsupervised_dataset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pdmlabs.utils.dataset.Dataset.get_unsupervised_dataset" title="Link to this definition">#</a></dt>
+<dd><p>From train episodes we only keep those without failures, and we ignore the last predictive_horizon period to
+ensure healthy operation, based on the objective the user wants to optimize. These are used as historical data
+without labels, to train Semi Supervised anomaly detector.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pdmlabs.utils.dataset.Dataset.safe_splitting">
+<span class="sig-name descname"><span class="pre">safe_splitting</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">source_episodes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">at_least_one_failure_in_train</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pdmlabs.utils.dataset.Dataset.safe_splitting" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pdmlabs.utils.dataset.Dataset.slide_calculation">
+<span class="sig-name descname"><span class="pre">slide_calculation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">episodes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">run_to_failure</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pdmlabs.utils.dataset.Dataset.slide_calculation" title="Link to this definition">#</a></dt>
+<dd><p>Calculate optimal sliding window step size for dataset generation.</p>
+<p>Ensures that slide + predictive_horizon equals approximately 1/3 of the
+smallest failure episode. This balances training data size with prediction lead time.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>episodes</strong> (<em>list</em><em>[</em><em>pd.DataFrame</em><em>]</em>) – List of episode dataframes, each representing one run-to-failure sequence.</p></li>
+<li><p><strong>run_to_failure</strong> (<em>list</em><em>[</em><em>int</em><em>]</em>) – List indicating which episodes contain failures (1) or are healthy runs (0).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Optimal sliding window step size. Minimum value is 1.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>The sliding window step determines how many samples between consecutive windows.
+Larger steps = fewer training samples but faster processing.
+Smaller steps = more training samples but more computation.</p>
+<p>Formula: slide = (episode_length / 3) - predictive_horizon_length</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pdmlabs.utils.dataset.Dataset.split_sources_to_train_test_val">
+<span class="sig-name descname"><span class="pre">split_sources_to_train_test_val</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">episodes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ran_to_failure</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pdmlabs.utils.dataset.Dataset.split_sources_to_train_test_val" title="Link to this definition">#</a></dt>
+<dd><p>Splits the sources into training, validation, and testing datasets.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>episodes</strong> (<em>list</em>) – A list of dataframes, where each dataframe corresponds to an episode.</p></li>
+<li><p><strong>ran_to_failure</strong> (<em>list</em>) – A list of integers indicating whether each episode is a run-to-failure (1) or not (0).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The method updates the following attributes of the class:
+- self.train_dfs: Dataframes for training.
+- self.val_dfs: Dataframes for validation.
+- self.test_dfs: Dataframes for testing.
+- self.sources_for_train: Sources used for training.
+- self.sources_for_val: Sources used for validation.
+- self.sources_for_test: Sources used for testing.
+- self.matches: A dictionary mapping training sources to validation and testing sources.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pdmlabs.utils.dataset.data_split_by_event">
+<span class="sig-prename descclassname"><span class="pre">pdmlabs.utils.dataset.</span></span><span class="sig-name descname"><span class="pre">data_split_by_event</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df_source</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">event_source</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">datetime_column</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">failure_column</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maintenance_column</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source_column</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'source'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">DIVIDER</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3600</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pdmlabs.utils.dataset.data_split_by_event" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pdmlabs.utils.dataset.episodes_formulation">
+<span class="sig-prename descclassname"><span class="pre">pdmlabs.utils.dataset.</span></span><span class="sig-name descname"><span class="pre">episodes_formulation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">datetime_column</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">event_indicator</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maintenance_list</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">failure_list</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">event_df</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source_column</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'source'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">DIVIDER</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3600</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pdmlabs.utils.dataset.episodes_formulation" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.utils.dataset.Dataset"><code class="docutils literal notranslate"><span class="pre">Dataset</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.utils.dataset.Dataset.df_to_x_y_surv"><code class="docutils literal notranslate"><span class="pre">Dataset.df_to_x_y_surv()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.utils.dataset.Dataset.generate_binary_labels"><code class="docutils literal notranslate"><span class="pre">Dataset.generate_binary_labels()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.utils.dataset.Dataset.get_Classification_dataset"><code class="docutils literal notranslate"><span class="pre">Dataset.get_Classification_dataset()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.utils.dataset.Dataset.get_SA_dataset"><code class="docutils literal notranslate"><span class="pre">Dataset.get_SA_dataset()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.utils.dataset.Dataset.get_events_from_df"><code class="docutils literal notranslate"><span class="pre">Dataset.get_events_from_df()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.utils.dataset.Dataset.get_rul_dataset"><code class="docutils literal notranslate"><span class="pre">Dataset.get_rul_dataset()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.utils.dataset.Dataset.get_semi_dataset"><code class="docutils literal notranslate"><span class="pre">Dataset.get_semi_dataset()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.utils.dataset.Dataset.get_unsupervised_dataset"><code class="docutils literal notranslate"><span class="pre">Dataset.get_unsupervised_dataset()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.utils.dataset.Dataset.safe_splitting"><code class="docutils literal notranslate"><span class="pre">Dataset.safe_splitting()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.utils.dataset.Dataset.slide_calculation"><code class="docutils literal notranslate"><span class="pre">Dataset.slide_calculation()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.utils.dataset.Dataset.split_sources_to_train_test_val"><code class="docutils literal notranslate"><span class="pre">Dataset.split_sources_to_train_test_val()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.utils.dataset.data_split_by_event"><code class="docutils literal notranslate"><span class="pre">data_split_by_event()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.utils.dataset.episodes_formulation"><code class="docutils literal notranslate"><span class="pre">episodes_formulation()</span></code></a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Anastasios Papadopoulos, Apostolos Giannoulidis, DataLab Auth
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026, Anastasios Papadopoulos, Apostolos Giannoulidis, DataLab Auth.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    <p class="last-updated">
+  Last updated on May 01, 2026.
+  <br/>
+</p>
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,862 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Quickstart &#8212; PdMLabs Documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles.css?v=2b15ee4a" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=e645c8fa"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'getting-started/quickstart';</script>
+    <link rel="icon" href="../_static/PdMLabs_logo.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+    <meta name="docbuild:last-update" content="May 01, 2026"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/PdMLabs_logo.png" class="logo__image only-light" alt="PdMLabs Documentation - Home"/>
+    <script>document.write(`<img src="../_static/PdMLabs_logo.png" class="logo__image only-dark" alt="PdMLabs Documentation - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../index.html">🏠 Home</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">📜 Our Manifesto</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../concepts/index.html">📚 Concepts</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/experiment_flavors_analysis.html">Analysis of PdMLabs Experiment Flavors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/evaluation.html">Evaluation &amp; Metrics</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html">🚀 Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/index.html">💡 Examples</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../user-guide/index.html">📖 User Guide</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../user-guide/implementing-methods/index.html">🛠️ Implementing Custom Methods</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../user-guide/implementing-methods/01_unsupervised_method.html">🔍 Implementing Unsupervised Methods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user-guide/implementing-methods/02_semi_supervised_method.html">📊 Implementing Semi-Supervised Methods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user-guide/implementing-methods/03_classification_method.html">🎯 Implementing Classification Methods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user-guide/implementing-methods/04_rul_regression_method.html">⏱️ Implementing RUL Regression Methods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user-guide/implementing-methods/05_survival_analysis_method.html">🧬 Implementing Survival Analysis Methods</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../user-guide/implementing-methods/01_unsupervised_method.html">🔍 Implementing Unsupervised Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user-guide/implementing-methods/02_semi_supervised_method.html">📊 Implementing Semi-Supervised Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user-guide/implementing-methods/03_classification_method.html">🎯 Implementing Classification Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user-guide/implementing-methods/04_rul_regression_method.html">⏱️ Implementing RUL Regression Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user-guide/implementing-methods/05_survival_analysis_method.html">🧬 Implementing Survival Analysis Methods</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../api-reference.html">📖 API Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../api/pdmlabs.html">pdmlabs</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../api/pdmlabs.RunExperiment.html">pdmlabs.RunExperiment</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../api/pdmlabs.constraint_functions.html">pdmlabs.constraint_functions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../api/pdmlabs.constraint_functions.constraint.html">pdmlabs.constraint_functions.constraint</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../api/pdmlabs.evaluation.html">pdmlabs.evaluation</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../api/pdmlabs.evaluation.anomaly_evaluator.html">pdmlabs.evaluation.anomaly_evaluator</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/pdmlabs.evaluation.default_evaluators.html">pdmlabs.evaluation.default_evaluators</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/pdmlabs.evaluation.evaluation.html">pdmlabs.evaluation.evaluation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/pdmlabs.evaluation.evaluator.html">pdmlabs.evaluation.evaluator</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/pdmlabs.evaluation.metrics_utils.html">pdmlabs.evaluation.metrics_utils</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/pdmlabs.evaluation.vus.html">pdmlabs.evaluation.vus</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../api/pdmlabs.exceptions.html">pdmlabs.exceptions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../api/pdmlabs.exceptions.exception.html">pdmlabs.exceptions.exception</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../api/pdmlabs.experiment.html">pdmlabs.experiment</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../api/pdmlabs.experiment.batch.html">pdmlabs.experiment.batch</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/pdmlabs.experiment.experiment.html">pdmlabs.experiment.experiment</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/pdmlabs.experiment.streaming.html">pdmlabs.experiment.streaming</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/pdmlabs.loadAnomalyDetectionDataset.html">pdmlabs.loadAnomalyDetectionDataset</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../api/pdmlabs.mango.html">pdmlabs.mango</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../api/pdmlabs.mango.domain.html">pdmlabs.mango.domain</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/pdmlabs.mango.metatuner.html">pdmlabs.mango.metatuner</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/pdmlabs.mango.optimizer.html">pdmlabs.mango.optimizer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/pdmlabs.mango.scheduler.html">pdmlabs.mango.scheduler</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/pdmlabs.mango.tuner.html">pdmlabs.mango.tuner</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../api/pdmlabs.method.html">pdmlabs.method</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../api/pdmlabs.method.CoxModel.html">pdmlabs.method.CoxModel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/pdmlabs.method.DAMP.html">pdmlabs.method.DAMP</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/pdmlabs.method.PCA.html">pdmlabs.method.PCA</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/pdmlabs.method.PCA_uns.html">pdmlabs.method.PCA_uns</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/pdmlabs.method.TranAD.html">pdmlabs.method.TranAD</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/pdmlabs.method.USAD.html">pdmlabs.method.USAD</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/pdmlabs.method.dist_k_Semi.html">pdmlabs.method.dist_k_Semi</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/pdmlabs.method.distance_based_k_r_Core.html">pdmlabs.method.distance_based_k_r_Core</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/pdmlabs.method.dummy_all.html">pdmlabs.method.dummy_all</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/pdmlabs.method.dummy_increase.html">pdmlabs.method.dummy_increase</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/pdmlabs.method.isolation_forest.html">pdmlabs.method.isolation_forest</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/pdmlabs.method.isolation_forest_uns.html">pdmlabs.method.isolation_forest_uns</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/pdmlabs.method.lof_semi.html">pdmlabs.method.lof_semi</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/pdmlabs.method.lof_uns.html">pdmlabs.method.lof_uns</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/pdmlabs.method.method.html">pdmlabs.method.method</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/pdmlabs.method.ocsvm.html">pdmlabs.method.ocsvm</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/pdmlabs.method.pca_tsb.html">pdmlabs.method.pca_tsb</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/pdmlabs.method.profile_based.html">pdmlabs.method.profile_based</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/pdmlabs.method.semi_supervised_method.html">pdmlabs.method.semi_supervised_method</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/pdmlabs.method.sklearn_regression_wraper.html">pdmlabs.method.sklearn_regression_wraper</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/pdmlabs.method.supervised_method.html">pdmlabs.method.supervised_method</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/pdmlabs.method.unsupervised_method.html">pdmlabs.method.unsupervised_method</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/pdmlabs.method.xgboost.html">pdmlabs.method.xgboost</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/pdmlabs.method.xgboostRUL.html">pdmlabs.method.xgboostRUL</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../api/pdmlabs.pdm_evaluation_types.html">pdmlabs.pdm_evaluation_types</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../api/pdmlabs.pdm_evaluation_types.types.html">pdmlabs.pdm_evaluation_types.types</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../api/pdmlabs.pipeline.html">pdmlabs.pipeline</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../api/pdmlabs.pipeline.mlflow_pipeline.html">pdmlabs.pipeline.mlflow_pipeline</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/pdmlabs.pipeline.pipeline.html">pdmlabs.pipeline.pipeline</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../api/pdmlabs.postprocessing.html">pdmlabs.postprocessing</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../api/pdmlabs.postprocessing.Moving2T.html">pdmlabs.postprocessing.Moving2T</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/pdmlabs.postprocessing.causeFeatureSelection.html">pdmlabs.postprocessing.causeFeatureSelection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/pdmlabs.postprocessing.default.html">pdmlabs.postprocessing.default</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/pdmlabs.postprocessing.dynamicth.html">pdmlabs.postprocessing.dynamicth</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/pdmlabs.postprocessing.min_max_scaler.html">pdmlabs.postprocessing.min_max_scaler</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/pdmlabs.postprocessing.moving_average.html">pdmlabs.postprocessing.moving_average</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/pdmlabs.postprocessing.post_processor.html">pdmlabs.postprocessing.post_processor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/pdmlabs.postprocessing.self_tuning.html">pdmlabs.postprocessing.self_tuning</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../api/pdmlabs.preprocessing.html">pdmlabs.preprocessing</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../api/pdmlabs.preprocessing.record_level.html">pdmlabs.preprocessing.record_level</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../api/pdmlabs.thresholding.html">pdmlabs.thresholding</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../api/pdmlabs.thresholding.SurvSuperVisedTH.html">pdmlabs.thresholding.SurvSuperVisedTH</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/pdmlabs.thresholding.constant.html">pdmlabs.thresholding.constant</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/pdmlabs.thresholding.thresholder.html">pdmlabs.thresholding.thresholder</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../api/pdmlabs.utils.html">pdmlabs.utils</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../api/pdmlabs.utils.automatic_parameter_generation.html">pdmlabs.utils.automatic_parameter_generation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/pdmlabs.utils.dataset.html">pdmlabs.utils.dataset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/pdmlabs.utils.distance.html">pdmlabs.utils.distance</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/pdmlabs.utils.distances.html">pdmlabs.utils.distances</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/pdmlabs.utils.rul_transformations.html">pdmlabs.utils.rul_transformations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/pdmlabs.utils.utils.html">pdmlabs.utils.utils</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/PdMLabs/PdMLabs" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/getting-started/quickstart.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Quickstart</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-install">Step 1: Install</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-data-preparation-with-utils-dataset-dataset">Step 2: Data Preparation with <code class="docutils literal notranslate"><span class="pre">utils.dataset.Dataset</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-one-common-run-experiment-pattern">Step 3: One Common <code class="docutils literal notranslate"><span class="pre">run_experiment</span></code> Pattern</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-run-each-flavor">Step 4: Run Each Flavor</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#semi-supervised-anomaly-detection-auto-profile">Semi-supervised anomaly detection (auto-profile)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unsupervised-anomaly-detection">Unsupervised anomaly detection</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#supervised-classification">Supervised classification</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#supervised-rul-regression">Supervised RUL regression</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#supervised-survival-analysis-flavor">Supervised survival-analysis flavor</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inspect-results">Inspect Results</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-5-load-and-use-stored-mlflow-models">Step 5: Load and Use Stored MLflow Models</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#troubleshooting">Troubleshooting</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#see-also">See Also</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="quickstart">
+<h1>Quickstart<a class="headerlink" href="#quickstart" title="Link to this heading">#</a></h1>
+<p>Get up and running in a few minutes using the main dataset entry point:
+<code class="docutils literal notranslate"><span class="pre">pdmlabs.utils.dataset.Dataset</span></code>.</p>
+<p>This page shows:</p>
+<ol class="arabic simple">
+<li><p>Data preparation with one <code class="docutils literal notranslate"><span class="pre">Dataset</span></code> handler</p></li>
+<li><p>How the same runner pattern works across flavors</p></li>
+<li><p>Flavor-specific examples using only APIs that exist in this repository</p></li>
+</ol>
+<section id="step-1-install">
+<h2>Step 1: Install<a class="headerlink" href="#step-1-install" title="Link to this heading">#</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>.
+</pre></div>
+</div>
+<p>Optional (for experiment tracking UI):</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>mlflow
+</pre></div>
+</div>
+</section>
+<section id="step-2-data-preparation-with-utils-dataset-dataset">
+<h2>Step 2: Data Preparation with <code class="docutils literal notranslate"><span class="pre">utils.dataset.Dataset</span></code><a class="headerlink" href="#step-2-data-preparation-with-utils-dataset-dataset" title="Link to this heading">#</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pdmlabs.utils.dataset</span><span class="w"> </span><span class="kn">import</span> <span class="n">Dataset</span>
+
+<span class="c1"># Minimal multi-source toy data</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">240</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;timestamp&quot;</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="s2">&quot;2024-01-01&quot;</span><span class="p">,</span> <span class="n">periods</span><span class="o">=</span><span class="n">n</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="s2">&quot;H&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+        <span class="o">+</span> <span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="s2">&quot;2024-01-01&quot;</span><span class="p">,</span> <span class="n">periods</span><span class="o">=</span><span class="n">n</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="s2">&quot;H&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span>
+        <span class="s2">&quot;source&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;asset_1&quot;</span><span class="p">]</span> <span class="o">*</span> <span class="n">n</span> <span class="o">+</span> <span class="p">[</span><span class="s2">&quot;asset_2&quot;</span><span class="p">]</span> <span class="o">*</span> <span class="n">n</span><span class="p">,</span>
+        <span class="s2">&quot;sensor_1&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.2</span> <span class="o">+</span> <span class="n">i</span> <span class="o">*</span> <span class="mf">0.001</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span> <span class="o">+</span> <span class="p">[</span><span class="mf">0.3</span> <span class="o">+</span> <span class="n">i</span> <span class="o">*</span> <span class="mf">0.0012</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)],</span>
+        <span class="s2">&quot;sensor_2&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">]</span> <span class="o">*</span> <span class="n">n</span> <span class="o">+</span> <span class="p">[</span><span class="mf">0.9</span><span class="p">]</span> <span class="o">*</span> <span class="n">n</span><span class="p">,</span>
+        <span class="c1"># event columns used to form episodes</span>
+        <span class="s2">&quot;maintenance&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+        <span class="s2">&quot;failure&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">5</span><span class="p">)</span> <span class="o">+</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">10</span><span class="p">)</span> <span class="o">+</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mi">9</span><span class="p">,</span>
+    <span class="p">}</span>
+<span class="p">)</span>
+
+<span class="n">dataset_handler</span> <span class="o">=</span> <span class="n">Dataset</span><span class="p">(</span>
+    <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span>
+    <span class="n">datetime_column</span><span class="o">=</span><span class="s2">&quot;timestamp&quot;</span><span class="p">,</span>
+    <span class="n">source_column</span><span class="o">=</span><span class="s2">&quot;source&quot;</span><span class="p">,</span>
+    <span class="n">maintenance_column</span><span class="o">=</span><span class="s2">&quot;maintenance&quot;</span><span class="p">,</span>
+    <span class="n">failure_column</span><span class="o">=</span><span class="s2">&quot;failure&quot;</span><span class="p">,</span>
+    <span class="n">train_sources</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span>
+    <span class="n">val_sources</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span>
+    <span class="n">test_sources</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>From the same <code class="docutils literal notranslate"><span class="pre">dataset_handler</span></code>, you can create all flavor-specific dataset dictionaries:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ds_semi</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">dataset_handler</span><span class="o">.</span><span class="n">get_semi_dataset</span><span class="p">()</span>
+<span class="n">ds_unsup</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">dataset_handler</span><span class="o">.</span><span class="n">get_unsupervised_dataset</span><span class="p">()</span>
+<span class="n">ds_cls</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">dataset_handler</span><span class="o">.</span><span class="n">get_Classification_dataset</span><span class="p">()</span>
+<span class="n">ds_rul</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">dataset_handler</span><span class="o">.</span><span class="n">get_rul_dataset</span><span class="p">()</span>
+<span class="n">ds_sa</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">dataset_handler</span><span class="o">.</span><span class="n">get_SA_dataset</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="step-3-one-common-run-experiment-pattern">
+<h2>Step 3: One Common <code class="docutils literal notranslate"><span class="pre">run_experiment</span></code> Pattern<a class="headerlink" href="#step-3-one-common-run-experiment-pattern" title="Link to this heading">#</a></h2>
+<p>Important behavior in this framework:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">event_preferences</span></code> are taken from the dataset flavor dictionary (created by <code class="docutils literal notranslate"><span class="pre">Dataset.get_*_dataset()</span></code>)</p></li>
+<li><p>In <code class="docutils literal notranslate"><span class="pre">run_experiment</span></code>, pass the method class (for example <code class="docutils literal notranslate"><span class="pre">IsolationForest</span></code>), not an instantiated object</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pdmlabs.RunExperiment</span><span class="w"> </span><span class="kn">import</span> <span class="n">run_experiment</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pdmlabs.thresholding.constant</span><span class="w"> </span><span class="kn">import</span> <span class="n">ConstantThresholder</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">run_one_flavor</span><span class="p">(</span>
+    <span class="n">dataset</span><span class="p">,</span>
+    <span class="n">method_class</span><span class="p">,</span>
+    <span class="n">method_name</span><span class="p">,</span>
+    <span class="n">method_param_space</span><span class="p">,</span>
+    <span class="n">experiment_cls</span><span class="p">,</span>
+    <span class="n">experiment_name</span><span class="p">,</span>
+    <span class="o">*</span><span class="p">,</span>
+    <span class="n">fit_size</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+    <span class="n">profile_size</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+    <span class="n">thresholder_cls</span><span class="o">=</span><span class="n">ConstantThresholder</span><span class="p">,</span>
+    <span class="n">optimization_param</span><span class="o">=</span><span class="s2">&quot;AD1_AUC&quot;</span><span class="p">,</span>
+    <span class="n">maximize</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="p">):</span>
+    <span class="k">return</span> <span class="n">run_experiment</span><span class="p">(</span>
+        <span class="n">dataset</span><span class="o">=</span><span class="n">dataset</span><span class="p">,</span>
+        <span class="c1"># Pass class, not object. The pipeline handles event_preferences from dataset.</span>
+        <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="n">method_class</span><span class="p">],</span>
+        <span class="n">param_space_dict_per_method</span><span class="o">=</span><span class="p">[</span><span class="n">method_param_space</span><span class="p">],</span>
+        <span class="n">method_names</span><span class="o">=</span><span class="p">[</span><span class="n">method_name</span><span class="p">],</span>
+        <span class="n">experiments</span><span class="o">=</span><span class="p">[</span><span class="n">experiment_cls</span><span class="p">],</span>
+        <span class="n">experiment_names</span><span class="o">=</span><span class="p">[</span><span class="n">experiment_name</span><span class="p">],</span>
+        <span class="n">MAX_RUNS</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span>
+        <span class="n">MAX_JOBS</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+        <span class="n">INITIAL_RANDOM</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+        <span class="n">fit_size</span><span class="o">=</span><span class="n">fit_size</span><span class="p">,</span>
+        <span class="n">profile_size</span><span class="o">=</span><span class="n">profile_size</span><span class="p">,</span>
+        <span class="n">thresholder</span><span class="o">=</span><span class="n">thresholder_cls</span><span class="p">,</span>
+        <span class="n">mlflow_port</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">optimization_param</span><span class="o">=</span><span class="n">optimization_param</span><span class="p">,</span>
+        <span class="n">maximize</span><span class="o">=</span><span class="n">maximize</span><span class="p">,</span>
+    <span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="step-4-run-each-flavor">
+<h2>Step 4: Run Each Flavor<a class="headerlink" href="#step-4-run-each-flavor" title="Link to this heading">#</a></h2>
+<section id="semi-supervised-anomaly-detection-auto-profile">
+<h3>Semi-supervised anomaly detection (auto-profile)<a class="headerlink" href="#semi-supervised-anomaly-detection-auto-profile" title="Link to this heading">#</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pdmlabs.experiment.batch.auto_profile_semi_supervised_experiment</span><span class="w"> </span><span class="kn">import</span> <span class="n">AutoProfileSemiSupervisedPdMExperiment</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pdmlabs.method.isolation_forest</span><span class="w"> </span><span class="kn">import</span> <span class="n">IsolationForest</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pdmlabs.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">automatic_parameter_generation</span>
+
+<span class="n">result_auto_profile</span> <span class="o">=</span> <span class="n">run_one_flavor</span><span class="p">(</span>
+    <span class="n">dataset</span><span class="o">=</span><span class="n">ds_semi</span><span class="p">,</span>
+    <span class="n">method_class</span><span class="o">=</span><span class="n">IsolationForest</span><span class="p">,</span>
+    <span class="n">method_name</span><span class="o">=</span><span class="s2">&quot;IF&quot;</span><span class="p">,</span>
+    <span class="n">method_param_space</span><span class="o">=</span><span class="n">automatic_parameter_generation</span><span class="o">.</span><span class="n">online_technique</span><span class="p">(</span><span class="s2">&quot;IF&quot;</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span>
+    <span class="n">experiment_cls</span><span class="o">=</span><span class="n">AutoProfileSemiSupervisedPdMExperiment</span><span class="p">,</span>
+    <span class="n">experiment_name</span><span class="o">=</span><span class="s2">&quot;AutoProfile Semi&quot;</span><span class="p">,</span>
+    <span class="n">fit_size</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+    <span class="n">profile_size</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="unsupervised-anomaly-detection">
+<h3>Unsupervised anomaly detection<a class="headerlink" href="#unsupervised-anomaly-detection" title="Link to this heading">#</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pdmlabs.experiment.batch.unsupervised_experiment</span><span class="w"> </span><span class="kn">import</span> <span class="n">UnsupervisedPdMExperiment</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pdmlabs.method.isolation_forest_uns</span><span class="w"> </span><span class="kn">import</span> <span class="n">IsolationForestUnsupervised</span>
+
+<span class="n">result_unsupervised</span> <span class="o">=</span> <span class="n">run_one_flavor</span><span class="p">(</span>
+    <span class="n">dataset</span><span class="o">=</span><span class="n">ds_unsup</span><span class="p">,</span>
+    <span class="n">method_class</span><span class="o">=</span><span class="n">IsolationForestUnsupervised</span><span class="p">,</span>
+    <span class="n">method_name</span><span class="o">=</span><span class="s2">&quot;IF&quot;</span><span class="p">,</span>
+    <span class="n">method_param_space</span><span class="o">=</span><span class="n">automatic_parameter_generation</span><span class="o">.</span><span class="n">unsupervised_technique</span><span class="p">(</span><span class="s2">&quot;IF&quot;</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span>
+    <span class="n">experiment_cls</span><span class="o">=</span><span class="n">UnsupervisedPdMExperiment</span><span class="p">,</span>
+    <span class="n">experiment_name</span><span class="o">=</span><span class="s2">&quot;Unsupervised&quot;</span><span class="p">,</span>
+    <span class="n">fit_size</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+    <span class="n">profile_size</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="supervised-classification">
+<h3>Supervised classification<a class="headerlink" href="#supervised-classification" title="Link to this heading">#</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pdmlabs.experiment.batch.supervised_experiment</span><span class="w"> </span><span class="kn">import</span> <span class="n">SupervisedPdMExperiment</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pdmlabs.method.xgboost</span><span class="w"> </span><span class="kn">import</span> <span class="n">XGBoost</span>
+
+<span class="n">result_classification</span> <span class="o">=</span> <span class="n">run_one_flavor</span><span class="p">(</span>
+    <span class="n">dataset</span><span class="o">=</span><span class="n">ds_cls</span><span class="p">,</span>
+    <span class="n">method_class</span><span class="o">=</span><span class="n">XGBoost</span><span class="p">,</span>
+    <span class="n">method_name</span><span class="o">=</span><span class="s2">&quot;XGBOOST&quot;</span><span class="p">,</span>
+    <span class="n">method_param_space</span><span class="o">=</span><span class="n">automatic_parameter_generation</span><span class="o">.</span><span class="n">supervised_technique</span><span class="p">(</span><span class="s2">&quot;XGBOOST&quot;</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span>
+    <span class="n">experiment_cls</span><span class="o">=</span><span class="n">SupervisedPdMExperiment</span><span class="p">,</span>
+    <span class="n">experiment_name</span><span class="o">=</span><span class="s2">&quot;Classification&quot;</span><span class="p">,</span>
+    <span class="n">fit_size</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+    <span class="n">profile_size</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="supervised-rul-regression">
+<h3>Supervised RUL regression<a class="headerlink" href="#supervised-rul-regression" title="Link to this heading">#</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pdmlabs.experiment.batch.RUL_experiment</span><span class="w"> </span><span class="kn">import</span> <span class="n">SupervisedRULPdMExperiment</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pdmlabs.method.sklearn_regression_wraper</span><span class="w"> </span><span class="kn">import</span> <span class="n">RandomForestRUL</span>
+
+<span class="n">result_rul</span> <span class="o">=</span> <span class="n">run_one_flavor</span><span class="p">(</span>
+    <span class="n">dataset</span><span class="o">=</span><span class="n">ds_rul</span><span class="p">,</span>
+    <span class="n">method_class</span><span class="o">=</span><span class="n">RandomForestRUL</span><span class="p">,</span>
+    <span class="n">method_name</span><span class="o">=</span><span class="s2">&quot;RandomForestRUL&quot;</span><span class="p">,</span>
+    <span class="n">method_param_space</span><span class="o">=</span><span class="p">{</span>
+        <span class="s2">&quot;n_estimators&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">50</span><span class="p">,</span> <span class="mi">100</span><span class="p">],</span>
+        <span class="s2">&quot;max_depth&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="kc">None</span><span class="p">],</span>
+        <span class="s2">&quot;random_state&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">42</span><span class="p">],</span>
+    <span class="p">},</span>
+    <span class="n">experiment_cls</span><span class="o">=</span><span class="n">SupervisedRULPdMExperiment</span><span class="p">,</span>
+    <span class="n">experiment_name</span><span class="o">=</span><span class="s2">&quot;RUL&quot;</span><span class="p">,</span>
+    <span class="n">fit_size</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+    <span class="n">profile_size</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="supervised-survival-analysis-flavor">
+<h3>Supervised survival-analysis flavor<a class="headerlink" href="#supervised-survival-analysis-flavor" title="Link to this heading">#</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pdmlabs.experiment.batch.SA_experiment</span><span class="w"> </span><span class="kn">import</span> <span class="n">Supervised_SA_PdMExperiment</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pdmlabs.thresholding.SurvSuperVisedTH</span><span class="w"> </span><span class="kn">import</span> <span class="n">SurvToRUL</span>
+
+<span class="n">result_sa</span> <span class="o">=</span> <span class="n">run_one_flavor</span><span class="p">(</span>
+    <span class="n">dataset</span><span class="o">=</span><span class="n">ds_sa</span><span class="p">,</span>
+    <span class="n">method_class</span><span class="o">=</span><span class="n">XGBoost</span><span class="p">,</span>
+    <span class="n">method_name</span><span class="o">=</span><span class="s2">&quot;XGBOOST&quot;</span><span class="p">,</span>
+    <span class="n">method_param_space</span><span class="o">=</span><span class="n">automatic_parameter_generation</span><span class="o">.</span><span class="n">supervised_technique</span><span class="p">(</span><span class="s2">&quot;XGBOOST&quot;</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span>
+    <span class="n">experiment_cls</span><span class="o">=</span><span class="n">Supervised_SA_PdMExperiment</span><span class="p">,</span>
+    <span class="n">experiment_name</span><span class="o">=</span><span class="s2">&quot;Survival Analysis&quot;</span><span class="p">,</span>
+    <span class="n">fit_size</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+    <span class="n">profile_size</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+    <span class="n">thresholder_cls</span><span class="o">=</span><span class="n">SurvToRUL</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="inspect-results">
+<h2>Inspect Results<a class="headerlink" href="#inspect-results" title="Link to this heading">#</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;AutoProfile:&quot;</span><span class="p">,</span> <span class="n">result_auto_profile</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Unsupervised:&quot;</span><span class="p">,</span> <span class="n">result_unsupervised</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Classification:&quot;</span><span class="p">,</span> <span class="n">result_classification</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;RUL:&quot;</span><span class="p">,</span> <span class="n">result_rul</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;SA:&quot;</span><span class="p">,</span> <span class="n">result_sa</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Each call returns a list with one item for this setup (one method x one experiment),
+typically containing keys such as <code class="docutils literal notranslate"><span class="pre">best_params</span></code>, <code class="docutils literal notranslate"><span class="pre">best_objective</span></code>, and <code class="docutils literal notranslate"><span class="pre">th</span></code>.</p>
+</section>
+<section id="step-5-load-and-use-stored-mlflow-models">
+<h2>Step 5: Load and Use Stored MLflow Models<a class="headerlink" href="#step-5-load-and-use-stored-mlflow-models" title="Link to this heading">#</a></h2>
+<p>PdMLabs automatically logs the best pipeline (including preprocessors, methods, postprocessors, and thresholders) as an MLflow <code class="docutils literal notranslate"><span class="pre">pyfunc</span></code> artifact for each experiment.</p>
+<p>You can easily load this pipeline later to generate predictions on test or streaming data:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">mlflow</span>
+
+<span class="c1"># 1. Find your experiment and run ID</span>
+<span class="n">experiment_name</span> <span class="o">=</span> <span class="s2">&quot;AutoProfile Semi IF&quot;</span> <span class="c1"># Name format is typically &quot;{experiment_name} {method_name}&quot;</span>
+<span class="n">experiment</span> <span class="o">=</span> <span class="n">mlflow</span><span class="o">.</span><span class="n">get_experiment_by_name</span><span class="p">(</span><span class="n">experiment_name</span><span class="p">)</span>
+<span class="n">runs</span> <span class="o">=</span> <span class="n">mlflow</span><span class="o">.</span><span class="n">search_runs</span><span class="p">(</span><span class="n">experiment_ids</span><span class="o">=</span><span class="p">[</span><span class="n">experiment</span><span class="o">.</span><span class="n">experiment_id</span><span class="p">],</span> <span class="n">order_by</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;start_time DESC&quot;</span><span class="p">],</span> <span class="n">max_results</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">run_id</span> <span class="o">=</span> <span class="n">runs</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">run_id</span>
+
+<span class="c1"># 2. Load the complete pipeline</span>
+<span class="n">loaded_pipeline</span> <span class="o">=</span> <span class="n">mlflow</span><span class="o">.</span><span class="n">pyfunc</span><span class="o">.</span><span class="n">load_model</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;runs:/</span><span class="si">{</span><span class="n">run_id</span><span class="si">}</span><span class="s2">/best_pdm_pipeline&quot;</span><span class="p">)</span>
+
+<span class="c1"># 3. Make predictions</span>
+<span class="c1"># The pipeline handles data transformations and thresholds transparently</span>
+<span class="n">target_data</span> <span class="o">=</span> <span class="n">ds_semi</span><span class="p">[</span><span class="s1">&#39;target_data&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">target_source</span> <span class="o">=</span> <span class="n">ds_semi</span><span class="p">[</span><span class="s1">&#39;target_sources&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="c1"># Pre-process raw test data (e.g., dropping timestamps) before prediction if necessary</span>
+<span class="k">if</span> <span class="s1">&#39;timestamp&#39;</span> <span class="ow">in</span> <span class="n">target_data</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+    <span class="n">target_data</span> <span class="o">=</span> <span class="n">target_data</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;timestamp&#39;</span><span class="p">])</span>
+
+<span class="n">predictions</span> <span class="o">=</span> <span class="n">loaded_pipeline</span><span class="o">.</span><span class="n">predict</span><span class="p">({</span>
+    <span class="s1">&#39;target_data&#39;</span><span class="p">:</span> <span class="n">target_data</span><span class="p">,</span>
+    <span class="s1">&#39;source&#39;</span><span class="p">:</span> <span class="n">target_source</span><span class="p">,</span>
+    <span class="s1">&#39;event_data&#39;</span><span class="p">:</span> <span class="n">ds_semi</span><span class="p">[</span><span class="s1">&#39;event_data&#39;</span><span class="p">]</span> <span class="c1"># optional</span>
+<span class="p">})</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Anomaly Scores:&quot;</span><span class="p">,</span> <span class="n">predictions</span><span class="p">[</span><span class="s1">&#39;scores&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Dynamic Thresholds:&quot;</span><span class="p">,</span> <span class="n">predictions</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;dynamic_thresholds&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</section>
+<section id="troubleshooting">
+<h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Link to this heading">#</a></h2>
+<p><strong>“ModuleNotFoundError: No module named ‘pdmlabs’”</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>.
+</pre></div>
+</div>
+<p><strong>No experiments are running</strong></p>
+<p>Check that your event columns create valid episodes and that each train/val/test split
+contains at least one failure episode.</p>
+<p><strong>MLflow issues</strong></p>
+<p>Keep <code class="docutils literal notranslate"><span class="pre">mlflow_port=None</span></code> for first runs. Enable later only if needed.</p>
+</section>
+<section id="see-also">
+<h2>See Also<a class="headerlink" href="#see-also" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="index.html"><span class="doc">🚀 Getting Started</span></a></p></li>
+<li><p><a class="reference internal" href="../concepts/index.html"><span class="doc">📚 Concepts</span></a></p></li>
+<li><p><a class="reference internal" href="../user-guide/index.html"><span class="doc">📖 User Guide</span></a></p></li>
+<li><p><a class="reference internal" href="../api-reference.html"><span class="doc">📖 API Reference</span></a></p></li>
+</ul>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-install">Step 1: Install</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-data-preparation-with-utils-dataset-dataset">Step 2: Data Preparation with <code class="docutils literal notranslate"><span class="pre">utils.dataset.Dataset</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-one-common-run-experiment-pattern">Step 3: One Common <code class="docutils literal notranslate"><span class="pre">run_experiment</span></code> Pattern</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-run-each-flavor">Step 4: Run Each Flavor</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#semi-supervised-anomaly-detection-auto-profile">Semi-supervised anomaly detection (auto-profile)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unsupervised-anomaly-detection">Unsupervised anomaly detection</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#supervised-classification">Supervised classification</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#supervised-rul-regression">Supervised RUL regression</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#supervised-survival-analysis-flavor">Supervised survival-analysis flavor</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inspect-results">Inspect Results</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-5-load-and-use-stored-mlflow-models">Step 5: Load and Use Stored MLflow Models</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#troubleshooting">Troubleshooting</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#see-also">See Also</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Anastasios Papadopoulos, Apostolos Giannoulidis, DataLab Auth
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026, Anastasios Papadopoulos, Apostolos Giannoulidis, DataLab Auth.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    <p class="last-updated">
+  Last updated on May 01, 2026.
+  <br/>
+</p>
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,1172 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>pdmlabs.evaluation.vus.utils.utility &#8212; PdMLabs Documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles.css?v=2b15ee4a" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=e645c8fa"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'api/OnlineADEngine.evaluation.vus.utils.utility';</script>
+    <link rel="icon" href="../_static/PdMLabs_logo.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+    <meta name="docbuild:last-update" content="May 01, 2026"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/PdMLabs_logo.png" class="logo__image only-light" alt="PdMLabs Documentation - Home"/>
+    <script>document.write(`<img src="../_static/PdMLabs_logo.png" class="logo__image only-dark" alt="PdMLabs Documentation - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../index.html">🏠 Home</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">📜 Our Manifesto</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../concepts/index.html">📚 Concepts</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/experiment_flavors_analysis.html">Analysis of PdMLabs Experiment Flavors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/evaluation.html">Evaluation &amp; Metrics</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/index.html">🚀 Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/index.html">💡 Examples</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../user-guide/index.html">📖 User Guide</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../user-guide/implementing-methods/index.html">🛠️ Implementing Custom Methods</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../user-guide/implementing-methods/01_unsupervised_method.html">🔍 Implementing Unsupervised Methods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user-guide/implementing-methods/02_semi_supervised_method.html">📊 Implementing Semi-Supervised Methods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user-guide/implementing-methods/03_classification_method.html">🎯 Implementing Classification Methods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user-guide/implementing-methods/04_rul_regression_method.html">⏱️ Implementing RUL Regression Methods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user-guide/implementing-methods/05_survival_analysis_method.html">🧬 Implementing Survival Analysis Methods</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../user-guide/implementing-methods/01_unsupervised_method.html">🔍 Implementing Unsupervised Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user-guide/implementing-methods/02_semi_supervised_method.html">📊 Implementing Semi-Supervised Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user-guide/implementing-methods/03_classification_method.html">🎯 Implementing Classification Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user-guide/implementing-methods/04_rul_regression_method.html">⏱️ Implementing RUL Regression Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user-guide/implementing-methods/05_survival_analysis_method.html">🧬 Implementing Survival Analysis Methods</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../api-reference.html">📖 API Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="pdmlabs.html">pdmlabs</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="pdmlabs.RunExperiment.html">pdmlabs.RunExperiment</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="pdmlabs.constraint_functions.html">pdmlabs.constraint_functions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.constraint_functions.constraint.html">pdmlabs.constraint_functions.constraint</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="pdmlabs.evaluation.html">pdmlabs.evaluation</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.evaluation.anomaly_evaluator.html">pdmlabs.evaluation.anomaly_evaluator</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.evaluation.default_evaluators.html">pdmlabs.evaluation.default_evaluators</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.evaluation.evaluation.html">pdmlabs.evaluation.evaluation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.evaluation.evaluator.html">pdmlabs.evaluation.evaluator</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.evaluation.metrics_utils.html">pdmlabs.evaluation.metrics_utils</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.evaluation.vus.html">pdmlabs.evaluation.vus</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="pdmlabs.exceptions.html">pdmlabs.exceptions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.exceptions.exception.html">pdmlabs.exceptions.exception</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="pdmlabs.experiment.html">pdmlabs.experiment</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.experiment.batch.html">pdmlabs.experiment.batch</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.experiment.experiment.html">pdmlabs.experiment.experiment</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.experiment.streaming.html">pdmlabs.experiment.streaming</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="pdmlabs.loadAnomalyDetectionDataset.html">pdmlabs.loadAnomalyDetectionDataset</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="pdmlabs.mango.html">pdmlabs.mango</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.mango.domain.html">pdmlabs.mango.domain</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.mango.metatuner.html">pdmlabs.mango.metatuner</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.mango.optimizer.html">pdmlabs.mango.optimizer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.mango.scheduler.html">pdmlabs.mango.scheduler</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.mango.tuner.html">pdmlabs.mango.tuner</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="pdmlabs.method.html">pdmlabs.method</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.CoxModel.html">pdmlabs.method.CoxModel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.DAMP.html">pdmlabs.method.DAMP</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.PCA.html">pdmlabs.method.PCA</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.PCA_uns.html">pdmlabs.method.PCA_uns</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.TranAD.html">pdmlabs.method.TranAD</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.USAD.html">pdmlabs.method.USAD</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.dist_k_Semi.html">pdmlabs.method.dist_k_Semi</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.distance_based_k_r_Core.html">pdmlabs.method.distance_based_k_r_Core</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.dummy_all.html">pdmlabs.method.dummy_all</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.dummy_increase.html">pdmlabs.method.dummy_increase</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.isolation_forest.html">pdmlabs.method.isolation_forest</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.isolation_forest_uns.html">pdmlabs.method.isolation_forest_uns</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.lof_semi.html">pdmlabs.method.lof_semi</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.lof_uns.html">pdmlabs.method.lof_uns</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.method.html">pdmlabs.method.method</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.ocsvm.html">pdmlabs.method.ocsvm</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.pca_tsb.html">pdmlabs.method.pca_tsb</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.profile_based.html">pdmlabs.method.profile_based</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.semi_supervised_method.html">pdmlabs.method.semi_supervised_method</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.sklearn_regression_wraper.html">pdmlabs.method.sklearn_regression_wraper</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.supervised_method.html">pdmlabs.method.supervised_method</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.unsupervised_method.html">pdmlabs.method.unsupervised_method</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.xgboost.html">pdmlabs.method.xgboost</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.xgboostRUL.html">pdmlabs.method.xgboostRUL</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="pdmlabs.pdm_evaluation_types.html">pdmlabs.pdm_evaluation_types</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.pdm_evaluation_types.types.html">pdmlabs.pdm_evaluation_types.types</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="pdmlabs.pipeline.html">pdmlabs.pipeline</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.pipeline.mlflow_pipeline.html">pdmlabs.pipeline.mlflow_pipeline</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.pipeline.pipeline.html">pdmlabs.pipeline.pipeline</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="pdmlabs.postprocessing.html">pdmlabs.postprocessing</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.postprocessing.Moving2T.html">pdmlabs.postprocessing.Moving2T</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.postprocessing.causeFeatureSelection.html">pdmlabs.postprocessing.causeFeatureSelection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.postprocessing.default.html">pdmlabs.postprocessing.default</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.postprocessing.dynamicth.html">pdmlabs.postprocessing.dynamicth</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.postprocessing.min_max_scaler.html">pdmlabs.postprocessing.min_max_scaler</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.postprocessing.moving_average.html">pdmlabs.postprocessing.moving_average</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.postprocessing.post_processor.html">pdmlabs.postprocessing.post_processor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.postprocessing.self_tuning.html">pdmlabs.postprocessing.self_tuning</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="pdmlabs.preprocessing.html">pdmlabs.preprocessing</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.preprocessing.record_level.html">pdmlabs.preprocessing.record_level</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="pdmlabs.thresholding.html">pdmlabs.thresholding</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.thresholding.SurvSuperVisedTH.html">pdmlabs.thresholding.SurvSuperVisedTH</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.thresholding.constant.html">pdmlabs.thresholding.constant</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.thresholding.thresholder.html">pdmlabs.thresholding.thresholder</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="pdmlabs.utils.html">pdmlabs.utils</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.utils.automatic_parameter_generation.html">pdmlabs.utils.automatic_parameter_generation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.utils.dataset.html">pdmlabs.utils.dataset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.utils.distance.html">pdmlabs.utils.distance</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.utils.distances.html">pdmlabs.utils.distances</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.utils.rul_transformations.html">pdmlabs.utils.rul_transformations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.utils.utils.html">pdmlabs.utils.utils</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/PdMLabs/PdMLabs" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/api/OnlineADEngine.evaluation.vus.utils.utility.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>pdmlabs.evaluation.vus.utils.utility</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.evaluation.vus.utils.utility.EE"><code class="docutils literal notranslate"><span class="pre">EE()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.evaluation.vus.utils.utility.EuclideanDist"><code class="docutils literal notranslate"><span class="pre">EuclideanDist()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.evaluation.vus.utils.utility.all_branches"><code class="docutils literal notranslate"><span class="pre">all_branches()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.evaluation.vus.utils.utility.argmaxn"><code class="docutils literal notranslate"><span class="pre">argmaxn()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.evaluation.vus.utils.utility.branch2num"><code class="docutils literal notranslate"><span class="pre">branch2num()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.evaluation.vus.utils.utility.c_factor"><code class="docutils literal notranslate"><span class="pre">c_factor()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.evaluation.vus.utils.utility.check_detector"><code class="docutils literal notranslate"><span class="pre">check_detector()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.evaluation.vus.utils.utility.check_parameter"><code class="docutils literal notranslate"><span class="pre">check_parameter()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.evaluation.vus.utils.utility.create_tree"><code class="docutils literal notranslate"><span class="pre">create_tree()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.evaluation.vus.utils.utility.dist2set"><code class="docutils literal notranslate"><span class="pre">dist2set()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.evaluation.vus.utils.utility.gen_graph"><code class="docutils literal notranslate"><span class="pre">gen_graph()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.evaluation.vus.utils.utility.generate_bagging_indices"><code class="docutils literal notranslate"><span class="pre">generate_bagging_indices()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.evaluation.vus.utils.utility.generate_indices"><code class="docutils literal notranslate"><span class="pre">generate_indices()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.evaluation.vus.utils.utility.getSplit"><code class="docutils literal notranslate"><span class="pre">getSplit()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.evaluation.vus.utils.utility.get_diff_elements"><code class="docutils literal notranslate"><span class="pre">get_diff_elements()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.evaluation.vus.utils.utility.get_intersection"><code class="docutils literal notranslate"><span class="pre">get_intersection()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.evaluation.vus.utils.utility.get_label_n"><code class="docutils literal notranslate"><span class="pre">get_label_n()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.evaluation.vus.utils.utility.get_list_anomaly"><code class="docutils literal notranslate"><span class="pre">get_list_anomaly()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.evaluation.vus.utils.utility.get_list_diff"><code class="docutils literal notranslate"><span class="pre">get_list_diff()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.evaluation.vus.utils.utility.invert_order"><code class="docutils literal notranslate"><span class="pre">invert_order()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.evaluation.vus.utils.utility.pairwise_distances_no_broadcast"><code class="docutils literal notranslate"><span class="pre">pairwise_distances_no_broadcast()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.evaluation.vus.utils.utility.precision_n_scores"><code class="docutils literal notranslate"><span class="pre">precision_n_scores()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.evaluation.vus.utils.utility.score_to_label"><code class="docutils literal notranslate"><span class="pre">score_to_label()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.evaluation.vus.utils.utility.similarityScore"><code class="docutils literal notranslate"><span class="pre">similarityScore()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.evaluation.vus.utils.utility.standardizer"><code class="docutils literal notranslate"><span class="pre">standardizer()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.evaluation.vus.utils.utility.walk_tree"><code class="docutils literal notranslate"><span class="pre">walk_tree()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.evaluation.vus.utils.utility.weightFeature"><code class="docutils literal notranslate"><span class="pre">weightFeature()</span></code></a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="module-pdmlabs.evaluation.vus.utils.utility">
+<span id="pdmlabs-evaluation-vus-utils-utility"></span><h1>pdmlabs.evaluation.vus.utils.utility<a class="headerlink" href="#module-pdmlabs.evaluation.vus.utils.utility" title="Link to this heading">#</a></h1>
+<p>A set of utility functions to support outlier detection.</p>
+<p class="rubric">Functions</p>
+<div class="pst-scrollable-table-container"><table class="autosummary longtable table autosummary">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="pdmlabs.evaluation.vus.utils.utility.html#pdmlabs.evaluation.vus.utils.utility.EE" title="pdmlabs.evaluation.vus.utils.utility.EE"><code class="xref py py-obj docutils literal notranslate"><span class="pre">EE</span></code></a>(hist)</p></td>
+<td><p>given a list of positive values as a histogram drawn from any information source, returns the empirical entropy of its discrete probability function.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pdmlabs.evaluation.vus.utils.utility.html#pdmlabs.evaluation.vus.utils.utility.EuclideanDist" title="pdmlabs.evaluation.vus.utils.utility.EuclideanDist"><code class="xref py py-obj docutils literal notranslate"><span class="pre">EuclideanDist</span></code></a>(x, y)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pdmlabs.evaluation.vus.utils.utility.html#pdmlabs.evaluation.vus.utils.utility.all_branches" title="pdmlabs.evaluation.vus.utils.utility.all_branches"><code class="xref py py-obj docutils literal notranslate"><span class="pre">all_branches</span></code></a>(node[, current, branches])</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pdmlabs.evaluation.vus.utils.utility.html#pdmlabs.evaluation.vus.utils.utility.argmaxn" title="pdmlabs.evaluation.vus.utils.utility.argmaxn"><code class="xref py py-obj docutils literal notranslate"><span class="pre">argmaxn</span></code></a>(value_list, n[, order])</p></td>
+<td><p>Return the index of top n elements in the list if order is set to 'desc', otherwise return the index of n smallest ones. :param value_list: A list containing all values. :type value_list: list, array, numpy array of shape (n_samples,) :param n: The number of elements to select. :type n: int :param order: The order to sort {'desc', 'asc'}:               - 'desc': descending               - 'asc': ascending :type order: str, optional (default='desc').</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pdmlabs.evaluation.vus.utils.utility.html#pdmlabs.evaluation.vus.utils.utility.branch2num" title="pdmlabs.evaluation.vus.utils.utility.branch2num"><code class="xref py py-obj docutils literal notranslate"><span class="pre">branch2num</span></code></a>(branch[, init_root])</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pdmlabs.evaluation.vus.utils.utility.html#pdmlabs.evaluation.vus.utils.utility.c_factor" title="pdmlabs.evaluation.vus.utils.utility.c_factor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">c_factor</span></code></a>(n)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pdmlabs.evaluation.vus.utils.utility.html#pdmlabs.evaluation.vus.utils.utility.check_detector" title="pdmlabs.evaluation.vus.utils.utility.check_detector"><code class="xref py py-obj docutils literal notranslate"><span class="pre">check_detector</span></code></a>(detector)</p></td>
+<td><p>Checks if fit and decision_function methods exist for given detector :param detector: Detector instance for which the check is performed.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pdmlabs.evaluation.vus.utils.utility.html#pdmlabs.evaluation.vus.utils.utility.check_parameter" title="pdmlabs.evaluation.vus.utils.utility.check_parameter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">check_parameter</span></code></a>(param[, low, high, ...])</p></td>
+<td><p>Check if an input is within the defined range.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pdmlabs.evaluation.vus.utils.utility.html#pdmlabs.evaluation.vus.utils.utility.create_tree" title="pdmlabs.evaluation.vus.utils.utility.create_tree"><code class="xref py py-obj docutils literal notranslate"><span class="pre">create_tree</span></code></a>(X, featureDistrib, sample_size, ...)</p></td>
+<td><p>Creates an DiFF tree using a sample of size sample_size of the original data.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pdmlabs.evaluation.vus.utils.utility.html#pdmlabs.evaluation.vus.utils.utility.dist2set" title="pdmlabs.evaluation.vus.utils.utility.dist2set"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dist2set</span></code></a>(x, X)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pdmlabs.evaluation.vus.utils.utility.html#pdmlabs.evaluation.vus.utils.utility.gen_graph" title="pdmlabs.evaluation.vus.utils.utility.gen_graph"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gen_graph</span></code></a>(branches[, g, init_root, pre])</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pdmlabs.evaluation.vus.utils.utility.html#pdmlabs.evaluation.vus.utils.utility.generate_bagging_indices" title="pdmlabs.evaluation.vus.utils.utility.generate_bagging_indices"><code class="xref py py-obj docutils literal notranslate"><span class="pre">generate_bagging_indices</span></code></a>(random_state, ...)</p></td>
+<td><p>Randomly draw feature indices. Internal use only. Modified from sklearn/ensemble/bagging.py :param random_state: A random number generator instance to define the state of the random                      permutations generator. :type random_state: RandomState :param bootstrap_features: Specifies whether to bootstrap indice generation :type bootstrap_features: bool :param n_features: Specifies the population size when generating indices :type n_features: int :param min_features: Lower limit for number of features to randomly sample :type min_features: int :param max_features: Upper limit for number of features to randomly sample :type max_features: int.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pdmlabs.evaluation.vus.utils.utility.html#pdmlabs.evaluation.vus.utils.utility.generate_indices" title="pdmlabs.evaluation.vus.utils.utility.generate_indices"><code class="xref py py-obj docutils literal notranslate"><span class="pre">generate_indices</span></code></a>(random_state, bootstrap, ...)</p></td>
+<td><p>Draw randomly sampled indices. Internal use only. See sklearn/ensemble/bagging.py :param random_state: A random number generator instance to define the state of the random                      permutations generator. :type random_state: RandomState :param bootstrap: Specifies whether to bootstrap indice generation :type bootstrap: bool :param n_population: Specifies the population size when generating indices :type n_population: int :param n_samples: Specifies number of samples to draw :type n_samples: int.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pdmlabs.evaluation.vus.utils.utility.html#pdmlabs.evaluation.vus.utils.utility.getSplit" title="pdmlabs.evaluation.vus.utils.utility.getSplit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getSplit</span></code></a>(X)</p></td>
+<td><p>Randomly selects a split value from set of scalar data 'X'.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pdmlabs.evaluation.vus.utils.utility.html#pdmlabs.evaluation.vus.utils.utility.get_diff_elements" title="pdmlabs.evaluation.vus.utils.utility.get_diff_elements"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_diff_elements</span></code></a>(li1, li2)</p></td>
+<td><p>get the elements in li1 but not li2, and vice versa :param li1: Input list 1.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pdmlabs.evaluation.vus.utils.utility.html#pdmlabs.evaluation.vus.utils.utility.get_intersection" title="pdmlabs.evaluation.vus.utils.utility.get_intersection"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_intersection</span></code></a>(lst1, lst2)</p></td>
+<td><p>get the overlapping between two lists :param li1: Input list 1.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pdmlabs.evaluation.vus.utils.utility.html#pdmlabs.evaluation.vus.utils.utility.get_label_n" title="pdmlabs.evaluation.vus.utils.utility.get_label_n"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_label_n</span></code></a>(y, y_pred[, n])</p></td>
+<td><p>Function to turn raw outlier scores into binary labels by assign 1 to top n outlier scores.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pdmlabs.evaluation.vus.utils.utility.html#pdmlabs.evaluation.vus.utils.utility.get_list_anomaly" title="pdmlabs.evaluation.vus.utils.utility.get_list_anomaly"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_list_anomaly</span></code></a>(labels)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pdmlabs.evaluation.vus.utils.utility.html#pdmlabs.evaluation.vus.utils.utility.get_list_diff" title="pdmlabs.evaluation.vus.utils.utility.get_list_diff"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_list_diff</span></code></a>(li1, li2)</p></td>
+<td><p>get the elements in li1 but not li2.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pdmlabs.evaluation.vus.utils.utility.html#pdmlabs.evaluation.vus.utils.utility.invert_order" title="pdmlabs.evaluation.vus.utils.utility.invert_order"><code class="xref py py-obj docutils literal notranslate"><span class="pre">invert_order</span></code></a>(scores[, method])</p></td>
+<td><p>Invert the order of a list of values. The smallest value becomes the largest in the inverted list. This is useful while combining multiple detectors since their score order could be different. :param scores: The list of values to be inverted :type scores: list, array or numpy array with shape (n_samples,) :param method: Methods used for order inversion. Valid methods are:                - 'multiplication': multiply by -1                - 'subtraction': max(scores) - scores :type method: str, optional (default='multiplication').</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pdmlabs.evaluation.vus.utils.utility.html#pdmlabs.evaluation.vus.utils.utility.pairwise_distances_no_broadcast" title="pdmlabs.evaluation.vus.utils.utility.pairwise_distances_no_broadcast"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pairwise_distances_no_broadcast</span></code></a>(X, Y)</p></td>
+<td><p>Utility function to calculate row-wise euclidean distance of two matrix.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pdmlabs.evaluation.vus.utils.utility.html#pdmlabs.evaluation.vus.utils.utility.precision_n_scores" title="pdmlabs.evaluation.vus.utils.utility.precision_n_scores"><code class="xref py py-obj docutils literal notranslate"><span class="pre">precision_n_scores</span></code></a>(y, y_pred[, n])</p></td>
+<td><p>Utility function to calculate precision &#64; rank n.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pdmlabs.evaluation.vus.utils.utility.html#pdmlabs.evaluation.vus.utils.utility.score_to_label" title="pdmlabs.evaluation.vus.utils.utility.score_to_label"><code class="xref py py-obj docutils literal notranslate"><span class="pre">score_to_label</span></code></a>(pred_scores[, outliers_fraction])</p></td>
+<td><p>Turn raw outlier outlier scores to binary labels (0 or 1).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pdmlabs.evaluation.vus.utils.utility.html#pdmlabs.evaluation.vus.utils.utility.similarityScore" title="pdmlabs.evaluation.vus.utils.utility.similarityScore"><code class="xref py py-obj docutils literal notranslate"><span class="pre">similarityScore</span></code></a>(S, node, alpha)</p></td>
+<td><p>Given a set of instances S falling into node and a value alpha &gt;=0, returns for all element x in S the weighted similarity score between x and the centroid M of S (node.M)</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pdmlabs.evaluation.vus.utils.utility.html#pdmlabs.evaluation.vus.utils.utility.standardizer" title="pdmlabs.evaluation.vus.utils.utility.standardizer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">standardizer</span></code></a>(X[, X_t, keep_scalar])</p></td>
+<td><p>Conduct Z-normalization on data to turn input samples become zero-mean and unit variance.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pdmlabs.evaluation.vus.utils.utility.html#pdmlabs.evaluation.vus.utils.utility.walk_tree" title="pdmlabs.evaluation.vus.utils.utility.walk_tree"><code class="xref py py-obj docutils literal notranslate"><span class="pre">walk_tree</span></code></a>(forest, node, treeIdx, obsIdx, X, ...)</p></td>
+<td><p>Recursive function that walks a tree from an already fitted forest to compute the path length of the new observations.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pdmlabs.evaluation.vus.utils.utility.html#pdmlabs.evaluation.vus.utils.utility.weightFeature" title="pdmlabs.evaluation.vus.utils.utility.weightFeature"><code class="xref py py-obj docutils literal notranslate"><span class="pre">weightFeature</span></code></a>(s, nbins)</p></td>
+<td><p>Given a list of values corresponding to a feature dimension, returns a weight (in [0,1]) that is one minus the normalized empirical entropy, a way to characterize the importance of the feature dimension.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<dl class="py function">
+<dt class="sig sig-object py" id="pdmlabs.evaluation.vus.utils.utility.EE">
+<span class="sig-prename descclassname"><span class="pre">pdmlabs.evaluation.vus.utils.utility.</span></span><span class="sig-name descname"><span class="pre">EE</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hist</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pdmlabs.evaluation.vus.utils.utility.EE" title="Link to this definition">#</a></dt>
+<dd><p>given a list of positive values as a histogram drawn from any information source,
+returns the empirical entropy of its discrete probability function.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>hist</strong> (<em>array</em>) – histogram</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>empirical entropy estimated from the histogram</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pdmlabs.evaluation.vus.utils.utility.EuclideanDist">
+<span class="sig-prename descclassname"><span class="pre">pdmlabs.evaluation.vus.utils.utility.</span></span><span class="sig-name descname"><span class="pre">EuclideanDist</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pdmlabs.evaluation.vus.utils.utility.EuclideanDist" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pdmlabs.evaluation.vus.utils.utility.all_branches">
+<span class="sig-prename descclassname"><span class="pre">pdmlabs.evaluation.vus.utils.utility.</span></span><span class="sig-name descname"><span class="pre">all_branches</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">current</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">branches</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pdmlabs.evaluation.vus.utils.utility.all_branches" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pdmlabs.evaluation.vus.utils.utility.argmaxn">
+<span class="sig-prename descclassname"><span class="pre">pdmlabs.evaluation.vus.utils.utility.</span></span><span class="sig-name descname"><span class="pre">argmaxn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'desc'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pdmlabs.evaluation.vus.utils.utility.argmaxn" title="Link to this definition">#</a></dt>
+<dd><p>Return the index of top n elements in the list
+if order is set to ‘desc’, otherwise return the index of n smallest ones.
+:param value_list: A list containing all values.
+:type value_list: list, array, numpy array of shape (n_samples,)
+:param n: The number of elements to select.
+:type n: int
+:param order: The order to sort {‘desc’, ‘asc’}:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>‘desc’: descending</p></li>
+<li><p>‘asc’: ascending</p></li>
+</ul>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>index_list</strong> – The index of the top n elements.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>numpy array of shape (n,)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pdmlabs.evaluation.vus.utils.utility.branch2num">
+<span class="sig-prename descclassname"><span class="pre">pdmlabs.evaluation.vus.utils.utility.</span></span><span class="sig-name descname"><span class="pre">branch2num</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">branch</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">init_root</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pdmlabs.evaluation.vus.utils.utility.branch2num" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pdmlabs.evaluation.vus.utils.utility.c_factor">
+<span class="sig-prename descclassname"><span class="pre">pdmlabs.evaluation.vus.utils.utility.</span></span><span class="sig-name descname"><span class="pre">c_factor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pdmlabs.evaluation.vus.utils.utility.c_factor" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pdmlabs.evaluation.vus.utils.utility.check_detector">
+<span class="sig-prename descclassname"><span class="pre">pdmlabs.evaluation.vus.utils.utility.</span></span><span class="sig-name descname"><span class="pre">check_detector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">detector</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pdmlabs.evaluation.vus.utils.utility.check_detector" title="Link to this definition">#</a></dt>
+<dd><p>Checks if fit and decision_function methods exist for given detector
+:param detector: Detector instance for which the check is performed.
+:type detector: pyod.models</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pdmlabs.evaluation.vus.utils.utility.check_parameter">
+<span class="sig-prename descclassname"><span class="pre">pdmlabs.evaluation.vus.utils.utility.</span></span><span class="sig-name descname"><span class="pre">check_parameter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">param</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">low</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-2147483647</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">high</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2147483647</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">param_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_left</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_right</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pdmlabs.evaluation.vus.utils.utility.check_parameter" title="Link to this definition">#</a></dt>
+<dd><p>Check if an input is within the defined range.
+:param param: The input parameter to check.
+:type param: int, float
+:param low: The lower bound of the range.
+:type low: int, float
+:param high: The higher bound of the range.
+:type high: int, float
+:param param_name: The name of the parameter.
+:type param_name: str, optional (default=’’)
+:param include_left: Whether includes the lower bound (lower bound &lt;=).
+:type include_left: bool, optional (default=False)
+:param include_right: Whether includes the higher bound (&lt;= higher bound).
+:type include_right: bool, optional (default=False)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>within_range</strong> – Whether the parameter is within the range of (low, high)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool or raise errors</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pdmlabs.evaluation.vus.utils.utility.create_tree">
+<span class="sig-prename descclassname"><span class="pre">pdmlabs.evaluation.vus.utils.utility.</span></span><span class="sig-name descname"><span class="pre">create_tree</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">featureDistrib</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_height</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pdmlabs.evaluation.vus.utils.utility.create_tree" title="Link to this definition">#</a></dt>
+<dd><p>Creates an DiFF tree using a sample of size sample_size of the original data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> (<em>nD array.</em>) – nD array with the observations. Dimensions should be (n_obs, n_features).</p></li>
+<li><p><strong>sample_size</strong> (<em>int</em>) – Size of the sample from which a DiFF tree is built.</p></li>
+<li><p><strong>max_height</strong> (<em>int</em>) – Maximum height of the tree.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>a DiFF tree</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pdmlabs.evaluation.vus.utils.utility.dist2set">
+<span class="sig-prename descclassname"><span class="pre">pdmlabs.evaluation.vus.utils.utility.</span></span><span class="sig-name descname"><span class="pre">dist2set</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">X</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pdmlabs.evaluation.vus.utils.utility.dist2set" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pdmlabs.evaluation.vus.utils.utility.gen_graph">
+<span class="sig-prename descclassname"><span class="pre">pdmlabs.evaluation.vus.utils.utility.</span></span><span class="sig-name descname"><span class="pre">gen_graph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">branches</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">g</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">init_root</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pre</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pdmlabs.evaluation.vus.utils.utility.gen_graph" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pdmlabs.evaluation.vus.utils.utility.generate_bagging_indices">
+<span class="sig-prename descclassname"><span class="pre">pdmlabs.evaluation.vus.utils.utility.</span></span><span class="sig-name descname"><span class="pre">generate_bagging_indices</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">random_state</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bootstrap_features</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_features</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_features</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_features</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pdmlabs.evaluation.vus.utils.utility.generate_bagging_indices" title="Link to this definition">#</a></dt>
+<dd><p>Randomly draw feature indices. Internal use only.
+Modified from sklearn/ensemble/bagging.py
+:param random_state: A random number generator instance to define the state of the random</p>
+<blockquote>
+<div><p>permutations generator.</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>bootstrap_features</strong> (<em>bool</em>) – Specifies whether to bootstrap indice generation</p></li>
+<li><p><strong>n_features</strong> (<em>int</em>) – Specifies the population size when generating indices</p></li>
+<li><p><strong>min_features</strong> (<em>int</em>) – Lower limit for number of features to randomly sample</p></li>
+<li><p><strong>max_features</strong> (<em>int</em>) – Upper limit for number of features to randomly sample</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>feature_indices</strong> – Indices for features to bag</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>numpy array, shape (n_samples,)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pdmlabs.evaluation.vus.utils.utility.generate_indices">
+<span class="sig-prename descclassname"><span class="pre">pdmlabs.evaluation.vus.utils.utility.</span></span><span class="sig-name descname"><span class="pre">generate_indices</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">random_state</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bootstrap</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_population</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_samples</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pdmlabs.evaluation.vus.utils.utility.generate_indices" title="Link to this definition">#</a></dt>
+<dd><p>Draw randomly sampled indices. Internal use only.
+See sklearn/ensemble/bagging.py
+:param random_state: A random number generator instance to define the state of the random</p>
+<blockquote>
+<div><p>permutations generator.</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>bootstrap</strong> (<em>bool</em>) – Specifies whether to bootstrap indice generation</p></li>
+<li><p><strong>n_population</strong> (<em>int</em>) – Specifies the population size when generating indices</p></li>
+<li><p><strong>n_samples</strong> (<em>int</em>) – Specifies number of samples to draw</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>indices</strong> – randomly drawn indices</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>numpy array, shape (n_samples,)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pdmlabs.evaluation.vus.utils.utility.getSplit">
+<span class="sig-prename descclassname"><span class="pre">pdmlabs.evaluation.vus.utils.utility.</span></span><span class="sig-name descname"><span class="pre">getSplit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pdmlabs.evaluation.vus.utils.utility.getSplit" title="Link to this definition">#</a></dt>
+<dd><p>Randomly selects a split value from set of scalar data ‘X’.
+Returns the split value.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>X</strong> (<em>array</em>) – Array of scalar values</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>split value</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pdmlabs.evaluation.vus.utils.utility.get_diff_elements">
+<span class="sig-prename descclassname"><span class="pre">pdmlabs.evaluation.vus.utils.utility.</span></span><span class="sig-name descname"><span class="pre">get_diff_elements</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">li1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">li2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pdmlabs.evaluation.vus.utils.utility.get_diff_elements" title="Link to this definition">#</a></dt>
+<dd><p>get the elements in li1 but not li2, and vice versa
+:param li1: Input list 1.
+:type li1: list or numpy array
+:param li2: Input list 2.
+:type li2: list or numpy array</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>difference</strong> – The difference between li1 and li2.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pdmlabs.evaluation.vus.utils.utility.get_intersection">
+<span class="sig-prename descclassname"><span class="pre">pdmlabs.evaluation.vus.utils.utility.</span></span><span class="sig-name descname"><span class="pre">get_intersection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lst1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lst2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pdmlabs.evaluation.vus.utils.utility.get_intersection" title="Link to this definition">#</a></dt>
+<dd><p>get the overlapping between two lists
+:param li1: Input list 1.
+:type li1: list or numpy array
+:param li2: Input list 2.
+:type li2: list or numpy array</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>difference</strong> – The overlapping between li1 and li2.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pdmlabs.evaluation.vus.utils.utility.get_label_n">
+<span class="sig-prename descclassname"><span class="pre">pdmlabs.evaluation.vus.utils.utility.</span></span><span class="sig-name descname"><span class="pre">get_label_n</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_pred</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pdmlabs.evaluation.vus.utils.utility.get_label_n" title="Link to this definition">#</a></dt>
+<dd><p>Function to turn raw outlier scores into binary labels by assign 1
+to top n outlier scores.
+:param y: The ground truth. Binary (0: inliers, 1: outliers).
+:type y: list or numpy array of shape (n_samples,)
+:param y_pred: The raw outlier scores as returned by a fitted model.
+:type y_pred: list or numpy array of shape (n_samples,)
+:param n: The number of outliers. if not defined, infer using ground truth.
+:type n: int, optional (default=None)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>labels</strong> – binary labels 0: normal points and 1: outliers</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>numpy array of shape (n_samples,)</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">pyod.utils.utility</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_label_n</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y_pred</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">get_label_n</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+<span class="go">array([0, 1, 0, 0, 1])</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pdmlabs.evaluation.vus.utils.utility.get_list_anomaly">
+<span class="sig-prename descclassname"><span class="pre">pdmlabs.evaluation.vus.utils.utility.</span></span><span class="sig-name descname"><span class="pre">get_list_anomaly</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">labels</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pdmlabs.evaluation.vus.utils.utility.get_list_anomaly" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pdmlabs.evaluation.vus.utils.utility.get_list_diff">
+<span class="sig-prename descclassname"><span class="pre">pdmlabs.evaluation.vus.utils.utility.</span></span><span class="sig-name descname"><span class="pre">get_list_diff</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">li1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">li2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pdmlabs.evaluation.vus.utils.utility.get_list_diff" title="Link to this definition">#</a></dt>
+<dd><p>get the elements in li1 but not li2. li1-li2
+:param li1: Input list 1.
+:type li1: list or numpy array
+:param li2: Input list 2.
+:type li2: list or numpy array</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>difference</strong> – The difference between li1 and li2.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pdmlabs.evaluation.vus.utils.utility.invert_order">
+<span class="sig-prename descclassname"><span class="pre">pdmlabs.evaluation.vus.utils.utility.</span></span><span class="sig-name descname"><span class="pre">invert_order</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scores</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'multiplication'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pdmlabs.evaluation.vus.utils.utility.invert_order" title="Link to this definition">#</a></dt>
+<dd><p>Invert the order of a list of values. The smallest value becomes
+the largest in the inverted list. This is useful while combining
+multiple detectors since their score order could be different.
+:param scores: The list of values to be inverted
+:type scores: list, array or numpy array with shape (n_samples,)
+:param method: Methods used for order inversion. Valid methods are:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>‘multiplication’: multiply by -1</p></li>
+<li><p>‘subtraction’: max(scores) - scores</p></li>
+</ul>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>inverted_scores</strong> – The inverted list</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>numpy array of shape (n_samples,)</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">scores1</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">invert_order</span><span class="p">(</span><span class="n">scores1</span><span class="p">)</span>
+<span class="go">array([-0.1, -0.3, -0.5, -0.7, -0.2, -0.1])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">invert_order</span><span class="p">(</span><span class="n">scores1</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;subtraction&#39;</span><span class="p">)</span>
+<span class="go">array([0.6, 0.4, 0.2, 0. , 0.5, 0.6])</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pdmlabs.evaluation.vus.utils.utility.pairwise_distances_no_broadcast">
+<span class="sig-prename descclassname"><span class="pre">pdmlabs.evaluation.vus.utils.utility.</span></span><span class="sig-name descname"><span class="pre">pairwise_distances_no_broadcast</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Y</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pdmlabs.evaluation.vus.utils.utility.pairwise_distances_no_broadcast" title="Link to this definition">#</a></dt>
+<dd><p>Utility function to calculate row-wise euclidean distance of two matrix.
+Different from pair-wise calculation, this function would not broadcast.
+For instance, X and Y are both (4,3) matrices, the function would return
+a distance vector with shape (4,), instead of (4,4).
+:param X: First input samples
+:type X: array of shape (n_samples, n_features)
+:param Y: Second input samples
+:type Y: array of shape (n_samples, n_features)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>distance</strong> – Row-wise euclidean distance of X and Y</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>array of shape (n_samples,)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pdmlabs.evaluation.vus.utils.utility.precision_n_scores">
+<span class="sig-prename descclassname"><span class="pre">pdmlabs.evaluation.vus.utils.utility.</span></span><span class="sig-name descname"><span class="pre">precision_n_scores</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_pred</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pdmlabs.evaluation.vus.utils.utility.precision_n_scores" title="Link to this definition">#</a></dt>
+<dd><p>Utility function to calculate precision &#64; rank n.
+:param y: The ground truth. Binary (0: inliers, 1: outliers).
+:type y: list or numpy array of shape (n_samples,)
+:param y_pred: The raw outlier scores as returned by a fitted model.
+:type y_pred: list or numpy array of shape (n_samples,)
+:param n: The number of outliers. if not defined, infer using ground truth.
+:type n: int, optional (default=None)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>precision_at_rank_n</strong> – Precision at rank n score.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pdmlabs.evaluation.vus.utils.utility.score_to_label">
+<span class="sig-prename descclassname"><span class="pre">pdmlabs.evaluation.vus.utils.utility.</span></span><span class="sig-name descname"><span class="pre">score_to_label</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pred_scores</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outliers_fraction</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pdmlabs.evaluation.vus.utils.utility.score_to_label" title="Link to this definition">#</a></dt>
+<dd><p>Turn raw outlier outlier scores to binary labels (0 or 1).
+:param pred_scores: Raw outlier scores. Outliers are assumed have larger values.
+:type pred_scores: list or numpy array of shape (n_samples,)
+:param outliers_fraction: Percentage of outliers.
+:type outliers_fraction: float in (0,1)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>outlier_labels</strong> – For each observation, tells whether or not
+it should be considered as an outlier according to the
+fitted model. Return the outlier probability, ranging
+in [0,1].</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>numpy array of shape (n_samples,)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pdmlabs.evaluation.vus.utils.utility.similarityScore">
+<span class="sig-prename descclassname"><span class="pre">pdmlabs.evaluation.vus.utils.utility.</span></span><span class="sig-name descname"><span class="pre">similarityScore</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">S</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">node</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pdmlabs.evaluation.vus.utils.utility.similarityScore" title="Link to this definition">#</a></dt>
+<dd><p>Given a set of instances S falling into node and a value alpha &gt;=0,
+returns for all element x in S the weighted similarity score between x
+and the centroid M of S (node.M)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>S</strong> (<em>array</em><em>  of </em><em>instances</em>) – Array  of instances that fall into a node</p></li>
+<li><p><strong>node</strong> (<em>a DiFF tree node</em>) – S is the set of instances “falling” into the node</p></li>
+<li><p><strong>alpha</strong> (<em>float</em>) – alpha is the distance scaling hyper-parameter</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the array of similarity values between the instances in S and the mean of training instances falling in node</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>array</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pdmlabs.evaluation.vus.utils.utility.standardizer">
+<span class="sig-prename descclassname"><span class="pre">pdmlabs.evaluation.vus.utils.utility.</span></span><span class="sig-name descname"><span class="pre">standardizer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">X_t</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keep_scalar</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pdmlabs.evaluation.vus.utils.utility.standardizer" title="Link to this definition">#</a></dt>
+<dd><p>Conduct Z-normalization on data to turn input samples become zero-mean
+and unit variance.
+:param X: The training samples
+:type X: numpy array of shape (n_samples, n_features)
+:param X_t: The data to be converted
+:type X_t: numpy array of shape (n_samples_new, n_features), optional (default=None)
+:param keep_scalar: The flag to indicate whether to return the scalar
+:type keep_scalar: bool, optional (default=False)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><ul class="simple">
+<li><p><strong>X_norm</strong> (<em>numpy array of shape (n_samples, n_features)</em>) – X after the Z-score normalization</p></li>
+<li><p><strong>X_t_norm</strong> (<em>numpy array of shape (n_samples, n_features)</em>) – X_t after the Z-score normalization</p></li>
+<li><p><strong>scalar</strong> (<em>sklearn scalar object</em>) – The scalar used in conversion</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pdmlabs.evaluation.vus.utils.utility.walk_tree">
+<span class="sig-prename descclassname"><span class="pre">pdmlabs.evaluation.vus.utils.utility.</span></span><span class="sig-name descname"><span class="pre">walk_tree</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">forest</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">node</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">treeIdx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">obsIdx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">featureDistrib</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">depth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.01</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pdmlabs.evaluation.vus.utils.utility.walk_tree" title="Link to this definition">#</a></dt>
+<dd><p>Recursive function that walks a tree from an already fitted forest to compute the path length
+of the new observations.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>forest</strong> (<em>DiFF_RF</em>) – A fitted forest of DiFF trees</p></li>
+<li><p><strong>node</strong> (<em>DiFF Tree node</em>) – the current node</p></li>
+<li><p><strong>treeIdx</strong> (<em>int</em>) – index of the tree that is being walked.</p></li>
+<li><p><strong>obsIdx</strong> (<em>array</em>) – 1D array of length n_obs. 1/0 if the obs has reached / has not reached the node.</p></li>
+<li><p><strong>X</strong> (<em>nD array.</em>) – array of observations/instances.</p></li>
+<li><p><strong>depth</strong> (<em>int</em>) – current depth.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pdmlabs.evaluation.vus.utils.utility.weightFeature">
+<span class="sig-prename descclassname"><span class="pre">pdmlabs.evaluation.vus.utils.utility.</span></span><span class="sig-name descname"><span class="pre">weightFeature</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nbins</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pdmlabs.evaluation.vus.utils.utility.weightFeature" title="Link to this definition">#</a></dt>
+<dd><p>Given a list of values corresponding to a feature dimension, returns a weight (in [0,1]) that is
+one minus the normalized empirical entropy, a way to characterize the importance of the feature dimension.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>s</strong> (<em>array</em>) – list of scalar values corresponding to a feature dimension</p></li>
+<li><p><strong>nbins</strong> (<em>int</em>) – the number of bins used to discretize the feature dimension using an histogram.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the importance weight for feature s.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.evaluation.vus.utils.utility.EE"><code class="docutils literal notranslate"><span class="pre">EE()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.evaluation.vus.utils.utility.EuclideanDist"><code class="docutils literal notranslate"><span class="pre">EuclideanDist()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.evaluation.vus.utils.utility.all_branches"><code class="docutils literal notranslate"><span class="pre">all_branches()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.evaluation.vus.utils.utility.argmaxn"><code class="docutils literal notranslate"><span class="pre">argmaxn()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.evaluation.vus.utils.utility.branch2num"><code class="docutils literal notranslate"><span class="pre">branch2num()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.evaluation.vus.utils.utility.c_factor"><code class="docutils literal notranslate"><span class="pre">c_factor()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.evaluation.vus.utils.utility.check_detector"><code class="docutils literal notranslate"><span class="pre">check_detector()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.evaluation.vus.utils.utility.check_parameter"><code class="docutils literal notranslate"><span class="pre">check_parameter()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.evaluation.vus.utils.utility.create_tree"><code class="docutils literal notranslate"><span class="pre">create_tree()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.evaluation.vus.utils.utility.dist2set"><code class="docutils literal notranslate"><span class="pre">dist2set()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.evaluation.vus.utils.utility.gen_graph"><code class="docutils literal notranslate"><span class="pre">gen_graph()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.evaluation.vus.utils.utility.generate_bagging_indices"><code class="docutils literal notranslate"><span class="pre">generate_bagging_indices()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.evaluation.vus.utils.utility.generate_indices"><code class="docutils literal notranslate"><span class="pre">generate_indices()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.evaluation.vus.utils.utility.getSplit"><code class="docutils literal notranslate"><span class="pre">getSplit()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.evaluation.vus.utils.utility.get_diff_elements"><code class="docutils literal notranslate"><span class="pre">get_diff_elements()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.evaluation.vus.utils.utility.get_intersection"><code class="docutils literal notranslate"><span class="pre">get_intersection()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.evaluation.vus.utils.utility.get_label_n"><code class="docutils literal notranslate"><span class="pre">get_label_n()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.evaluation.vus.utils.utility.get_list_anomaly"><code class="docutils literal notranslate"><span class="pre">get_list_anomaly()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.evaluation.vus.utils.utility.get_list_diff"><code class="docutils literal notranslate"><span class="pre">get_list_diff()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.evaluation.vus.utils.utility.invert_order"><code class="docutils literal notranslate"><span class="pre">invert_order()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.evaluation.vus.utils.utility.pairwise_distances_no_broadcast"><code class="docutils literal notranslate"><span class="pre">pairwise_distances_no_broadcast()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.evaluation.vus.utils.utility.precision_n_scores"><code class="docutils literal notranslate"><span class="pre">precision_n_scores()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.evaluation.vus.utils.utility.score_to_label"><code class="docutils literal notranslate"><span class="pre">score_to_label()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.evaluation.vus.utils.utility.similarityScore"><code class="docutils literal notranslate"><span class="pre">similarityScore()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.evaluation.vus.utils.utility.standardizer"><code class="docutils literal notranslate"><span class="pre">standardizer()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.evaluation.vus.utils.utility.walk_tree"><code class="docutils literal notranslate"><span class="pre">walk_tree()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.evaluation.vus.utils.utility.weightFeature"><code class="docutils literal notranslate"><span class="pre">weightFeature()</span></code></a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Anastasios Papadopoulos, Apostolos Giannoulidis, DataLab Auth
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026, Anastasios Papadopoulos, Apostolos Giannoulidis, DataLab Auth.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    <p class="last-updated">
+  Last updated on May 01, 2026.
+  <br/>
+</p>
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

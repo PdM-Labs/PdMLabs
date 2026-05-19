@@ -1,0 +1,38 @@
+# Ignore Python compiled files
+*.pyc
+*.pyo
+__pycache__/
+
+artifacts/
+build/
+DataFolder/
+experimental_runs_configuration/
+onade.egg-info/
+PdMAD_kit.egg-info/
+eval_context.txt
+
+# Ignore .pickle and .pkl files
+*.pickle
+*.pkl
+*.parquet
+*.zip
+# Ignore .npy files (NumPy arrays)
+*.npy
+
+highlevelunderstanding.txt
+PY_ARCH_REPORT.json
+
+
+# Ignore PyCharm project files
+.idea/
+mlruns/
+
+*.iml
+*.ipr
+*.iws
+*.db
+*.csv
+*.pred
+*.real
+
+build

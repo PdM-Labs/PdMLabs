@@ -1,0 +1,8 @@
+01/04/2026: This product incorporates RUL and Survival Analysis evaluation components
+from the TITEUF project:
+
+https://github.com/agiannoul/TITEUF
+
+Copyright (c) Apostolos Giannoulidis
+
+Licensed under the Apache License, Version 2.0.

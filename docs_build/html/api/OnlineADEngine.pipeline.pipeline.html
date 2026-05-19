@@ -1,0 +1,1085 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>pdmlabs.pipeline.pipeline &#8212; PdMLabs Documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles.css?v=2b15ee4a" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=e645c8fa"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'api/OnlineADEngine.pipeline.pipeline';</script>
+    <link rel="icon" href="../_static/PdMLabs_logo.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+    <meta name="docbuild:last-update" content="May 01, 2026"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/PdMLabs_logo.png" class="logo__image only-light" alt="PdMLabs Documentation - Home"/>
+    <script>document.write(`<img src="../_static/PdMLabs_logo.png" class="logo__image only-dark" alt="PdMLabs Documentation - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../index.html">🏠 Home</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">📜 Our Manifesto</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../concepts/index.html">📚 Concepts</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/experiment_flavors_analysis.html">Analysis of PdMLabs Experiment Flavors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/evaluation.html">Evaluation &amp; Metrics</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/index.html">🚀 Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/index.html">💡 Examples</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../user-guide/index.html">📖 User Guide</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../user-guide/implementing-methods/index.html">🛠️ Implementing Custom Methods</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../user-guide/implementing-methods/01_unsupervised_method.html">🔍 Implementing Unsupervised Methods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user-guide/implementing-methods/02_semi_supervised_method.html">📊 Implementing Semi-Supervised Methods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user-guide/implementing-methods/03_classification_method.html">🎯 Implementing Classification Methods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user-guide/implementing-methods/04_rul_regression_method.html">⏱️ Implementing RUL Regression Methods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user-guide/implementing-methods/05_survival_analysis_method.html">🧬 Implementing Survival Analysis Methods</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../user-guide/implementing-methods/01_unsupervised_method.html">🔍 Implementing Unsupervised Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user-guide/implementing-methods/02_semi_supervised_method.html">📊 Implementing Semi-Supervised Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user-guide/implementing-methods/03_classification_method.html">🎯 Implementing Classification Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user-guide/implementing-methods/04_rul_regression_method.html">⏱️ Implementing RUL Regression Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user-guide/implementing-methods/05_survival_analysis_method.html">🧬 Implementing Survival Analysis Methods</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../api-reference.html">📖 API Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="pdmlabs.html">pdmlabs</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="pdmlabs.RunExperiment.html">pdmlabs.RunExperiment</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="pdmlabs.constraint_functions.html">pdmlabs.constraint_functions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.constraint_functions.constraint.html">pdmlabs.constraint_functions.constraint</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="pdmlabs.evaluation.html">pdmlabs.evaluation</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.evaluation.anomaly_evaluator.html">pdmlabs.evaluation.anomaly_evaluator</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.evaluation.default_evaluators.html">pdmlabs.evaluation.default_evaluators</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.evaluation.evaluation.html">pdmlabs.evaluation.evaluation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.evaluation.evaluator.html">pdmlabs.evaluation.evaluator</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.evaluation.metrics_utils.html">pdmlabs.evaluation.metrics_utils</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.evaluation.vus.html">pdmlabs.evaluation.vus</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="pdmlabs.exceptions.html">pdmlabs.exceptions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.exceptions.exception.html">pdmlabs.exceptions.exception</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="pdmlabs.experiment.html">pdmlabs.experiment</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.experiment.batch.html">pdmlabs.experiment.batch</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.experiment.experiment.html">pdmlabs.experiment.experiment</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.experiment.streaming.html">pdmlabs.experiment.streaming</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="pdmlabs.loadAnomalyDetectionDataset.html">pdmlabs.loadAnomalyDetectionDataset</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="pdmlabs.mango.html">pdmlabs.mango</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.mango.domain.html">pdmlabs.mango.domain</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.mango.metatuner.html">pdmlabs.mango.metatuner</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.mango.optimizer.html">pdmlabs.mango.optimizer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.mango.scheduler.html">pdmlabs.mango.scheduler</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.mango.tuner.html">pdmlabs.mango.tuner</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="pdmlabs.method.html">pdmlabs.method</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.CoxModel.html">pdmlabs.method.CoxModel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.DAMP.html">pdmlabs.method.DAMP</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.PCA.html">pdmlabs.method.PCA</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.PCA_uns.html">pdmlabs.method.PCA_uns</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.TranAD.html">pdmlabs.method.TranAD</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.USAD.html">pdmlabs.method.USAD</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.dist_k_Semi.html">pdmlabs.method.dist_k_Semi</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.distance_based_k_r_Core.html">pdmlabs.method.distance_based_k_r_Core</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.dummy_all.html">pdmlabs.method.dummy_all</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.dummy_increase.html">pdmlabs.method.dummy_increase</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.isolation_forest.html">pdmlabs.method.isolation_forest</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.isolation_forest_uns.html">pdmlabs.method.isolation_forest_uns</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.lof_semi.html">pdmlabs.method.lof_semi</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.lof_uns.html">pdmlabs.method.lof_uns</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.method.html">pdmlabs.method.method</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.ocsvm.html">pdmlabs.method.ocsvm</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.pca_tsb.html">pdmlabs.method.pca_tsb</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.profile_based.html">pdmlabs.method.profile_based</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.semi_supervised_method.html">pdmlabs.method.semi_supervised_method</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.sklearn_regression_wraper.html">pdmlabs.method.sklearn_regression_wraper</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.supervised_method.html">pdmlabs.method.supervised_method</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.unsupervised_method.html">pdmlabs.method.unsupervised_method</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.xgboost.html">pdmlabs.method.xgboost</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.method.xgboostRUL.html">pdmlabs.method.xgboostRUL</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="pdmlabs.pdm_evaluation_types.html">pdmlabs.pdm_evaluation_types</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.pdm_evaluation_types.types.html">pdmlabs.pdm_evaluation_types.types</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="pdmlabs.pipeline.html">pdmlabs.pipeline</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.pipeline.mlflow_pipeline.html">pdmlabs.pipeline.mlflow_pipeline</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.pipeline.pipeline.html">pdmlabs.pipeline.pipeline</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="pdmlabs.postprocessing.html">pdmlabs.postprocessing</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.postprocessing.Moving2T.html">pdmlabs.postprocessing.Moving2T</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.postprocessing.causeFeatureSelection.html">pdmlabs.postprocessing.causeFeatureSelection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.postprocessing.default.html">pdmlabs.postprocessing.default</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.postprocessing.dynamicth.html">pdmlabs.postprocessing.dynamicth</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.postprocessing.min_max_scaler.html">pdmlabs.postprocessing.min_max_scaler</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.postprocessing.moving_average.html">pdmlabs.postprocessing.moving_average</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.postprocessing.post_processor.html">pdmlabs.postprocessing.post_processor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.postprocessing.self_tuning.html">pdmlabs.postprocessing.self_tuning</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="pdmlabs.preprocessing.html">pdmlabs.preprocessing</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.preprocessing.record_level.html">pdmlabs.preprocessing.record_level</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="pdmlabs.thresholding.html">pdmlabs.thresholding</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.thresholding.SurvSuperVisedTH.html">pdmlabs.thresholding.SurvSuperVisedTH</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.thresholding.constant.html">pdmlabs.thresholding.constant</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.thresholding.thresholder.html">pdmlabs.thresholding.thresholder</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="pdmlabs.utils.html">pdmlabs.utils</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.utils.automatic_parameter_generation.html">pdmlabs.utils.automatic_parameter_generation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.utils.dataset.html">pdmlabs.utils.dataset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.utils.distance.html">pdmlabs.utils.distance</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.utils.distances.html">pdmlabs.utils.distances</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.utils.rul_transformations.html">pdmlabs.utils.rul_transformations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdmlabs.utils.utils.html">pdmlabs.utils.utils</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/PdMLabs/PdMLabs" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/api/OnlineADEngine.pipeline.pipeline.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>pdmlabs.pipeline.pipeline</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.pipeline.pipeline.PdMPipeline"><code class="docutils literal notranslate"><span class="pre">PdMPipeline</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.pipeline.pipeline.PdMPipeline.dataset"><code class="docutils literal notranslate"><span class="pre">PdMPipeline.dataset</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.pipeline.pipeline.PdMPipeline.steps"><code class="docutils literal notranslate"><span class="pre">PdMPipeline.steps</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.pipeline.pipeline.PdMPipeline.auc_resolution"><code class="docutils literal notranslate"><span class="pre">PdMPipeline.auc_resolution</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.pipeline.pipeline.PdMPipeline.experiment_type"><code class="docutils literal notranslate"><span class="pre">PdMPipeline.experiment_type</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.pipeline.pipeline.PdMPipeline.event_preferences"><code class="docutils literal notranslate"><span class="pre">PdMPipeline.event_preferences</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.pipeline.pipeline.PdMPipeline.event_data"><code class="docutils literal notranslate"><span class="pre">PdMPipeline.event_data</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.pipeline.pipeline.PdMPipeline.extract_failure_dates_for_source"><code class="docutils literal notranslate"><span class="pre">PdMPipeline.extract_failure_dates_for_source()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.pipeline.pipeline.PdMPipeline.extract_reset_dates_for_source"><code class="docutils literal notranslate"><span class="pre">PdMPipeline.extract_reset_dates_for_source()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.pipeline.pipeline.PdMPipeline.find_affected_sources"><code class="docutils literal notranslate"><span class="pre">PdMPipeline.find_affected_sources()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.pipeline.pipeline.PdMPipeline.get_step_by_name"><code class="docutils literal notranslate"><span class="pre">PdMPipeline.get_step_by_name()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.pipeline.pipeline.PdMPipeline.get_steps"><code class="docutils literal notranslate"><span class="pre">PdMPipeline.get_steps()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.pipeline.pipeline.PdMPipeline.get_steps_as_str"><code class="docutils literal notranslate"><span class="pre">PdMPipeline.get_steps_as_str()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.pipeline.pipeline.PdMPipeline.old_extract_failure_dates_for_source"><code class="docutils literal notranslate"><span class="pre">PdMPipeline.old_extract_failure_dates_for_source()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.pipeline.pipeline.PdMPipelineSteps"><code class="docutils literal notranslate"><span class="pre">PdMPipelineSteps</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.pipeline.pipeline.PdMPipelineSteps.preprocessor"><code class="docutils literal notranslate"><span class="pre">PdMPipelineSteps.preprocessor</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.pipeline.pipeline.PdMPipelineSteps.method"><code class="docutils literal notranslate"><span class="pre">PdMPipelineSteps.method</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.pipeline.pipeline.PdMPipelineSteps.postprocessor"><code class="docutils literal notranslate"><span class="pre">PdMPipelineSteps.postprocessor</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.pipeline.pipeline.PdMPipelineSteps.thresholder"><code class="docutils literal notranslate"><span class="pre">PdMPipelineSteps.thresholder</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id0"><code class="docutils literal notranslate"><span class="pre">PdMPipelineSteps.method</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"><code class="docutils literal notranslate"><span class="pre">PdMPipelineSteps.postprocessor</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2"><code class="docutils literal notranslate"><span class="pre">PdMPipelineSteps.preprocessor</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3"><code class="docutils literal notranslate"><span class="pre">PdMPipelineSteps.thresholder</span></code></a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="module-pdmlabs.pipeline.pipeline">
+<span id="pdmlabs-pipeline-pipeline"></span><h1>pdmlabs.pipeline.pipeline<a class="headerlink" href="#module-pdmlabs.pipeline.pipeline" title="Link to this heading">#</a></h1>
+<p>PdMPipeline: Core data processing and component orchestration for predictive maintenance.</p>
+<p>This module defines the PdMPipeline class, which orchestrates the complete anomaly detection
+pipeline for predictive maintenance experiments. A pipeline combines:</p>
+<ul class="simple">
+<li><p>Dataset (with features, events, preferences, evaluation parameters)</p></li>
+<li><p>Processing steps: preprocessor → method → postprocessor → thresholder</p></li>
+<li><p>Event mapping logic (failures, resets, source relationships)</p></li>
+</ul>
+<p>The pipeline is the contract between raw data and experiment execution. It encapsulates:
+- The transformation steps applied to features
+- How anomalies are detected (via the method)
+- How anomaly scores are refined (postprocessor)
+- How scores are converted to binary predictions (thresholder)
+- Event semantics (what constitutes a failure, reset, or normal boundary)</p>
+<p>Architecture:</p>
+<blockquote>
+<div><dl class="simple">
+<dt>Raw Data (DataFrame)</dt><dd><p>↓</p>
+</dd>
+<dt>[Preprocessor] - Normalization, feature engineering, windowing</dt><dd><p>↓</p>
+</dd>
+<dt>[Method] - Anomaly detection (returns anomaly scores)</dt><dd><p>↓</p>
+</dd>
+<dt>[Postprocessor] - Score refinement (smoothing, aggregation, fusion)</dt><dd><p>↓</p>
+</dd>
+<dt>[Thresholder] - Binary decision boundary (0/1 predictions)</dt><dd><p>↓</p>
+</dd>
+</dl>
+<p>Predictions (binary labels)</p>
+</div></blockquote>
+<p>Key Concepts:</p>
+<blockquote>
+<div><dl class="simple">
+<dt>Events: Timestamps with type, description, and source that define:</dt><dd><ul class="simple">
+<li><p>Failures: when equipment actually fails</p></li>
+<li><p>Resets: when systems restart/reinitialize episodes</p></li>
+<li><p>Sources: which subsystem/sensor an event applies to</p></li>
+</ul>
+</dd>
+<dt>Event Preferences: Rules for how events propagate to target sources:</dt><dd><ul class="simple">
+<li><p>Direct (source → target_source)</p></li>
+<li><p>Broadcast (* applies to all targets)</p></li>
+<li><p>Same-source (= only to same source)</p></li>
+</ul>
+</dd>
+</dl>
+<p>Caching: Event extraction is cached on first call for performance.</p>
+</div></blockquote>
+<p class="rubric">Classes</p>
+<div class="pst-scrollable-table-container"><table class="autosummary longtable table autosummary">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="pdmlabs.pipeline.pipeline.html#pdmlabs.pipeline.pipeline.PdMPipeline" title="pdmlabs.pipeline.pipeline.PdMPipeline"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PdMPipeline</span></code></a>(steps, dataset, auc_resolution)</p></td>
+<td><p>Orchestrates the complete predictive maintenance anomaly detection pipeline.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pdmlabs.pipeline.pipeline.html#pdmlabs.pipeline.pipeline.PdMPipelineSteps" title="pdmlabs.pipeline.pipeline.PdMPipelineSteps"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PdMPipelineSteps</span></code></a></p></td>
+<td><p>Type definition for the four-stage anomaly detection pipeline.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<dl class="py class">
+<dt class="sig sig-object py" id="pdmlabs.pipeline.pipeline.PdMPipeline">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pdmlabs.pipeline.pipeline.</span></span><span class="sig-name descname"><span class="pre">PdMPipeline</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">steps:</span> <span class="pre">~pdmlabs.pipeline.pipeline.PdMPipelineSteps</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataset:</span> <span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">auc_resolution:</span> <span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">experiment_type=&lt;class</span> <span class="pre">'pdmlabs.method.semi_supervised_method.SemiSupervisedMethodInterface'&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pdmlabs.pipeline.pipeline.PdMPipeline" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Orchestrates the complete predictive maintenance anomaly detection pipeline.</p>
+<p>A PdMPipeline combines a dataset with four processing steps (preprocessor, method,
+postprocessor, thresholder) to form a complete anomaly detection system. It also
+manages event mappings (failures, resets) and evaluation parameters.</p>
+<p>The pipeline serves as the contract between raw data and experiment execution:
+- Defines what transformations apply to features
+- Specifies which anomaly detection method to use
+- Caches event extraction results for performance
+- Provides utilities to query failure/reset dates by device source</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pdmlabs.pipeline.pipeline.PdMPipeline.dataset">
+<span class="sig-name descname"><span class="pre">dataset</span></span><a class="headerlink" href="#pdmlabs.pipeline.pipeline.PdMPipeline.dataset" title="Link to this definition">#</a></dt>
+<dd><p>Complete dataset specification with keys:
+- ‘event_data’: DataFrame with columns [date, type, description, source]
+- ‘event_preferences’: Dict mapping ‘failure’ and ‘reset’ to event rules
+- ‘dates’: Target dates/indices (for temporal alignment)
+- ‘predictive_horizon’: Lead time for detection [int or list]
+- ‘slide’: Sliding window size for VUS metrics
+- ‘lead’: Detection lead time threshold
+- ‘beta’: Weighting parameter for metrics
+- ‘historic_data’: Training data files/DataFrames
+- ‘target_data’: Test data files/DataFrames
+- ‘historic_sources’: Source labels for training data
+- ‘target_sources’: Source labels for test data</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pdmlabs.pipeline.pipeline.PdMPipeline.steps">
+<span class="sig-name descname"><span class="pre">steps</span></span><a class="headerlink" href="#pdmlabs.pipeline.pipeline.PdMPipeline.steps" title="Link to this definition">#</a></dt>
+<dd><p>Dictionary with preprocessor, method, postprocessor, thresholder.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="pdmlabs.pipeline.pipeline.html#pdmlabs.pipeline.pipeline.PdMPipelineSteps" title="pdmlabs.pipeline.pipeline.PdMPipelineSteps">PdMPipelineSteps</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pdmlabs.pipeline.pipeline.PdMPipeline.auc_resolution">
+<span class="sig-name descname"><span class="pre">auc_resolution</span></span><a class="headerlink" href="#pdmlabs.pipeline.pipeline.PdMPipeline.auc_resolution" title="Link to this definition">#</a></dt>
+<dd><p>Resolution for threshold sweep in evaluation (e.g., 100).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pdmlabs.pipeline.pipeline.PdMPipeline.experiment_type">
+<span class="sig-name descname"><span class="pre">experiment_type</span></span><a class="headerlink" href="#pdmlabs.pipeline.pipeline.PdMPipeline.experiment_type" title="Link to this definition">#</a></dt>
+<dd><p>Default method class if not provided in steps.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pdmlabs.pipeline.pipeline.PdMPipeline.event_preferences">
+<span class="sig-name descname"><span class="pre">event_preferences</span></span><a class="headerlink" href="#pdmlabs.pipeline.pipeline.PdMPipeline.event_preferences" title="Link to this definition">#</a></dt>
+<dd><p>Parsed event rules for failures/resets.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pdmlabs.pipeline.pipeline.PdMPipeline.event_data">
+<span class="sig-name descname"><span class="pre">event_data</span></span><a class="headerlink" href="#pdmlabs.pipeline.pipeline.PdMPipeline.event_data" title="Link to this definition">#</a></dt>
+<dd><p>Parsed event log with timestamps and sources.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pd.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">preprocessor,</span> <span class="pre">method,</span> <span class="pre">postprocessor,</span> <span class="pre">thresholder</span></span></dt>
+<dd><p>Pipeline component instances.</p>
+</dd></dl>
+
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">pdmlabs.method.isolation_forest</span><span class="w"> </span><span class="kn">import</span> <span class="n">IsolationForest</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">pdmlabs.preprocessing.no_preprocessor</span><span class="w"> </span><span class="kn">import</span> <span class="n">NoPreprocessor</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">pdmlabs.postprocessing.no_postprocessor</span><span class="w"> </span><span class="kn">import</span> <span class="n">NoPostprocessor</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">pdmlabs.thresholding.static_threshold</span><span class="w"> </span><span class="kn">import</span> <span class="n">StaticThreshold</span>
+<span class="gp">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">steps</span> <span class="o">=</span> <span class="p">{</span>
+<span class="gp">... </span>    <span class="s1">&#39;preprocessor&#39;</span><span class="p">:</span> <span class="n">NoPreprocessor</span><span class="p">(</span><span class="n">event_preferences</span><span class="o">=</span><span class="p">{</span><span class="o">...</span><span class="p">}),</span>
+<span class="gp">... </span>    <span class="s1">&#39;method&#39;</span><span class="p">:</span> <span class="n">IsolationForest</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="s1">&#39;postprocessor&#39;</span><span class="p">:</span> <span class="n">NoPostprocessor</span><span class="p">(</span><span class="n">event_preferences</span><span class="o">=</span><span class="p">{</span><span class="o">...</span><span class="p">}),</span>
+<span class="gp">... </span>    <span class="s1">&#39;thresholder&#39;</span><span class="p">:</span> <span class="n">StaticThreshold</span><span class="p">(</span><span class="n">threshold_value</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">event_preferences</span><span class="o">=</span><span class="p">{</span><span class="o">...</span><span class="p">})</span>
+<span class="gp">... </span><span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pipeline</span> <span class="o">=</span> <span class="n">PdMPipeline</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">steps</span><span class="o">=</span><span class="n">steps</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">dataset</span><span class="o">=</span><span class="n">my_dataset</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">auc_resolution</span><span class="o">=</span><span class="mi">100</span>
+<span class="gp">... </span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">failure_dates</span> <span class="o">=</span> <span class="n">pipeline</span><span class="o">.</span><span class="n">extract_failure_dates_for_source</span><span class="p">(</span><span class="s1">&#39;bearing_1&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">reset_dates</span> <span class="o">=</span> <span class="n">pipeline</span><span class="o">.</span><span class="n">extract_reset_dates_for_source</span><span class="p">(</span><span class="s1">&#39;bearing_1&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="pdmlabs.pipeline.pipeline.PdMPipeline.extract_failure_dates_for_source">
+<span class="sig-name descname"><span class="pre">extract_failure_dates_for_source</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">source</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">Timestamp</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#pdmlabs.pipeline.pipeline.PdMPipeline.extract_failure_dates_for_source" title="Link to this definition">#</a></dt>
+<dd><p>Extract all failure timestamps for a specific source (device/subsystem).</p>
+<p>Queries the event log to find all events matching the failure preferences
+that should apply to the given source. Uses caching for performance on
+repeated calls.</p>
+<p>Event preferences define rules like:
+- Direct: specific source fires failure event
+- Broadcast (*): all sources affected when event fires
+- Group: multiple source IDs affected by same event</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>source</strong> (<em>str</em>) – Source/device identifier (e.g., ‘bearing_1’, ‘motor_A’).</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>Sorted list of unique failure timestamps for this source.</dt><dd><p>Empty list if no failures defined or source not in preferences.</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list[pd.Timestamp]</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>Caching:</dt><dd><p>Failure dates are cached on first call via expanded_event_preferences.
+Subsequent calls are O(1) lookups. Cache persists across calls to
+extract_reset_dates_for_source.</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pipeline</span> <span class="o">=</span> <span class="n">PdMPipeline</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">failure_times</span> <span class="o">=</span> <span class="n">pipeline</span><span class="o">.</span><span class="n">extract_failure_dates_for_source</span><span class="p">(</span><span class="s1">&#39;bearing_1&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Failures at: </span><span class="si">{</span><span class="n">failure_times</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="go">Failures at: [Timestamp(&#39;2024-01-10 14:30:00&#39;), Timestamp(&#39;2024-01-15 09:15:00&#39;)]</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># For broadcast events (* applies to all sources):</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">failures_motor</span> <span class="o">=</span> <span class="n">pipeline</span><span class="o">.</span><span class="n">extract_failure_dates_for_source</span><span class="p">(</span><span class="s1">&#39;motor_A&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">failures_bearing</span> <span class="o">=</span> <span class="n">pipeline</span><span class="o">.</span><span class="n">extract_failure_dates_for_source</span><span class="p">(</span><span class="s1">&#39;bearing_1&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Both may include times from * events</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pdmlabs.pipeline.pipeline.PdMPipeline.extract_reset_dates_for_source">
+<span class="sig-name descname"><span class="pre">extract_reset_dates_for_source</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">source</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">Timestamp</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#pdmlabs.pipeline.pipeline.PdMPipeline.extract_reset_dates_for_source" title="Link to this definition">#</a></dt>
+<dd><p>Extract all reset timestamps for a specific source (device/subsystem).</p>
+<p>Queries the event log to find all events matching the reset preferences
+that should apply to the given source. Reset events typically mark:
+- Equipment restarts / reinitializations
+- Episode boundaries (e.g., new mission, device replacement)
+- Scenario transitions for evaluation</p>
+<p>Similar to extract_failure_dates_for_source, but queries ‘reset’ preferences
+from event_preferences.event_data. Uses the same caching mechanism.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>source</strong> (<em>str</em>) – Source/device identifier (e.g., ‘bearing_1’, ‘motor_A’).</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>Sorted list of unique reset timestamps for this source.</dt><dd><p>Empty list if no resets defined or source not in preferences.</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list[pd.Timestamp]</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>Caching:</dt><dd><p>Resets are cached alongside failures on first call. Repeated calls are O(1).</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pipeline</span> <span class="o">=</span> <span class="n">PdMPipeline</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">reset_times</span> <span class="o">=</span> <span class="n">pipeline</span><span class="o">.</span><span class="n">extract_reset_dates_for_source</span><span class="p">(</span><span class="s1">&#39;bearing_1&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Resets at: </span><span class="si">{</span><span class="n">reset_times</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="go">Resets at: [Timestamp(&#39;2024-01-05 08:00:00&#39;), Timestamp(&#39;2024-01-20 16:30:00&#39;)]</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Use to segment data into episodes:</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">failures</span> <span class="o">=</span> <span class="n">pipeline</span><span class="o">.</span><span class="n">extract_failure_dates_for_source</span><span class="p">(</span><span class="s1">&#39;bearing_1&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">resets</span> <span class="o">=</span> <span class="n">pipeline</span><span class="o">.</span><span class="n">extract_reset_dates_for_source</span><span class="p">(</span><span class="s1">&#39;bearing_1&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Resets define episode boundaries, failures are ground truth within each episode</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pdmlabs.pipeline.pipeline.PdMPipeline.find_affected_sources">
+<span class="sig-name descname"><span class="pre">find_affected_sources</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">given_expanded_preferences</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">get_affected</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#pdmlabs.pipeline.pipeline.PdMPipeline.find_affected_sources" title="Link to this definition">#</a></dt>
+<dd><p>Map event preferences to affected sources (internal caching utility).</p>
+<p>Processes expanded event preferences and populates a dictionary indicating
+which sources are affected by each event. Handles three preference types:
+1. Direct (=): event affects only its source of origin
+2. Broadcast (*): event affects all known sources
+3. List: event affects specific named target sources</p>
+<p>This method is called once per pipeline to build a cache used by
+extract_failure_dates_for_source() and extract_reset_dates_for_source().</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>given_expanded_preferences</strong> (<em>list</em>) – List of expanded preference objects
+(typically all ‘failure’ or ‘reset’ preferences).</p></li>
+<li><p><strong>get_affected</strong> (<em>dict</em>) – Dictionary being populated with structure:
+{source_name: [[event_source, event_description, event_type], …]}</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>Same dict with preferences added:</dt><dd><p>Maps each source to list of [source, description, type] tuples
+indicating which events apply to that source.</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict[str, List[List[str]]]</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">preferences</span> <span class="o">=</span> <span class="p">[</span><span class="o">...</span><span class="n">expanded</span> <span class="n">preferences</span><span class="o">...</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">affected</span> <span class="o">=</span> <span class="p">{}</span>  <span class="c1"># Will be populated</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">result</span> <span class="o">=</span> <span class="n">pipeline</span><span class="o">.</span><span class="n">find_affected_sources</span><span class="p">(</span><span class="n">preferences</span><span class="p">,</span> <span class="n">affected</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="s1">&#39;bearing_1&#39;</span><span class="p">])</span>  <span class="c1"># Events affecting this source</span>
+<span class="go">[[&#39;source_A&#39;, &#39;overheat&#39;, &#39;failure&#39;], [&#39;*&#39;, &#39;shutdown&#39;, &#39;failure&#39;]]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pdmlabs.pipeline.pipeline.PdMPipeline.get_step_by_name">
+<span class="sig-name descname"><span class="pre">get_step_by_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">step_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pdmlabs.pipeline.pipeline.PdMPipeline.get_step_by_name" title="Link to this definition">#</a></dt>
+<dd><p>Get a specific pipeline step by name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>step_name</strong> (<em>str</em>) – Name of the step to retrieve. Must be one of:
+‘preprocessor’, ‘method’, ‘postprocessor’, ‘thresholder’.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The requested pipeline component.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="pdmlabs.preprocessing.record_level.record_level_pre_processor.html#pdmlabs.preprocessing.record_level.record_level_pre_processor.RecordLevelPreProcessorInterface" title="pdmlabs.preprocessing.record_level.record_level_pre_processor.RecordLevelPreProcessorInterface">RecordLevelPreProcessorInterface</a> | <a class="reference internal" href="pdmlabs.method.method.html#pdmlabs.method.method.MethodInterface" title="pdmlabs.method.method.MethodInterface">MethodInterface</a> | <a class="reference internal" href="pdmlabs.postprocessing.post_processor.html#pdmlabs.postprocessing.post_processor.PostProcessorInterface" title="pdmlabs.postprocessing.post_processor.PostProcessorInterface">PostProcessorInterface</a> | <a class="reference internal" href="pdmlabs.thresholding.thresholder.html#pdmlabs.thresholding.thresholder.ThresholderInterface" title="pdmlabs.thresholding.thresholder.ThresholderInterface">ThresholderInterface</a></p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>KeyError</strong> – If step_name is not found in the pipeline.</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pipeline</span> <span class="o">=</span> <span class="n">PdMPipeline</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">method</span> <span class="o">=</span> <span class="n">pipeline</span><span class="o">.</span><span class="n">get_step_by_name</span><span class="p">(</span><span class="s1">&#39;method&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">preprocessor</span> <span class="o">=</span> <span class="n">pipeline</span><span class="o">.</span><span class="n">get_step_by_name</span><span class="p">(</span><span class="s1">&#39;preprocessor&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pdmlabs.pipeline.pipeline.PdMPipeline.get_steps">
+<span class="sig-name descname"><span class="pre">get_steps</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="pdmlabs.pipeline.pipeline.html#pdmlabs.pipeline.pipeline.PdMPipelineSteps" title="pdmlabs.pipeline.pipeline.PdMPipelineSteps"><span class="pre">PdMPipelineSteps</span></a></span></span><a class="headerlink" href="#pdmlabs.pipeline.pipeline.PdMPipeline.get_steps" title="Link to this definition">#</a></dt>
+<dd><p>Return the pipeline steps (preprocessor, method, postprocessor, thresholder).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Dictionary containing all four pipeline components.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="pdmlabs.pipeline.pipeline.html#pdmlabs.pipeline.pipeline.PdMPipelineSteps" title="pdmlabs.pipeline.pipeline.PdMPipelineSteps">PdMPipelineSteps</a></p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pipeline</span> <span class="o">=</span> <span class="n">PdMPipeline</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">steps</span> <span class="o">=</span> <span class="n">pipeline</span><span class="o">.</span><span class="n">get_steps</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">method</span> <span class="o">=</span> <span class="n">steps</span><span class="p">[</span><span class="s1">&#39;method&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pdmlabs.pipeline.pipeline.PdMPipeline.get_steps_as_str">
+<span class="sig-name descname"><span class="pre">get_steps_as_str</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pdmlabs.pipeline.pipeline.PdMPipeline.get_steps_as_str" title="Link to this definition">#</a></dt>
+<dd><p>Generate a string representation of the pipeline steps for display/logging.</p>
+<p>Creates a human-readable identifier of the pipeline configuration, useful for:
+- MLflow experiment naming and logging
+- Cache keys in optimization
+- Result comparison and tracking</p>
+<dl class="simple">
+<dt>The format is:</dt><dd><p>preprocessor_&lt;name&gt;_method_&lt;name&gt;_postprocessor_&lt;name&gt;_thresholder_&lt;name&gt;</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Concatenated names of all four pipeline components.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pipeline</span> <span class="o">=</span> <span class="n">PdMPipeline</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">config_str</span> <span class="o">=</span> <span class="n">pipeline</span><span class="o">.</span><span class="n">get_steps_as_str</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">config_str</span><span class="p">)</span>
+<span class="go">preprocessor_StandardScaler_method_IsolationForest_postprocessor_Smoother_thresholder_StaticThreshold</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Use in MLflow experiment names:</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">exp_name</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;pdm-</span><span class="si">{</span><span class="n">pipeline</span><span class="o">.</span><span class="n">get_steps_as_str</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pdmlabs.pipeline.pipeline.PdMPipeline.old_extract_failure_dates_for_source">
+<span class="sig-name descname"><span class="pre">old_extract_failure_dates_for_source</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">source</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">Timestamp</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#pdmlabs.pipeline.pipeline.PdMPipeline.old_extract_failure_dates_for_source" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pdmlabs.pipeline.pipeline.PdMPipelineSteps">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pdmlabs.pipeline.pipeline.</span></span><span class="sig-name descname"><span class="pre">PdMPipelineSteps</span></span><a class="headerlink" href="#pdmlabs.pipeline.pipeline.PdMPipelineSteps" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">TypedDict</span></code></p>
+<p>Type definition for the four-stage anomaly detection pipeline.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pdmlabs.pipeline.pipeline.PdMPipelineSteps.preprocessor">
+<span class="sig-name descname"><span class="pre">preprocessor</span></span><a class="headerlink" href="#pdmlabs.pipeline.pipeline.PdMPipelineSteps.preprocessor" title="Link to this definition">#</a></dt>
+<dd><p>Transforms raw features
+(e.g., normalization, feature engineering, windowing). Fitted on training
+data, applied to test data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="pdmlabs.preprocessing.record_level.record_level_pre_processor.html#pdmlabs.preprocessing.record_level.record_level_pre_processor.RecordLevelPreProcessorInterface" title="pdmlabs.preprocessing.record_level.record_level_pre_processor.RecordLevelPreProcessorInterface">RecordLevelPreProcessorInterface</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pdmlabs.pipeline.pipeline.PdMPipelineSteps.method">
+<span class="sig-name descname"><span class="pre">method</span></span><a class="headerlink" href="#pdmlabs.pipeline.pipeline.PdMPipelineSteps.method" title="Link to this definition">#</a></dt>
+<dd><p>Anomaly detection model that returns anomaly scores.
+Can be supervised, semi-supervised, or unsupervised depending on availability
+of labels.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="pdmlabs.method.method.html#pdmlabs.method.method.MethodInterface" title="pdmlabs.method.method.MethodInterface">MethodInterface</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pdmlabs.pipeline.pipeline.PdMPipelineSteps.postprocessor">
+<span class="sig-name descname"><span class="pre">postprocessor</span></span><a class="headerlink" href="#pdmlabs.pipeline.pipeline.PdMPipelineSteps.postprocessor" title="Link to this definition">#</a></dt>
+<dd><p>Refines anomaly scores (e.g., smoothing,
+source fusion, aggregation). Applied after method predictions.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="pdmlabs.postprocessing.post_processor.html#pdmlabs.postprocessing.post_processor.PostProcessorInterface" title="pdmlabs.postprocessing.post_processor.PostProcessorInterface">PostProcessorInterface</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pdmlabs.pipeline.pipeline.PdMPipelineSteps.thresholder">
+<span class="sig-name descname"><span class="pre">thresholder</span></span><a class="headerlink" href="#pdmlabs.pipeline.pipeline.PdMPipelineSteps.thresholder" title="Link to this definition">#</a></dt>
+<dd><p>Converts anomaly scores to binary predictions
+using a decision threshold. Can be fixed, adaptive, or learned.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="pdmlabs.thresholding.thresholder.html#pdmlabs.thresholding.thresholder.ThresholderInterface" title="pdmlabs.thresholding.thresholder.ThresholderInterface">ThresholderInterface</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id0">
+<span class="sig-name descname"><span class="pre">method</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="pdmlabs.method.method.html#pdmlabs.method.method.MethodInterface" title="pdmlabs.method.method.MethodInterface"><span class="pre">MethodInterface</span></a></em><a class="headerlink" href="#id0" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id1">
+<span class="sig-name descname"><span class="pre">postprocessor</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="pdmlabs.postprocessing.post_processor.html#pdmlabs.postprocessing.post_processor.PostProcessorInterface" title="pdmlabs.postprocessing.post_processor.PostProcessorInterface"><span class="pre">PostProcessorInterface</span></a></em><a class="headerlink" href="#id1" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id2">
+<span class="sig-name descname"><span class="pre">preprocessor</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="pdmlabs.preprocessing.record_level.record_level_pre_processor.html#pdmlabs.preprocessing.record_level.record_level_pre_processor.RecordLevelPreProcessorInterface" title="pdmlabs.preprocessing.record_level.record_level_pre_processor.RecordLevelPreProcessorInterface"><span class="pre">RecordLevelPreProcessorInterface</span></a></em><a class="headerlink" href="#id2" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id3">
+<span class="sig-name descname"><span class="pre">thresholder</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="pdmlabs.thresholding.thresholder.html#pdmlabs.thresholding.thresholder.ThresholderInterface" title="pdmlabs.thresholding.thresholder.ThresholderInterface"><span class="pre">ThresholderInterface</span></a></em><a class="headerlink" href="#id3" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.pipeline.pipeline.PdMPipeline"><code class="docutils literal notranslate"><span class="pre">PdMPipeline</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.pipeline.pipeline.PdMPipeline.dataset"><code class="docutils literal notranslate"><span class="pre">PdMPipeline.dataset</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.pipeline.pipeline.PdMPipeline.steps"><code class="docutils literal notranslate"><span class="pre">PdMPipeline.steps</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.pipeline.pipeline.PdMPipeline.auc_resolution"><code class="docutils literal notranslate"><span class="pre">PdMPipeline.auc_resolution</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.pipeline.pipeline.PdMPipeline.experiment_type"><code class="docutils literal notranslate"><span class="pre">PdMPipeline.experiment_type</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.pipeline.pipeline.PdMPipeline.event_preferences"><code class="docutils literal notranslate"><span class="pre">PdMPipeline.event_preferences</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.pipeline.pipeline.PdMPipeline.event_data"><code class="docutils literal notranslate"><span class="pre">PdMPipeline.event_data</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.pipeline.pipeline.PdMPipeline.extract_failure_dates_for_source"><code class="docutils literal notranslate"><span class="pre">PdMPipeline.extract_failure_dates_for_source()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.pipeline.pipeline.PdMPipeline.extract_reset_dates_for_source"><code class="docutils literal notranslate"><span class="pre">PdMPipeline.extract_reset_dates_for_source()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.pipeline.pipeline.PdMPipeline.find_affected_sources"><code class="docutils literal notranslate"><span class="pre">PdMPipeline.find_affected_sources()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.pipeline.pipeline.PdMPipeline.get_step_by_name"><code class="docutils literal notranslate"><span class="pre">PdMPipeline.get_step_by_name()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.pipeline.pipeline.PdMPipeline.get_steps"><code class="docutils literal notranslate"><span class="pre">PdMPipeline.get_steps()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.pipeline.pipeline.PdMPipeline.get_steps_as_str"><code class="docutils literal notranslate"><span class="pre">PdMPipeline.get_steps_as_str()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.pipeline.pipeline.PdMPipeline.old_extract_failure_dates_for_source"><code class="docutils literal notranslate"><span class="pre">PdMPipeline.old_extract_failure_dates_for_source()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.pipeline.pipeline.PdMPipelineSteps"><code class="docutils literal notranslate"><span class="pre">PdMPipelineSteps</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.pipeline.pipeline.PdMPipelineSteps.preprocessor"><code class="docutils literal notranslate"><span class="pre">PdMPipelineSteps.preprocessor</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.pipeline.pipeline.PdMPipelineSteps.method"><code class="docutils literal notranslate"><span class="pre">PdMPipelineSteps.method</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.pipeline.pipeline.PdMPipelineSteps.postprocessor"><code class="docutils literal notranslate"><span class="pre">PdMPipelineSteps.postprocessor</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pdmlabs.pipeline.pipeline.PdMPipelineSteps.thresholder"><code class="docutils literal notranslate"><span class="pre">PdMPipelineSteps.thresholder</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id0"><code class="docutils literal notranslate"><span class="pre">PdMPipelineSteps.method</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"><code class="docutils literal notranslate"><span class="pre">PdMPipelineSteps.postprocessor</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2"><code class="docutils literal notranslate"><span class="pre">PdMPipelineSteps.preprocessor</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3"><code class="docutils literal notranslate"><span class="pre">PdMPipelineSteps.thresholder</span></code></a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Anastasios Papadopoulos, Apostolos Giannoulidis, DataLab Auth
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026, Anastasios Papadopoulos, Apostolos Giannoulidis, DataLab Auth.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    <p class="last-updated">
+  Last updated on May 01, 2026.
+  <br/>
+</p>
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
