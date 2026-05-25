@@ -76,7 +76,7 @@ All batch experiments automatically log to MLflow:
 - Browse results in MLflow UI: mlflow ui
 
 See Also:
-    - onlineADEngine.experiment.experiment: PdMExperiment base class
+    - pdmlabs.experiment.experiment: PdMExperiment base class
     - pdmlabs.pipeline: Define dataset and pipeline
     - pdmlabs.mango: Mango tuner configuration
 """
