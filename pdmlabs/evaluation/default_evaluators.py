@@ -336,7 +336,7 @@ class DefaultSurvEvaluator(EvaluatorInterface):
 
         for i in positions:
             res = concordance_index_censored(events, times_for_c, [1 - tpred for tpred in test_preds[:, i]])
-            cis.append((times_for_c[i], res[0]))
+            cis.append((times[i], res[0]))
 
         summaris = [np.sum(test_preds[i, :]) for i in range(len(test_preds))]
         maxsum = max(summaris)
