@@ -200,6 +200,49 @@ Ready to dive in? Here are some suggested paths:
 
 **Need detailed configuration?** → Browse :doc:`user-guide/index`
 
+Publications
+---------------
+Please cite the following papers when using PdMLabs for your research:
+
+- Anastasios Papadopoulos, Apostolos Giannoulidis, Anastasios Gounaris, and John Paparrizos. 2026. The Power of Anomaly Detection in Predictive Maintenance: [Experiments &amp; Analysis]. Proc. ACM Manag. Data 4, 3, Article 242 (June 2026), 33 pages. https://doi.org/10.1145/3802119
+
+.. code-block:: python
+
+    @article{10.1145/3802119,
+    author = {Papadopoulos, Anastasios and Giannoulidis, Apostolos and Gounaris, Anastasios and Paparrizos, John},
+    title = {The Power of Anomaly Detection in Predictive Maintenance: [Experiments \& Analysis]},
+    year = {2026},
+    issue_date = {June 2026},
+    publisher = {Association for Computing Machinery},
+    address = {New York, NY, USA},
+    volume = {4},
+    number = {3},
+    url = {https://doi.org/10.1145/3802119},
+    doi = {10.1145/3802119},
+    journal = {Proc. ACM Manag. Data},
+    month = may,
+    articleno = {242},
+    numpages = {33},
+    keywords = {predictive maintenance, time-series}
+    }
+
+- Anastasios Papadopoulos, Apostolos Giannoulidis, Anastasios Gounaris, Towards AutoML Solutions for Predictive Maintenance, Procedia Computer Science, Volume 280, 2026, Pages 791-798, ISSN 1877-0509, https://doi.org/10.1016/j.procs.2026.04.099.
+
+.. code-block:: python
+
+    @article{PAPADOPOULOS2026791,
+    title = {Towards AutoML Solutions for Predictive Maintenance},
+    journal = {Procedia Computer Science},
+    volume = {280},
+    pages = {791-798},
+    year = {2026},
+    note = {The 17th International Conference on Ambient Systems, Networks and Technologies Networks (ANT)/ the 9th International Conference on Emerging Data and Industry 4.0 (EDI40)},
+    issn = {1877-0509},
+    doi = {https://doi.org/10.1016/j.procs.2026.04.099},
+    url = {https://www.sciencedirect.com/science/article/pii/S1877050926011129},
+    author = {Anastasios Papadopoulos and Apostolos Giannoulidis and Anastasios Gounaris},
+    keywords = {Predictive Maintenance, Time-Series, AutoML},
+    }
 
 Acknowledgments
 ---------------
