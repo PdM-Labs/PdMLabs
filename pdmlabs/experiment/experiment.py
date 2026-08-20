@@ -11,12 +11,10 @@ import pickle
 
 import pandas as pd
 import numpy as np
+import matplotlib
 import matplotlib.pyplot as plt
 import mlflow
-import locket
 import uuid
-
-from matplotlib import cm
 
 from pdmlabs.pipeline.pipeline import PdMPipeline
 from pdmlabs.evaluation.evaluation import AUCPR_new as pdm_evaluate
@@ -270,13 +268,11 @@ class PdMExperiment(abc.ABC):
 
         random.seed(self.random_state)
 
-        import pkg_resources
-        required = {'torch'}
-        installed = {pkg.key for pkg in pkg_resources.working_set}
-        missing = required - installed
-        if not missing:
+        try:
             import torch
             torch.manual_seed(self.random_state)
+        except ImportError:
+            pass
         np.random.seed(self.random_state)
 
         # current_dir = os.getcwd()
@@ -442,7 +438,7 @@ class PdMExperiment(abc.ABC):
         """
         pivcounter = -1
         pivot = 10
-        cmap = cm.get_cmap('coolwarm')
+        cmap = matplotlib.colormaps['coolwarm']
         # Pick two colors (not the edges, e.g., 0.25 and 0.75)
         color1 = cmap(0.15)
         color2 = cmap(0.75)
@@ -480,7 +476,7 @@ class PdMExperiment(abc.ABC):
             globalcounter = 0
             namescount = -1
 
-            cmap = cm.get_cmap('coolwarm')
+            cmap = matplotlib.colormaps['coolwarm']
             # Pick two colors (not the edges, e.g., 0.25 and 0.75)
             color1 = cmap(0.15)
             color2 = cmap(0.75)

@@ -186,7 +186,7 @@ def run_mlflow_server(mlflow_port):
     else:
         print("Starting MLflow server...")
         # subprocess.Popen(["export","MLFLOW_TRACKING_URI=sqlite:///mlruns.db"])
-        subprocess.Popen(["mlflow", "ui", "--host", host, "--port", str(port)])
+        subprocess.Popen(["mlflow", "server", "--host", host, "--port", str(port)])
         print(f"MLflow server started at http://{host}:{port}.")
 
 

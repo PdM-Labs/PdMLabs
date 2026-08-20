@@ -1,5 +1,5 @@
 pdmlabs
-==============
+=======
 
 .. toctree::
    :maxdepth: 4

@@ -5,8 +5,6 @@ Unsupervised methods detect anomalies without any labeled training data. They're
 
 **When to Use:** Early exploratory analysis, systems where labeling is expensive, or when normal behavior is hard to define.
 
-**Framework:** :doc:`../index` → :doc:`unsupervised-overview` (if exists)
-
 
 Interface Overview
 ------------------

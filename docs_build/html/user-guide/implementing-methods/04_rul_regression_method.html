@@ -16,37 +16,41 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-
-  
-  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+  <link href="../../_static/styles/theme.css?digest=90905a2f556bf617f1a9" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=90905a2f556bf617f1a9" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8f2a1f02" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=4418a689" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles.css?v=2b15ee4a" />
   
+  <!-- So that users can add custom icons -->
+  <script defer src="../../_static/scripts/fontawesome.js?digest=90905a2f556bf617f1a9"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
-  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=90905a2f556bf617f1a9" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=90905a2f556bf617f1a9" />
 
-    <script src="../../_static/documentation_options.js?v=f131489c"></script>
-    <script src="../../_static/doctools.js?v=9bcbadda"></script>
-    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/documentation_options.js?v=4acdca81"></script>
+    <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../../_static/copybutton.js?v=f281be69"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
     <script src="../../_static/design-tabs.js?v=f930bc37"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'user-guide/implementing-methods/04_rul_regression_method';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="icon" href="../../_static/PdMLabs_logo.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -54,35 +58,31 @@
     <link rel="prev" title="🎯 Implementing Classification Methods" href="03_classification_method.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-    <meta name="docbuild:last-update" content="Jun 11, 2026"/>
+  <meta name="docsearch:version" content="" />
+    <meta name="docbuild:last-update" content="Aug 20, 2026"/>
+  
+    
+    <script src="../../_static/searchtools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../searchindex.js"></script>
+  
   </head>
-  
-  
-  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
-
+  <body data-default-mode="">
   
   
   <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
   
   <div id="pst-scroll-pixel-helper"></div>
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
-
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-primary-sidebar-checkbox"/>
-  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-secondary-sidebar-checkbox"/>
-  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="../../search.html"
       method="get">
@@ -90,7 +90,6 @@
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search..."
          aria-label="Search..."
          autocomplete="off"
@@ -98,15 +97,59 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
 </div>
 
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
     </header>
   
 
@@ -115,7 +158,8 @@
       
       
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -145,21 +189,17 @@
     
     
     <img src="../../_static/PdMLabs_logo.png" class="logo__image only-light" alt="PdMLabs Documentation - Home"/>
-    <script>document.write(`<img src="../../_static/PdMLabs_logo.png" class="logo__image only-dark" alt="PdMLabs Documentation - Home"/>`);</script>
+    <img src="../../_static/PdMLabs_logo.png" class="logo__image only-dark pst-js-only" alt="PdMLabs Documentation - Home"/>
   
   
 </a></div>
         <div class="sidebar-primary-item">
 
- <script>
- document.write(`
-   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <ul class="nav bd-sidenav">
@@ -249,6 +289,8 @@
 <li class="toctree-l4"><a class="reference internal" href="../../api/pdmlabs.method.sklearn_regression_wraper.html">pdmlabs.method.sklearn_regression_wraper</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../api/pdmlabs.method.supervised_method.html">pdmlabs.method.supervised_method</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../api/pdmlabs.method.unsupervised_method.html">pdmlabs.method.unsupervised_method</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/pdmlabs.method.xgboost.html">pdmlabs.method.xgboost</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/pdmlabs.method.xgboostRUL.html">pdmlabs.method.xgboostRUL</a></li>
 </ul>
 </details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../../api/pdmlabs.pdm_evaluation_types.html">pdmlabs.pdm_evaluation_types</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -302,9 +344,14 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -402,7 +449,7 @@
 
 
 <button onclick="toggleFullScreen()"
-  class="btn btn-sm btn-fullscreen-button"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
   title="Fullscreen mode"
   data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
@@ -416,25 +463,24 @@
 
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
   </button>
-`);
-</script>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
-<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
 </button>
 </div></div>
@@ -456,7 +502,7 @@ document.write(`
                 <h2> Contents </h2>
             </div>
             <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interface-overview">Interface Overview</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#required-methods">Required Methods</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-xgboost-rul-regression">Example: XGBoost RUL Regression</a></li>
@@ -531,7 +577,7 @@ document.write(`
         <span class="n">historic_sources</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
         <span class="n">event_data</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span>
         <span class="n">anomaly_ranges</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">list</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Train XGBoost regressor on RUL data.</span>
 
 <span class="sd">    Args:</span>
@@ -541,7 +587,7 @@ document.write(`
 <span class="sd">        anomaly_ranges: **RUL values** (not binary labels!)</span>
 <span class="sd">                       - list per source</span>
 <span class="sd">                       - each element is continuous RUL value</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
     <span class="k">for</span> <span class="n">data</span><span class="p">,</span> <span class="n">source</span><span class="p">,</span> <span class="n">rul_labels</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">historic_data</span><span class="p">,</span> <span class="n">historic_sources</span><span class="p">,</span> <span class="n">anomaly_ranges</span><span class="p">):</span>
         <span class="c1"># Create REGRESSOR (not classifier!)</span>
         <span class="n">model</span> <span class="o">=</span> <span class="n">xgb</span><span class="o">.</span><span class="n">XGBRegressor</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">initial_args</span><span class="p">,</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">initial_kwargs</span><span class="p">)</span>
@@ -551,14 +597,14 @@ document.write(`
         <span class="c1"># Optional: Save model to disk</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">save_model</span><span class="p">:</span>
             <span class="kn">import</span><span class="w"> </span><span class="nn">pickle</span>
-            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;model_</span><span class="si">{</span><span class="n">source</span><span class="si">}</span><span class="s2">.pkl&quot;</span><span class="p">,</span> <span class="s2">&quot;wb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="sa">f</span><span class="s2">"model_</span><span class="si">{</span><span class="n">source</span><span class="si">}</span><span class="s2">.pkl"</span><span class="p">,</span> <span class="s2">"wb"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
                 <span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
 </pre></div>
 </div>
 <p><strong>Key Difference:</strong> Uses <code class="docutils literal notranslate"><span class="pre">XGBRegressor</span></code> not <code class="docutils literal notranslate"><span class="pre">XGBClassifier</span></code></p>
 <p><strong>Prediction Phase:</strong></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target_data</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">source</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">event_data</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">float</span><span class="p">]:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Score test data as RUL predictions.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""Score test data as RUL predictions."""</span>
     <span class="n">model</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model_per_source</span><span class="p">[</span><span class="n">source</span><span class="p">]</span>
     <span class="c1"># predict() returns continuous values (not probabilities!)</span>
     <span class="n">predictions</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">target_data</span><span class="p">)</span>
@@ -580,11 +626,11 @@ document.write(`
 
 
 <span class="k">class</span><span class="w"> </span><span class="nc">MyRULRegressor</span><span class="p">(</span><span class="n">SupervisedMethodInterface</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;RUL regression for predictive maintenance.</span>
+<span class="w">    </span><span class="sd">"""RUL regression for predictive maintenance.</span>
 
 <span class="sd">    This method learns to predict Remaining Useful Life (RUL) as a</span>
 <span class="sd">    continuous regression target.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
                  <span class="n">event_preferences</span><span class="p">:</span> <span class="n">EventPreferences</span><span class="p">,</span>
@@ -606,7 +652,7 @@ document.write(`
         <span class="n">historic_sources</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
         <span class="n">event_data</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span>
         <span class="n">anomaly_ranges</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">list</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Train RUL regressor for each source.</span>
 
 <span class="sd">    Args:</span>
@@ -617,7 +663,7 @@ document.write(`
 
 <span class="sd">    The labels represent time (days, cycles, hours) until failure.</span>
 <span class="sd">    A sample with RUL=100 means it has 100 time units remaining.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
     <span class="k">for</span> <span class="n">data</span><span class="p">,</span> <span class="n">source</span><span class="p">,</span> <span class="n">rul_values</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">historic_data</span><span class="p">,</span> <span class="n">historic_sources</span><span class="p">,</span> <span class="n">anomaly_ranges</span><span class="p">):</span>
         <span class="c1"># Create REGRESSOR (not classifier)</span>
         <span class="n">regressor</span> <span class="o">=</span> <span class="n">RandomForestRegressor</span><span class="p">(</span>
@@ -635,7 +681,7 @@ document.write(`
 <p><strong>Step 3: Implement predict()</strong></p>
 <p>Return RUL predictions:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target_data</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">source</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">event_data</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">float</span><span class="p">]:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Predict RUL for test data.</span>
 
 <span class="sd">    Args:</span>
@@ -645,9 +691,9 @@ document.write(`
 
 <span class="sd">    Returns:</span>
 <span class="sd">        List of RUL predictions (continuous values)</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
     <span class="k">if</span> <span class="n">source</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">model_per_source</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;No model for source &#39;</span><span class="si">{</span><span class="n">source</span><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"No model for source '</span><span class="si">{</span><span class="n">source</span><span class="si">}</span><span class="s2">'"</span><span class="p">)</span>
 
     <span class="n">regressor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model_per_source</span><span class="p">[</span><span class="n">source</span><span class="p">]</span>
 
@@ -663,7 +709,7 @@ document.write(`
 <p><strong>Step 4: Implement predict_one()</strong></p>
 <p>Predict RUL for single sample:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">predict_one</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">new_sample</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">,</span> <span class="n">source</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">is_event</span><span class="p">:</span> <span class="nb">bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Predict RUL for a single sample.</span>
 
 <span class="sd">    Args:</span>
@@ -673,9 +719,9 @@ document.write(`
 
 <span class="sd">    Returns:</span>
 <span class="sd">        RUL prediction (continuous value)</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
     <span class="k">if</span> <span class="n">source</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">model_per_source</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;No model for source &#39;</span><span class="si">{</span><span class="n">source</span><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"No model for source '</span><span class="si">{</span><span class="n">source</span><span class="si">}</span><span class="s2">'"</span><span class="p">)</span>
 
     <span class="n">regressor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model_per_source</span><span class="p">[</span><span class="n">source</span><span class="p">]</span>
     <span class="n">sample_array</span> <span class="o">=</span> <span class="n">new_sample</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
@@ -690,21 +736,21 @@ document.write(`
 </div>
 <p><strong>Step 5: Implement get_params() and other methods</strong></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_params</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Return hyperparameters.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""Return hyperparameters."""</span>
     <span class="n">first_source</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model_per_source</span><span class="o">.</span><span class="n">keys</span><span class="p">())[</span><span class="mi">0</span><span class="p">]</span>
     <span class="n">model</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model_per_source</span><span class="p">[</span><span class="n">first_source</span><span class="p">]</span>
 
     <span class="k">return</span> <span class="p">{</span>
         <span class="o">**</span><span class="n">model</span><span class="o">.</span><span class="n">get_params</span><span class="p">(),</span>
-        <span class="s1">&#39;n_estimators&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_estimators</span><span class="p">,</span>
-        <span class="s1">&#39;max_depth&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">max_depth</span><span class="p">,</span>
+        <span class="s1">'n_estimators'</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_estimators</span><span class="p">,</span>
+        <span class="s1">'max_depth'</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">max_depth</span><span class="p">,</span>
     <span class="p">}</span>
 
 <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-    <span class="k">return</span> <span class="s1">&#39;MyRULRegressor&#39;</span>
+    <span class="k">return</span> <span class="s1">'MyRULRegressor'</span>
 
 <span class="k">def</span><span class="w"> </span><span class="nf">get_library</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-    <span class="k">return</span> <span class="s1">&#39;no_save&#39;</span>
+    <span class="k">return</span> <span class="s1">'no_save'</span>
 
 <span class="k">def</span><span class="w"> </span><span class="nf">get_all_models</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">model_per_source</span>
@@ -716,7 +762,7 @@ document.write(`
 <p><strong>Computing RUL from Time-to-Failure:</strong></p>
 <p>If you have time-to-failure information, compute RUL for each sample:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">compute_rul</span><span class="p">(</span><span class="n">failure_time</span><span class="p">,</span> <span class="n">sample_time</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Compute RUL as time until failure.</span>
 
 <span class="sd">    Args:</span>
@@ -725,12 +771,12 @@ document.write(`
 
 <span class="sd">    Returns:</span>
 <span class="sd">        RUL in time units (days, cycles, hours)</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
     <span class="n">rul</span> <span class="o">=</span> <span class="n">failure_time</span> <span class="o">-</span> <span class="n">sample_time</span>
     <span class="k">return</span> <span class="nb">max</span><span class="p">(</span><span class="n">rul</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>  <span class="c1"># RUL cannot be negative</span>
 
 <span class="c1"># Example: Compute RUL for Beijing dataset</span>
-<span class="n">df</span><span class="p">[</span><span class="s1">&#39;rul&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;bearing_id&#39;</span><span class="p">)[</span><span class="s1">&#39;time_to_failure&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">'rul'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'bearing_id'</span><span class="p">)[</span><span class="s1">'time_to_failure'</span><span class="p">]</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span>
     <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
 <span class="p">)</span>
 </pre></div>
@@ -738,18 +784,18 @@ document.write(`
 <p><strong>RUL Transformation Patterns:</strong></p>
 <ol class="arabic">
 <li><p><strong>Linear degradation:</strong></p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;rul&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;source&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">cumcount</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">'rul'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'source'</span><span class="p">)</span><span class="o">.</span><span class="n">cumcount</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
 </li>
 <li><p><strong>Exponential weighting (early samples more important):</strong></p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;rul&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;source&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">cumcount</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">pow</span><span class="p">(</span><span class="mf">1.5</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">'rul'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'source'</span><span class="p">)</span><span class="o">.</span><span class="n">cumcount</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">pow</span><span class="p">(</span><span class="mf">1.5</span><span class="p">)</span>
 </pre></div>
 </div>
 </li>
 <li><p><strong>Truncated RUL (cap at maximum):</strong></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">max_rul</span> <span class="o">=</span> <span class="mi">100</span>  <span class="c1"># Cap RUL at 100 units</span>
-<span class="n">df</span><span class="p">[</span><span class="s1">&#39;rul&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;source&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">cumcount</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">upper</span><span class="o">=</span><span class="n">max_rul</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">'rul'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'source'</span><span class="p">)</span><span class="o">.</span><span class="n">cumcount</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">upper</span><span class="o">=</span><span class="n">max_rul</span><span class="p">)</span>
 </pre></div>
 </div>
 </li>
@@ -765,11 +811,11 @@ document.write(`
 <span class="kn">from</span><span class="w"> </span><span class="nn">pdmlabs.pdm_evaluation_types.types</span><span class="w"> </span><span class="kn">import</span> <span class="n">EventPreferences</span>
 
 <span class="c1"># 1. Load data (must have continuous RUL labels)</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;your_rul_data.csv&#39;</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">'your_rul_data.csv'</span><span class="p">)</span>
 <span class="n">dataset_handler</span> <span class="o">=</span> <span class="n">Dataset</span><span class="p">(</span>
     <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span>
-    <span class="n">datetime_column</span><span class="o">=</span><span class="s2">&quot;timestamp&quot;</span><span class="p">,</span>
-    <span class="n">source_column</span><span class="o">=</span><span class="s2">&quot;source&quot;</span><span class="p">,</span>
+    <span class="n">datetime_column</span><span class="o">=</span><span class="s2">"timestamp"</span><span class="p">,</span>
+    <span class="n">source_column</span><span class="o">=</span><span class="s2">"source"</span><span class="p">,</span>
     <span class="n">train_sources</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span>
     <span class="n">val_sources</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span>
     <span class="n">test_sources</span><span class="o">=</span><span class="mf">0.2</span>
@@ -778,8 +824,8 @@ document.write(`
 
 <span class="c1"># 2. Define hyperparameters for your RUL regressor</span>
 <span class="n">method_param_space</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;n_estimators&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">50</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">150</span><span class="p">],</span>
-    <span class="s1">&#39;max_depth&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">20</span><span class="p">],</span>
+    <span class="s1">'n_estimators'</span><span class="p">:</span> <span class="p">[</span><span class="mi">50</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">150</span><span class="p">],</span>
+    <span class="s1">'max_depth'</span><span class="p">:</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">20</span><span class="p">],</span>
 <span class="p">}</span>
 
 <span class="c1"># 3. Define event preferences</span>
@@ -795,19 +841,19 @@ document.write(`
     <span class="n">dataset</span><span class="o">=</span><span class="n">ds_rul</span><span class="p">,</span>
     <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="n">MyRULRegressor</span><span class="p">(</span><span class="n">event_preferences</span><span class="o">=</span><span class="n">event_prefs</span><span class="p">)],</span>
     <span class="n">param_space_dict_per_method</span><span class="o">=</span><span class="p">[</span><span class="n">method_param_space</span><span class="p">],</span>
-    <span class="n">method_names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;MyRULRegressor&#39;</span><span class="p">],</span>
+    <span class="n">method_names</span><span class="o">=</span><span class="p">[</span><span class="s1">'MyRULRegressor'</span><span class="p">],</span>
     <span class="n">experiments</span><span class="o">=</span><span class="p">[</span><span class="n">SupervisedRULPdMExperiment</span><span class="p">],</span>
-    <span class="n">experiment_names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;RUL Regression&#39;</span><span class="p">],</span>
+    <span class="n">experiment_names</span><span class="o">=</span><span class="p">[</span><span class="s1">'RUL Regression'</span><span class="p">],</span>
     <span class="n">MAX_RUNS</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span>
     <span class="n">MAX_JOBS</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
     <span class="n">INITIAL_RANDOM</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
     <span class="n">profile_size</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
-    <span class="n">optimization_param</span><span class="o">=</span><span class="s1">&#39;MAE&#39;</span><span class="p">,</span>
+    <span class="n">optimization_param</span><span class="o">=</span><span class="s1">'MAE'</span><span class="p">,</span>
     <span class="n">maximize</span><span class="o">=</span><span class="kc">False</span>
 <span class="p">)</span>
 
 <span class="c1"># 5. Check results</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Best parameters: </span><span class="si">{</span><span class="n">best_params</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Best parameters: </span><span class="si">{</span><span class="n">best_params</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -858,15 +904,17 @@ document.write(`
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> Contents
   </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interface-overview">Interface Overview</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#required-methods">Required Methods</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-xgboost-rul-regression">Example: XGBoost RUL Regression</a></li>
@@ -907,7 +955,7 @@ By Anastasios Papadopoulos, Apostolos Giannoulidis, DataLab AUTh
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on Jun 11, 2026.
+  Last updated on Aug 20, 2026.
   <br/>
 </p>
   </div>
@@ -925,8 +973,8 @@ By Anastasios Papadopoulos, Apostolos Giannoulidis, DataLab AUTh
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <script defer src="../../_static/scripts/bootstrap.js?digest=90905a2f556bf617f1a9"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=90905a2f556bf617f1a9"></script>
 
   <footer class="bd-footer">
   </footer>
