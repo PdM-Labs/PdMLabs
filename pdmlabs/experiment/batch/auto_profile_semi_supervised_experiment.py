@@ -1,4 +1,3 @@
-import re
 import time
 import gc
 
@@ -8,12 +7,14 @@ import mlflow
 from pdmlabs.mango import scheduler
 
 from pdmlabs.experiment.experiment import PdMExperiment
+from pdmlabs.pipeline.pipeline import split_step_params
 from pdmlabs.evaluation.default_evaluators import DefaultADEvaluator
 from pdmlabs.evaluation.evaluation import AUCPR_new as pdm_evaluate, breakIntoEpisodes as split_into_episodes
 
 from pdmlabs.method.semi_supervised_method import SemiSupervisedMethodInterface
 from pdmlabs.exceptions.exception import IncompatibleMethodException
 from pdmlabs.utils.scores import as_score_list
+from pdmlabs.preprocessing.raw_level.snapshots import featurize
 
 
 class AutoProfileSemiSupervisedPdMExperiment(PdMExperiment):
@@ -154,7 +155,8 @@ class AutoProfileSemiSupervisedPdMExperiment(PdMExperiment):
                 subsequent_profile_size = params['profile_size']
                 initial_profile_size = params.get('initial_profile_size', subsequent_profile_size)
 
-                method_params = {re.sub('method_', '', k): v for k, v in params.items() if 'method' in k}
+                step_params = split_step_params(params)
+                method_params = step_params['method']
                 # The method object is built once per trial, before the source loop,
                 # so it cannot track a per-slice size.
                 method_params['profile_size'] = subsequent_profile_size
@@ -165,17 +167,21 @@ class AutoProfileSemiSupervisedPdMExperiment(PdMExperiment):
                 if not isinstance(current_method, SemiSupervisedMethodInterface):
                     raise IncompatibleMethodException('Expected a semi-supervised method to be provided')
 
-                preprocessor_params = {re.sub('preprocessor_', '', k): v for k, v in params.items() if 'preprocessor' in k}
+                preprocessor_params = step_params['preprocessor']
                 current_preprocessor = self.pipeline.preprocessor(event_preferences=self.pipeline.event_preferences, **preprocessor_params)
+                current_raw_preprocessor = self._build_raw_preprocessor(step_params['raw_preprocessor'])
 
-                postprocessor_params = {re.sub('postprocessor_', '', k): v for k, v in params.items() if 'postprocessor' in k}
+                postprocessor_params = step_params['postprocessor']
                 #print(postprocessor_params)
                 current_postprocessor = self.pipeline.postprocessor(event_preferences=self.pipeline.event_preferences, **postprocessor_params)
 
-                thresholder_params = {re.sub('thresholder_', '', k): v for k, v in params.items() if 'thresholder' in k}
+                thresholder_params = step_params['thresholder']
                 current_thresholder = self.pipeline.thresholder(event_preferences=self.pipeline.event_preferences, **thresholder_params)
                 try:
                     total_fit_time=0
+                    # Raw-level features of every target source, for the saved pipeline's
+                    # channel check (it is not fit() here, so it cannot record them itself).
+                    raw_features = set()
                     total_inference_time=0
                     first_target = True
                     for current_target_data, current_target_source in zip(self.target_data, self.target_sources):
@@ -199,6 +205,13 @@ class AutoProfileSemiSupervisedPdMExperiment(PdMExperiment):
                             current_target_data = current_target_data.drop(name, axis=1)
 
                         current_target_data.index = current_dates
+                        # Snapshots are turned into feature rows up front (stateless, nothing
+                        # is fitted), because the profiles below are fitted on slices of
+                        # current_target_data with the preprocessor directly.
+                        if current_raw_preprocessor is not None:
+                            columns = list(current_target_data.columns)
+                            current_target_data = featurize(current_target_data, current_raw_preprocessor)
+                            raw_features.add(tuple(name for name in current_target_data.columns if name not in columns))
 
                         if len(current_reset_dates) != 0:
                             if current_reset_dates[-1] < current_target_data.index[-1]:
@@ -295,6 +308,7 @@ class AutoProfileSemiSupervisedPdMExperiment(PdMExperiment):
                     print(e)
                     print("Assing score 0 and continuing to the next experiment.")
                     self._finish_run(parent_run=parent_run, current_steps={
+                        'raw_preprocessor': current_raw_preprocessor,
                         'preprocessor': current_preprocessor,
                         'method': current_method,
                         'postprocessor': current_postprocessor,
@@ -312,11 +326,14 @@ class AutoProfileSemiSupervisedPdMExperiment(PdMExperiment):
 
                 from pdmlabs.pipeline.mlflow_pipeline import SemiSupervisedPdMPipeline
                 pdm_pipeline = SemiSupervisedPdMPipeline(
+                    raw_preprocessor=current_raw_preprocessor,
                     preprocessor=current_preprocessor,
                     method=current_method,
                     postprocessor=current_postprocessor,
                     thresholder=current_thresholder
                 )
+                if len(raw_features) == 1:
+                    pdm_pipeline.fitted_features = list(raw_features.pop())
                 
                 # Ship this trial back to the parent process. Assigning to self
                 # here would be lost: every backend with n_jobs > 1 runs this
@@ -333,6 +350,7 @@ class AutoProfileSemiSupervisedPdMExperiment(PdMExperiment):
                 self._plot_scores(plot_dictionary, best_metrics_dict)
 
                 self._finish_run(parent_run=parent_run, current_steps={
+                    'raw_preprocessor': current_raw_preprocessor,
                     'preprocessor': current_preprocessor,
                     'method': current_method,
                     'postprocessor': current_postprocessor,

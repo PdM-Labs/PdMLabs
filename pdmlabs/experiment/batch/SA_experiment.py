@@ -1,4 +1,3 @@
-import re
 import time
 
 import numpy as np
@@ -8,6 +7,7 @@ import mlflow
 from pdmlabs.mango import scheduler
 
 from pdmlabs.experiment.experiment import PdMExperiment
+from pdmlabs.pipeline.pipeline import split_step_params
 from pdmlabs.evaluation.default_evaluators import DefaultSurvEvaluator
 from pdmlabs.exceptions.exception import IncompatibleMethodException
 from pdmlabs.method.supervised_method import SupervisedMethodInterface
@@ -84,7 +84,8 @@ class Supervised_SA_PdMExperiment(PdMExperiment):
                 else:
                     run_to_failure_scenarios = False
 
-                method_params = {re.sub('method_', '', k): v for k, v in params.items() if 'method' in k}
+                step_params = split_step_params(params)
+                method_params = step_params['method']
                 current_method = self.pipeline.method(event_preferences=self.pipeline.event_preferences, **method_params)
                 if "match_sources" not in self.pipeline.dataset:
                     self.pipeline.dataset["match_sources"]= {source: source for source in self.pipeline.dataset["target_sources"]}
@@ -106,13 +107,14 @@ class Supervised_SA_PdMExperiment(PdMExperiment):
                     assert len(hs_data) == len(
                         labs), "The number of target data sources and target_labels must match."
 
-                preprocessor_params = {re.sub('preprocessor_', '', k): v for k, v in params.items() if 'preprocessor' in k}
+                preprocessor_params = step_params['preprocessor']
                 current_preprocessor = self.pipeline.preprocessor(event_preferences=self.pipeline.event_preferences, **preprocessor_params)
+                current_raw_preprocessor = self._build_raw_preprocessor(step_params['raw_preprocessor'])
 
-                postprocessor_params = {re.sub('postprocessor_', '', k): v for k, v in params.items() if 'postprocessor' in k}
+                postprocessor_params = step_params['postprocessor']
                 current_postprocessor = self.pipeline.postprocessor(event_preferences=self.pipeline.event_preferences, **postprocessor_params)
 
-                thresholder_params = {re.sub('thresholder_', '', k): v for k, v in params.items() if 'thresholder' in k}
+                thresholder_params = step_params['thresholder']
                 current_thresholder = self.pipeline.thresholder(event_preferences=self.pipeline.event_preferences,
                                                                 **thresholder_params)
 
@@ -133,6 +135,7 @@ class Supervised_SA_PdMExperiment(PdMExperiment):
 
                     from pdmlabs.pipeline.mlflow_pipeline import SAPdMPipeline
                     pdm_pipeline = SAPdMPipeline(
+                        raw_preprocessor=current_raw_preprocessor,
                         preprocessor=current_preprocessor,
                         method=current_method,
                         postprocessor=current_postprocessor,
@@ -202,6 +205,7 @@ class Supervised_SA_PdMExperiment(PdMExperiment):
                     print(e)
                     print("Assing score 0 and continuing to the next experiment.")
                     self._finish_run(parent_run=parent_run, current_steps={
+                        'raw_preprocessor': current_raw_preprocessor,
                         'preprocessor': current_preprocessor,
                         'method': current_method,
                         'postprocessor': current_postprocessor,
@@ -244,6 +248,7 @@ class Supervised_SA_PdMExperiment(PdMExperiment):
                 )
 
                 self._finish_run(parent_run=parent_run, current_steps={
+                    'raw_preprocessor': current_raw_preprocessor,
                     'preprocessor': current_preprocessor,
                     'method': current_method,
                     'postprocessor': current_postprocessor,

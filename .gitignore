@@ -37,6 +37,7 @@ mlruns/
 *.csv
 # ...but keep the bundled demo dataset: README, docs/ and test/ all read it
 !data/ims.csv
+!data/snapshots/**/*.csv
 *.pred
 *.real
 

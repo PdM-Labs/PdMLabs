@@ -2,14 +2,18 @@ import pandas as pd
 import mlflow.pyfunc
 
 from pdmlabs.utils.scores import as_score_list
+from pdmlabs.preprocessing.raw_level.snapshots import SNAPSHOT_COLUMN, channel_advice, featurize
 
 class BasePdMPipeline(mlflow.pyfunc.PythonModel):
     """
     Base class for a Unified PdMLabs Pipeline.
-    Encapsulates the preprocessor, method, postprocessor, and thresholder.
+
+    Encapsulates the preprocessor, method, postprocessor, and thresholder, and on snapshot
+    datasets the raw-level step that turns each snapshot into one row of features first.
     Inherits from mlflow.pyfunc.PythonModel for seamless MLflow tracking and serving.
     """
-    def __init__(self, preprocessor, method, postprocessor, thresholder):
+    def __init__(self, preprocessor, method, postprocessor, thresholder, raw_preprocessor=None):
+        self.raw_preprocessor = raw_preprocessor
         self.preprocessor = preprocessor
         self.method = method
         self.postprocessor = postprocessor
@@ -17,6 +21,39 @@ class BasePdMPipeline(mlflow.pyfunc.PythonModel):
         
         self.fitted_sources = []
         self.global_threshold = None
+        # Raw-level features of the data fit() was given, to give a clear error when other
+        # data yields different ones (e.g. a source with a different number of channels).
+        self.fitted_features = None
+
+    def _featurize(self, data, fitting=False):
+        """Turn the snapshot references of ``data`` into feature rows with the raw-level step.
+
+        Data without snapshot references (or a pipeline without a raw-level step) is returned
+        unchanged. The features are recorded when fitting and compared otherwise.
+        """
+        raw_preprocessor = getattr(self, 'raw_preprocessor', None)
+        if raw_preprocessor is None or SNAPSHOT_COLUMN not in data.columns:
+            return data
+        featurized = featurize(data, raw_preprocessor)
+        features = [name for name in featurized.columns if name not in data.columns]
+        if fitting and self.fitted_features is None:
+            self.fitted_features = features
+        elif self.fitted_features is not None and features != self.fitted_features:
+            only_fitted = [name for name in self.fitted_features if name not in features]
+            only_this = [name for name in features if name not in self.fitted_features]
+            detail = (f'only in the fitted data: {only_fitted[:5]}; only in this data: {only_this[:5]}'
+                      if only_fitted or only_this else 'the same features in another order')
+            raise ValueError(
+                f'{raw_preprocessor} gives {len(features)} features for this data, but the pipeline was '
+                f'fitted on data with {len(self.fitted_features)} features ({detail}). The sources do not '
+                f'have the same channels: {channel_advice(data[SNAPSHOT_COLUMN])}.'
+            )
+        return featurized
+
+    def _featurize_historic(self, historic_data):
+        """Featurize the training frames, recording their raw-level features."""
+        self.fitted_features = None
+        return [self._featurize(frame, fitting=True) for frame in historic_data]
 
     def set_global_threshold(self, th: float):
         """Injects the globally optimal threshold found by the experiment's evaluation metric."""
@@ -59,6 +96,7 @@ class BasePdMPipeline(mlflow.pyfunc.PythonModel):
                 source = "default_source"
                 
         # Execute the unified inference chain
+        target_data = self._featurize(target_data)
         current_data = self.preprocessor.transform(target_data, source, event_data)
         scores = as_score_list(self.method.predict(current_data, source, event_data),
                                len(current_data), f'{self.method}.predict')
@@ -92,6 +130,7 @@ class BasePdMPipeline(mlflow.pyfunc.PythonModel):
             else:
                 source = "default_source"
                 
+        target_data = self._featurize(target_data)
         current_data = self.preprocessor.transform(target_data, source, event_data)
         scores = as_score_list(self.method.predict(current_data, source, event_data),
                                len(current_data), f'{self.method}.predict')
@@ -103,6 +142,7 @@ class SemiSupervisedPdMPipeline(BasePdMPipeline):
     """Pipeline for Semi-Supervised Flavors."""
     def fit(self, historic_data, historic_sources, event_data):
         self.fitted_sources = historic_sources
+        historic_data = self._featurize_historic(historic_data)
         
         self.preprocessor.fit(historic_data, historic_sources, event_data)
         
@@ -127,6 +167,7 @@ class SupervisedPdMPipeline(BasePdMPipeline):
     """Pipeline for Supervised Flavors."""
     def fit(self, historic_data, historic_sources, event_data, anomaly_ranges):
         self.fitted_sources = historic_sources
+        historic_data = self._featurize_historic(historic_data)
         
         self.preprocessor.fit(historic_data, historic_sources, event_data, anomaly_ranges)
         
@@ -177,6 +218,7 @@ class RULPdMPipeline(SupervisedPdMPipeline):
             else:
                 source = "default_source"
                 
+        target_data = self._featurize(target_data)
         current_data = self.preprocessor.transform(target_data, source, event_data)
         scores = as_score_list(self.method.predict(current_data, source, event_data),
                                len(current_data), f'{self.method}.predict')
@@ -223,6 +265,7 @@ class SAPdMPipeline(SupervisedPdMPipeline):
             else:
                 source = "default_source"
                 
+        target_data = self._featurize(target_data)
         current_data = self.preprocessor.transform(target_data, source, event_data)
         scores = as_score_list(self.method.predict(current_data, source, event_data),
                                len(current_data), f'{self.method}.predict')

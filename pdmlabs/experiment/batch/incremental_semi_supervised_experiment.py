@@ -1,4 +1,3 @@
-import re
 import time
 
 import numpy as np
@@ -7,10 +6,12 @@ import mlflow
 from pdmlabs.mango import scheduler
 
 from pdmlabs.experiment.experiment import PdMExperiment
+from pdmlabs.pipeline.pipeline import split_step_params
 from pdmlabs.evaluation.default_evaluators import DefaultADEvaluator
 from pdmlabs.evaluation.evaluation import AUCPR_new as pdm_evaluate, breakIntoEpisodes as split_into_episodes
 from pdmlabs.method.semi_supervised_method import SemiSupervisedMethodInterface
 from pdmlabs.exceptions.exception import IncompatibleMethodException, ShortScenarioLengthException
+from pdmlabs.preprocessing.raw_level.snapshots import featurize
 
 
 class IncrementalSemiSupervisedPdMExperiment(PdMExperiment):
@@ -132,24 +133,29 @@ class IncrementalSemiSupervisedPdMExperiment(PdMExperiment):
                 mlflow.log_param('incremental_window_length', incremental_window_length)
                 mlflow.log_param('incremental_slide', incremental_slide)
 
-                method_params = {re.sub('method_', '', k): v for k, v in params.items() if 'method' in k}
+                step_params = split_step_params(params)
+                method_params = step_params['method']
                 print(method_params)
                 current_method = self.pipeline.method(event_preferences=self.pipeline.event_preferences, **method_params)
 
                 if not isinstance(current_method, SemiSupervisedMethodInterface):
                     raise IncompatibleMethodException('Expected a semi-supervised method to be provided')
 
-                preprocessor_params = {re.sub('preprocessor_', '', k): v for k, v in params.items() if 'preprocessor' in k}
+                preprocessor_params = step_params['preprocessor']
                 current_preprocessor = self.pipeline.preprocessor(event_preferences=self.pipeline.event_preferences, **preprocessor_params)
+                current_raw_preprocessor = self._build_raw_preprocessor(step_params['raw_preprocessor'])
 
-                postprocessor_params = {re.sub('postprocessor_', '', k): v for k, v in params.items() if 'postprocessor' in k}
+                postprocessor_params = step_params['postprocessor']
                 print(postprocessor_params)
                 current_postprocessor = self.pipeline.postprocessor(event_preferences=self.pipeline.event_preferences, **postprocessor_params)
 
-                thresholder_params = {re.sub('thresholder_', '', k): v for k, v in params.items() if 'thresholder' in k}
+                thresholder_params = step_params['thresholder']
                 current_thresholder = self.pipeline.thresholder(event_preferences=self.pipeline.event_preferences, **thresholder_params)
                 try:
                     total_fit_time=0
+                    # Raw-level features of every target source, for the saved pipeline's
+                    # channel check (it is not fit() here, so it cannot record them itself).
+                    raw_features = set()
                     total_inference_time=0
                     for current_target_data, current_target_source in zip(self.target_data, self.target_sources):
                         current_failure_dates = self.pipeline.extract_failure_dates_for_source(current_target_source)
@@ -165,6 +171,13 @@ class IncrementalSemiSupervisedPdMExperiment(PdMExperiment):
                             current_target_data = current_target_data.drop(name, axis=1)
 
                         current_target_data.index = current_dates
+                        # Snapshots are turned into feature rows up front (stateless, nothing
+                        # is fitted), because the window and slide buffers below are filled
+                        # row by row with the columns of current_target_data.
+                        if current_raw_preprocessor is not None:
+                            columns = list(current_target_data.columns)
+                            current_target_data = featurize(current_target_data, current_raw_preprocessor)
+                            raw_features.add(tuple(name for name in current_target_data.columns if name not in columns))
 
                         if len(current_reset_dates) != 0:
                             if current_reset_dates[-1] < current_target_data.index[-1]:
@@ -318,6 +331,7 @@ class IncrementalSemiSupervisedPdMExperiment(PdMExperiment):
                     print(e)
                     print("Assing score 0 and continuing to the next experiment.")
                     self._finish_run(parent_run=parent_run, current_steps={
+                        'raw_preprocessor': current_raw_preprocessor,
                         'preprocessor': current_preprocessor,
                         'method': current_method,
                         'postprocessor': current_postprocessor,
@@ -335,11 +349,14 @@ class IncrementalSemiSupervisedPdMExperiment(PdMExperiment):
 
                 from pdmlabs.pipeline.mlflow_pipeline import SemiSupervisedPdMPipeline
                 pdm_pipeline = SemiSupervisedPdMPipeline(
+                    raw_preprocessor=current_raw_preprocessor,
                     preprocessor=current_preprocessor,
                     method=current_method,
                     postprocessor=current_postprocessor,
                     thresholder=current_thresholder
                 )
+                if len(raw_features) == 1:
+                    pdm_pipeline.fitted_features = list(raw_features.pop())
                 
                 # Ship this trial back to the parent process. Assigning to self
                 # here would be lost: every backend with n_jobs > 1 runs this
@@ -356,6 +373,7 @@ class IncrementalSemiSupervisedPdMExperiment(PdMExperiment):
                 self._plot_scores(plot_dictionary, best_metrics_dict)
 
                 self._finish_run(parent_run=parent_run, current_steps={
+                    'raw_preprocessor': current_raw_preprocessor,
                     'preprocessor': current_preprocessor,
                     'method': current_method,
                     'postprocessor': current_postprocessor,

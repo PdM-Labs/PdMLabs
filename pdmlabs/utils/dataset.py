@@ -45,8 +45,14 @@ class Dataset:
 
     Parameters
     ----------
-    data : pd.DataFrame
-        The input data containing time-series information. If `event_df` is not provided but
+    data : pd.DataFrame, dict, str or os.PathLike
+        The input data containing time-series information. It can also be a snapshot dataset,
+        described by `snapshot_options`: the path of a folder in which every subfolder holding
+        files is a source, named by its relative path (see
+        :func:`pdmlabs.preprocessing.raw_level.snapshots.discover_sources`), or a dict mapping
+        each source name to a folder (one file per snapshot) or to a list of DataFrames (one per
+        snapshot). Each snapshot becomes one row at its recording time and is turned into
+        features by the pipeline's raw-level step. If `event_df` is not provided but
         `maintenance_column` and/or `failure_column` are provided, they are expected to be binary
         indicator columns of `data` and are used to derive the episodes. If neither `event_df`,
         `event_indicator`, `maintenance_column` nor `failure_column` is provided, every source is
@@ -110,6 +116,30 @@ class Dataset:
         (the `event_indicator` strategy and the implicit run-to-failure fallback): that column
         is taken as given. When episodes are cut out of a source by events, a per-episode RUL is
         always recomputed, because a source-wide RUL would not restart at each episode.
+    snapshot_options : dict, optional
+        Only for snapshot datasets (`data` given as a folder or a dict). Exactly one timestamp
+        option is required: ``timestamp_format`` (``strptime`` format of the file names, e.g.
+        ``'%Y.%m.%d.%H.%M.%S'`` for IMS), ``datetime_column`` (a column inside each snapshot)
+        or ``interval`` (artificial spacing such as ``'1min'``, with an optional ``start``).
+        Optional, for folder sources only: ``read_kwargs`` (e.g.
+        ``{'sep': '\\t', 'header': None}``) and ``reader``.
+        ``read_kwargs`` applies to every file of every source, so selecting different
+        columns per source needs a ``reader``. In IMS, for example, test 1 has two channels
+        per bearing and tests 2 and 3 have one; this reader keeps one channel per bearing,
+        numbered 0-3, in every test::
+
+            def read_ims(path, **kwargs):
+                cols = [0, 2, 4, 6] if '1st_test' in path else [0, 1, 2, 3]
+                return pd.read_csv(path, sep='\\t', header=None,
+                                   usecols=cols).set_axis(range(4), axis=1)
+
+            snapshot_options = {'timestamp_format': '%Y.%m.%d.%H.%M.%S', 'reader': read_ims}
+
+        Events must then come from `event_df`, or every source is treated as one run-to-failure
+        episode. See
+        :func:`pdmlabs.preprocessing.raw_level.snapshots.build_snapshot_frame`. The same options
+        build the input of a saved model's ``predict`` from new snapshots, with
+        :func:`pdmlabs.preprocessing.raw_level.snapshots.snapshot_frame`.
 
     Attributes
     ----------
@@ -123,6 +153,10 @@ class Dataset:
         Episode names of each split, in the same order as `train_dfs`, `val_dfs` and `test_dfs`.
     train_dfs, val_dfs, test_dfs : list[pd.DataFrame]
         Episodes of each split.
+    snapshot_column : str or None
+        Column holding the snapshot references of a snapshot dataset, None otherwise. It is
+        also published as ``'snapshot_column'`` in the dictionaries of the ``get_*_dataset``
+        methods, which makes the pipeline add its raw-level step.
     """
 
     def __init__(self, data, datetime_column, event_indicator=None, maintenance_column=None,
@@ -130,13 +164,37 @@ class Dataset:
                  beta=1, slide=None, lead="0 seconds", predictive_horizon=None,
                  train_sources=0.6, val_sources=0.2, test_sources=0.2, max_wait_time=None,
                  in_source_split=False, keep_censored_tail=True, random_state=None,
-                 DIVIDER=3600):
+                 DIVIDER=3600, snapshot_options=None):
 
         # Dataset. `data` is copied so that the caller's frame is never modified in place.
         self.in_source_split = in_source_split
         self.datetime_column = datetime_column
         self.source_column = source_column
         self.random_state = random_state
+
+        # A snapshot dataset becomes a placeholder frame with one row per snapshot, so that
+        # episodes, splits, horizon and slide are derived from the snapshot timestamps exactly
+        # as for any other dataset. The snapshots are featurized later, by the pipeline.
+        self.snapshot_column = None
+        if isinstance(data, str) or hasattr(data, '__fspath__'):
+            # One folder for the whole dataset: every subfolder holding files is a source.
+            from pdmlabs.preprocessing.raw_level.snapshots import discover_sources
+            data = discover_sources(data)
+        if isinstance(data, dict):
+            from pdmlabs.preprocessing.raw_level.snapshots import (SNAPSHOT_COLUMN,
+                                                                   build_snapshot_frame)
+            if event_indicator is not None:
+                raise ValueError(
+                    "event_indicator names a column of data, which snapshot datasets do not "
+                    "have. Describe the events with event_df, or omit it to treat every source "
+                    "as one run-to-failure episode."
+                )
+            data = build_snapshot_frame(data, datetime_column, source_column,
+                                        snapshot_options or {})
+            self.snapshot_column = SNAPSHOT_COLUMN
+        elif snapshot_options is not None:
+            raise ValueError("snapshot_options only applies when data is a snapshot dataset "
+                             "(a dict of sources or a folder).")
 
         data = data.copy()
         data[self.datetime_column] = pd.to_datetime(data[self.datetime_column])
@@ -1156,6 +1214,7 @@ class Dataset:
         dataset['slide'] = self.slide
         dataset['lead'] = self.lead
         dataset['beta'] = self.beta
+        self._add_snapshot_column(dataset)
 
         # ############# test dataset ############## #
 
@@ -1172,6 +1231,7 @@ class Dataset:
         test_dataset['slide'] = self.slide
         test_dataset['lead'] = self.lead
         test_dataset['beta'] = self.beta
+        self._add_snapshot_column(test_dataset)
 
         return dataset, test_dataset
 
@@ -1222,6 +1282,12 @@ class Dataset:
         dataset['lead'] = self.lead
         dataset['beta'] = self.beta
         dataset['max_wait_time'] = self.max_wait_time
+        self._add_snapshot_column(dataset)
+
+    def _add_snapshot_column(self, dataset):
+        """Mark a flavor dictionary of a snapshot dataset, so the pipeline featurizes it."""
+        if self.snapshot_column is not None:
+            dataset['snapshot_column'] = self.snapshot_column
 
     @staticmethod
     def _empty_event_definition():

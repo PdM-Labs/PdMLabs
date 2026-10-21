@@ -271,7 +271,7 @@ def run_experiment(dataset,methods, param_space_dict_per_method,method_names,exp
                    energy_study_name: str = None, energy_backend_kwargs: dict = None,
                    energy_phase_label: str = 'SEARCH',
                    energy_extra_dims: dict = None, random_state: int = 42,
-                   deterministic: bool = True):
+                   deterministic: bool = True, raw_preprocessor=None):
     """Execute predictive maintenance anomaly detection experiments with hyperparameter optimization.
     
     Orchestrates complete experiments: constructs pipelines, performs hyperparameter search,
@@ -313,7 +313,10 @@ def run_experiment(dataset,methods, param_space_dict_per_method,method_names,exp
     
     additional_parameters : dict, default={}
         Extra hyperparameters for pipeline components (preprocessing, postprocessing, thresholding).
-        Key format: '{component}_{param_name}' (e.g., 'postprocessor_window_length', 'preprocessor_features').
+        Key format: '{component}_{param_name}' (e.g., 'postprocessor_window_length', 'preprocessor_features'),
+        where component is 'raw_preprocessor', 'preprocessor', 'method', 'postprocessor' or
+        'thresholder'. A key reaches the component it starts with, so 'raw_preprocessor_n_bins'
+        never reaches the preprocessor.
         Values should be lists of candidate values (for grid search).
     
     MAX_RUNS : int, default=1
@@ -359,6 +362,18 @@ def run_experiment(dataset,methods, param_space_dict_per_method,method_names,exp
         Pre-processing class for data preparation/transformation.
         Will be instantiated with appropriate parameters.
         Options: DefaultPreProcessor, FeatureSelector, MinMaxScaler, etc.
+    
+    raw_preprocessor : type, optional
+        Raw-level class that turns each snapshot into one row of features, for datasets
+        built from snapshots (``Dataset(data=folder)`` or
+        ``Dataset(data={source: folder_or_list_of_dfs})``). It runs before
+        ``preprocessor`` and is logged to MLflow as its own step, ``raw_preprocessor``.
+        Pass the class, not an instance: every trial builds its own, with parameters
+        tuned through ``additional_parameters`` keys ``'raw_preprocessor_<param>'``
+        (e.g. ``'raw_preprocessor_n_bins': [10, 20]``).
+        Options: StatisticalRawPreProcessor. If None on a snapshot dataset:
+        DefaultRawPreProcessor (only accepts single-row snapshots). Raises TypeError
+        for an instance, and ValueError on a dataset without snapshots.
     
     thresholder : type, default=ConstantThresholder
         Thresholding class to convert anomaly scores to binary labels.
@@ -563,6 +578,7 @@ def run_experiment(dataset,methods, param_space_dict_per_method,method_names,exp
 
             my_pipeline = PdMPipeline(
                 steps={
+                    'raw_preprocessor': raw_preprocessor,
                     'preprocessor': preprocessor,
                     'method': current_method,
                     'postprocessor': postprocessor,

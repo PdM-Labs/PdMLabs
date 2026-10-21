@@ -1,4 +1,3 @@
-import re
 import time
 
 import numpy as np
@@ -7,6 +6,7 @@ import mlflow
 from pdmlabs.mango import scheduler
 
 from pdmlabs.experiment.experiment import PdMExperiment
+from pdmlabs.pipeline.pipeline import split_step_params
 from pdmlabs.evaluation.default_evaluators import DefaultADEvaluator
 from pdmlabs.evaluation.evaluation import AUCPR_new as pdm_evaluate, breakIntoEpisodes as split_into_episodes
 from pdmlabs.method.semi_supervised_method import SemiSupervisedMethodInterface
@@ -89,7 +89,8 @@ class SemiSupervisedPdMExperiment(PdMExperiment):
                 else:
                     run_to_failure_scenarios = False
 
-                method_params = {re.sub('method_', '', k): v for k, v in params.items() if 'method' in k}
+                step_params = split_step_params(params)
+                method_params = step_params['method']
                 current_method = self.pipeline.method(event_preferences=self.pipeline.event_preferences, **method_params)
 
                 if "match_sources" not in self.pipeline.dataset:
@@ -98,13 +99,14 @@ class SemiSupervisedPdMExperiment(PdMExperiment):
                 if not isinstance(current_method, SemiSupervisedMethodInterface):
                     raise IncompatibleMethodException('Expected a semi-supervised method to be provided')
 
-                preprocessor_params = {re.sub('preprocessor_', '', k): v for k, v in params.items() if 'preprocessor' in k}
+                preprocessor_params = step_params['preprocessor']
                 current_preprocessor = self.pipeline.preprocessor(event_preferences=self.pipeline.event_preferences, **preprocessor_params)
+                current_raw_preprocessor = self._build_raw_preprocessor(step_params['raw_preprocessor'])
 
-                postprocessor_params = {re.sub('postprocessor_', '', k): v for k, v in params.items() if 'postprocessor' in k}
+                postprocessor_params = step_params['postprocessor']
                 current_postprocessor = self.pipeline.postprocessor(event_preferences=self.pipeline.event_preferences, **postprocessor_params)
 
-                thresholder_params = {re.sub('thresholder_', '', k): v for k, v in params.items() if 'thresholder' in k}
+                thresholder_params = step_params['thresholder']
                 current_thresholder = self.pipeline.thresholder(event_preferences=self.pipeline.event_preferences, **thresholder_params)
                 try:
                     fit_time=time.time()
@@ -124,6 +126,7 @@ class SemiSupervisedPdMExperiment(PdMExperiment):
 
                     from pdmlabs.pipeline.mlflow_pipeline import SemiSupervisedPdMPipeline
                     pdm_pipeline = SemiSupervisedPdMPipeline(
+                        raw_preprocessor=current_raw_preprocessor,
                         preprocessor=current_preprocessor,
                         method=current_method,
                         postprocessor=current_postprocessor,
@@ -184,6 +187,7 @@ class SemiSupervisedPdMExperiment(PdMExperiment):
                     print(e)
                     print("Assing score 0 and continuing to the next experiment.")
                     self._finish_run(parent_run=parent_run, current_steps={
+                        'raw_preprocessor': current_raw_preprocessor,
                         'preprocessor': current_preprocessor,
                         'method': current_method,
                         'postprocessor': current_postprocessor,
@@ -214,6 +218,7 @@ class SemiSupervisedPdMExperiment(PdMExperiment):
                 self._plot_scores(plot_dictionary, best_metrics_dict)
 
                 self._finish_run(parent_run=parent_run, current_steps={
+                    'raw_preprocessor': current_raw_preprocessor,
                     'preprocessor': current_preprocessor,
                     'method': current_method,
                     'postprocessor': current_postprocessor,

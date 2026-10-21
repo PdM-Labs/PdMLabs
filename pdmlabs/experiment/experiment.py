@@ -17,7 +17,7 @@ import matplotlib.pyplot as plt
 import mlflow
 import uuid
 
-from pdmlabs.pipeline.pipeline import PdMPipeline
+from pdmlabs.pipeline.pipeline import PdMPipeline, STEP_NAMES, split_step_params
 from pdmlabs.evaluation.evaluation import AUCPR_new as pdm_evaluate
 from pdmlabs.evaluation.evaluation import AUCPR_ranges_new as pdm_evaluate_ranges
 from pdmlabs.utils.seeding import set_global_seed, seed_for_params, seeded_objective
@@ -850,6 +850,24 @@ class PdMExperiment(abc.ABC):
                 plt.clf()
                 counter = 0
 
+    def _build_raw_preprocessor(self, raw_params: dict):
+        """Build the raw-level step of a trial, or return None when the dataset has no snapshots.
+
+        Args:
+            raw_params (dict): The trial's ``raw_preprocessor_*`` parameters, without the prefix.
+
+        Raises:
+            ValueError: If raw_preprocessor parameters are given for a dataset without snapshots.
+        """
+        if self.pipeline.raw_preprocessor is None:
+            if raw_params:
+                raise ValueError(
+                    f'raw_preprocessor parameters {sorted(raw_params)} were given but the dataset '
+                    'has no snapshots, so the pipeline has no raw_preprocessor step.'
+                )
+            return None
+        return self.pipeline.raw_preprocessor(**raw_params)
+
     def _finish_run(self, parent_run, current_steps, params: dict = None) -> None:
         """Log pipeline components, parameters, and metrics to the current MLflow run.
 
@@ -864,6 +882,7 @@ class PdMExperiment(abc.ABC):
         Args:
             parent_run: Active MLflow Run object to log to.
             current_steps (dict): Dictionary of pipeline components for this run:
+                - 'raw_preprocessor': Raw-level step, or None when the dataset has no snapshots
                 - 'preprocessor': Fitted preprocessor
                 - 'method': Fitted anomaly detection method
                 - 'postprocessor': Fitted postprocessor
@@ -1037,12 +1056,11 @@ class PdMExperiment(abc.ABC):
 
         current_params = params.copy()
 
-        method_params = {re.sub('method_', '', k): v for k, v in current_params.items() if 'method' in k}
-        preprocessor_params = {re.sub('preprocessor_', '', k): v for k, v in current_params.items() if
-                               'preprocessor' in k}
-        postprocessor_params = {re.sub('postprocessor_', '', k): v for k, v in current_params.items() if
-                                'postprocessor' in k}
-        thresholder_params = {re.sub('thresholder_', '', k): v for k, v in current_params.items() if 'thresholder' in k}
+        step_params = split_step_params(current_params)
+        method_params = step_params['method']
+        preprocessor_params = step_params['preprocessor']
+        postprocessor_params = step_params['postprocessor']
+        thresholder_params = step_params['thresholder']
 
         runs = mlflow.search_runs(self.experiment_id, filter_string='attributes.status = "FINISHED"')
 
@@ -1068,13 +1086,22 @@ class PdMExperiment(abc.ABC):
                 'postprocessor': self.pipeline.postprocessor(event_preferences=self.pipeline.event_preferences,
                                                              **postprocessor_params),
                 'thresholder': self.pipeline.thresholder(event_preferences=self.pipeline.event_preferences,
-                                                         **thresholder_params)
+                                                         **thresholder_params),
+                'raw_preprocessor': self._build_raw_preprocessor(step_params['raw_preprocessor']),
             }
 
             for step in self.pipeline.get_steps().keys():
-                if current_run.loc['params.' + step] != str(current_steps[step]):
+                # Runs logged without this step (e.g. 'raw_preprocessor' of a snapshot dataset,
+                # under an experiment name that also holds other datasets) cannot match.
+                if 'params.' + step not in current_run.index \
+                        or current_run.loc['params.' + step] != str(current_steps[step]):
                     found_match = False
                     break
+            # Nor can runs logged with a step this pipeline does not have (a snapshot run's
+            # raw_preprocessor, for a pipeline without one).
+            for step in STEP_NAMES:
+                if step not in self.pipeline.get_steps() and isinstance(current_run.get('params.' + step), str):
+                    found_match = False
 
             predictive_horizon_to_check, beta_to_check, lead_to_check = -1, -1, -1
             if "anomaly_ranges" in self.pipeline.dataset.keys():

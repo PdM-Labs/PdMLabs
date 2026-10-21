@@ -4,7 +4,7 @@ This module defines the PdMPipeline class, which orchestrates the complete anoma
 pipeline for predictive maintenance experiments. A pipeline combines:
 
 - Dataset (with features, events, preferences, evaluation parameters)
-- Processing steps: preprocessor → method → postprocessor → thresholder
+- Processing steps: [raw_preprocessor →] preprocessor → method → postprocessor → thresholder
 - Event mapping logic (failures, resets, source relationships)
 
 The pipeline is the contract between raw data and experiment execution. It encapsulates:
@@ -16,7 +16,9 @@ The pipeline is the contract between raw data and experiment execution. It encap
 
 Architecture:
 
-    Raw Data (DataFrame)
+    Raw Data (DataFrame, or snapshots)
+         ↓
+    [Raw preprocessor] - Snapshot datasets only: one row of features per snapshot
          ↓
     [Preprocessor] - Normalization, feature engineering, windowing
          ↓
@@ -43,11 +45,13 @@ Key Concepts:
     Caching: Event extraction is cached on first call for performance.
 """
 
-from typing import TypedDict, List
+from typing import TypedDict, List, NotRequired
 
 import pandas as pd
 
 from pdmlabs.preprocessing.record_level.default import DefaultPreProcessor
+from pdmlabs.preprocessing.raw_level.default import DefaultRawPreProcessor
+from pdmlabs.preprocessing.raw_level.raw_level_pre_processor import RawLevelPreProcessorInterface
 from pdmlabs.method.semi_supervised_method import SemiSupervisedMethodInterface
 from pdmlabs.method.unsupervised_method import UnsupervisedMethodInterface
 from pdmlabs.postprocessing.default import DefaultPostProcessor
@@ -60,10 +64,69 @@ from pdmlabs.postprocessing.post_processor import PostProcessorInterface
 from pdmlabs.utils.utils import expand_event_preferences
 
 
+#: Names of the pipeline steps, in the order they run. The search-space parameters of a
+#: step are the keys that start with its name and an underscore (e.g. ``method_n_estimators``).
+STEP_NAMES = ('raw_preprocessor', 'preprocessor', 'method', 'postprocessor', 'thresholder')
+
+
+def split_step_params(params: dict) -> dict:
+    """Route search-space parameters to the pipeline steps by prefix.
+
+    A key reaches the step whose name, followed by an underscore, starts the key, without
+    that prefix: ``raw_preprocessor_n_bins`` reaches the raw-level step as ``n_bins``, and
+    never the preprocessor. Keys of no step (e.g. ``profile_size``) are left out.
+
+    Args:
+        params (dict): The trial's parameters.
+
+    Returns:
+        dict: Step name -> parameters of that step, for every name in ``STEP_NAMES``.
+
+    Examples:
+        >>> split_step_params({'raw_preprocessor_n_bins': 10, 'method_n_estimators': 50})['raw_preprocessor']
+        {'n_bins': 10}
+    """
+    step_params = {name: {} for name in STEP_NAMES}
+    for key, value in params.items():
+        for name in STEP_NAMES:
+            if key.startswith(f'{name}_'):
+                step_params[name][key[len(name) + 1:]] = value
+                break
+    return step_params
+
+
+def _check_raw_preprocessor(raw_preprocessor) -> None:
+    """Raise a TypeError unless ``raw_preprocessor`` is None or a raw-level class.
+
+    Every trial builds its own raw-level step from the class, so an instance would only
+    fail at the first trial, outside the trial's error handling.
+    """
+    if raw_preprocessor is None or (isinstance(raw_preprocessor, type)
+                                    and issubclass(raw_preprocessor, RawLevelPreProcessorInterface)):
+        return
+    if isinstance(raw_preprocessor, RawLevelPreProcessorInterface):
+        cls = type(raw_preprocessor).__name__
+        params = raw_preprocessor.get_params()
+        arguments = ', '.join(f'{key}={value!r}' for key, value in params.items())
+        tuned = {f'raw_preprocessor_{key}': [value] for key, value in params.items()}
+        raise TypeError(
+            f'raw_preprocessor must be a RawLevelPreProcessorInterface subclass, got {cls}({arguments}) '
+            f'(an instance). Pass the class, raw_preprocessor={cls}'
+            + (f', and tune its parameters with additional_parameters={tuned}.' if tuned else '.')
+        )
+    raise TypeError(
+        f'raw_preprocessor must be a RawLevelPreProcessorInterface subclass, got {raw_preprocessor!r}. '
+        'Pass the class and tune its parameters through additional_parameters.'
+    )
+
+
 class PdMPipelineSteps(TypedDict):
-    """Type definition for the four-stage anomaly detection pipeline.
+    """Type definition for the anomaly detection pipeline steps.
 
     Attributes:
+        raw_preprocessor (RawLevelPreProcessorInterface, optional): Turns each snapshot
+            into one row of features. Only on snapshot datasets, where it runs before
+            the preprocessor.
         preprocessor (RecordLevelPreProcessorInterface): Transforms raw features
             (e.g., normalization, feature engineering, windowing). Fitted on training
             data, applied to test data.
@@ -75,6 +138,7 @@ class PdMPipelineSteps(TypedDict):
         thresholder (ThresholderInterface): Converts anomaly scores to binary predictions
             using a decision threshold. Can be fixed, adaptive, or learned.
     """
+    raw_preprocessor: NotRequired[RawLevelPreProcessorInterface]
     preprocessor:  RecordLevelPreProcessorInterface
     method : MethodInterface
     postprocessor : PostProcessorInterface
@@ -85,8 +149,10 @@ class PdMPipeline():
     """Orchestrates the complete predictive maintenance anomaly detection pipeline.
 
     A PdMPipeline combines a dataset with four processing steps (preprocessor, method,
-    postprocessor, thresholder) to form a complete anomaly detection system. It also
-    manages event mappings (failures, resets) and evaluation parameters.
+    postprocessor, thresholder) to form a complete anomaly detection system. On a snapshot
+    dataset a fifth step, the raw-level 'raw_preprocessor', runs first and turns each
+    snapshot into one row of features. It also manages event mappings (failures, resets)
+    and evaluation parameters.
 
     The pipeline serves as the contract between raw data and experiment execution:
     - Defines what transformations apply to features
@@ -107,12 +173,16 @@ class PdMPipeline():
             - 'target_data': Test data files/DataFrames
             - 'historic_sources': Source labels for training data
             - 'target_sources': Source labels for test data
-        steps (PdMPipelineSteps): Dictionary with preprocessor, method, postprocessor, thresholder.
+            - 'snapshot_column': Snapshot datasets only; its presence adds the raw-level step
+        steps (PdMPipelineSteps): Dictionary with preprocessor, method, postprocessor,
+            thresholder, and raw_preprocessor on a snapshot dataset.
         auc_resolution (int): Resolution for threshold sweep in evaluation (e.g., 100).
         experiment_type: Default method class if not provided in steps.
         event_preferences (dict): Parsed event rules for failures/resets.
         event_data (pd.DataFrame): Parsed event log with timestamps and sources.
         preprocessor, method, postprocessor, thresholder: Pipeline component instances.
+        raw_preprocessor (type or None): Raw-level step class on a snapshot dataset
+            (DefaultRawPreProcessor if none was given), None otherwise.
 
     Examples:
         >>> from pdmlabs.method.isolation_forest import IsolationForest
@@ -144,7 +214,10 @@ class PdMPipeline():
 
         Args:
             steps (PdMPipelineSteps): Dictionary containing preprocessor, method,
-                postprocessor, and thresholder instances/classes.
+                postprocessor, and thresholder instances/classes. On a snapshot dataset
+                it may also hold a 'raw_preprocessor' class
+                (RawLevelPreProcessorInterface), which turns each snapshot into one row
+                of features before the preprocessor (DefaultRawPreProcessor if omitted).
             dataset (dict): Complete dataset specification (see class docstring for required keys).
             auc_resolution (int): Number of thresholds to sample when evaluating metric curves
                 (e.g., 100 means test thresholds from 0 to 1 in 0.01 increments).
@@ -153,9 +226,26 @@ class PdMPipeline():
 
         Raises:
             KeyError: If required dataset keys are missing ('event_data', 'event_preferences', etc.).
-            TypeError: If steps components don't implement required interfaces.
+            TypeError: If steps components don't implement required interfaces, or if
+                'raw_preprocessor' is not a RawLevelPreProcessorInterface subclass (e.g. an
+                instance).
+            ValueError: If a 'raw_preprocessor' is given for a dataset without snapshots.
         """
         self.dataset = dataset
+        # The raw-level step is a step of snapshot datasets only, so that the steps of any
+        # other dataset (and what is logged and looked up in the cache for them) are unchanged.
+        steps = dict(steps)
+        raw_preprocessor = steps.pop('raw_preprocessor', None)
+        _check_raw_preprocessor(raw_preprocessor)
+        self.raw_preprocessor = None
+        if dataset.get('snapshot_column') is not None:
+            self.raw_preprocessor = raw_preprocessor or DefaultRawPreProcessor
+            steps = {'raw_preprocessor': self.raw_preprocessor, **steps}
+        elif raw_preprocessor is not None:
+            raise ValueError(
+                "A raw_preprocessor was given but the dataset has no snapshots. Build the "
+                "Dataset from snapshots (a dict of folders or lists of DataFrames per source)."
+            )
         self.steps = steps
         self.event_data = dataset['event_data']
         self.event_data['date']=pd.to_datetime( self.event_data['date'])
@@ -178,8 +268,10 @@ class PdMPipeline():
     def get_steps(self) -> PdMPipelineSteps:
         """Return the pipeline steps (preprocessor, method, postprocessor, thresholder).
 
+        On a snapshot dataset the steps also include 'raw_preprocessor'.
+
         Returns:
-            PdMPipelineSteps: Dictionary containing all four pipeline components.
+            PdMPipelineSteps: Dictionary containing the pipeline components.
 
         Examples:
             >>> pipeline = PdMPipeline(...)
@@ -194,7 +286,8 @@ class PdMPipeline():
 
         Args:
             step_name (str): Name of the step to retrieve. Must be one of:
-                'preprocessor', 'method', 'postprocessor', 'thresholder'.
+                'preprocessor', 'method', 'postprocessor', 'thresholder', or
+                'raw_preprocessor' on a snapshot dataset.
 
         Returns:
             RecordLevelPreProcessorInterface | MethodInterface | PostProcessorInterface | ThresholderInterface:
@@ -447,8 +540,10 @@ class PdMPipeline():
         The format is:
             preprocessor_<name>_method_<name>_postprocessor_<name>_thresholder_<name>
 
+        On a snapshot dataset it starts with ``raw_preprocessor_<name>_``.
+
         Returns:
-            str: Concatenated names of all four pipeline components.
+            str: Concatenated names of the pipeline components.
 
         Examples:
             >>> pipeline = PdMPipeline(...)
@@ -459,4 +554,7 @@ class PdMPipeline():
             >>> # Use in MLflow experiment names:
             >>> exp_name = f"pdm-{pipeline.get_steps_as_str()}"
         """
-        return f'preprocessor_{self.steps["preprocessor"]}_method_{self.steps["method"]}_postprocessor_{self.steps["postprocessor"]}_thresholder_{self.steps["thresholder"]}'
+        steps = f'preprocessor_{self.steps["preprocessor"]}_method_{self.steps["method"]}_postprocessor_{self.steps["postprocessor"]}_thresholder_{self.steps["thresholder"]}'
+        if 'raw_preprocessor' in self.steps:
+            steps = f'raw_preprocessor_{self.steps["raw_preprocessor"]}_{steps}'
+        return steps
